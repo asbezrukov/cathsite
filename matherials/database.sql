@@ -131,6 +131,19 @@ CREATE TABLE IF NOT EXISTS `mydb`.`News` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `mydb`.`Classifieds`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Classifieds` (
+  `id_сlassifieds` INT NOT NULL AUTO_INCREMENT,
+  `date_publication` DATE NOT NULL,
+  `header` VARCHAR(100) NOT NULL,
+  `text` TEXT NOT NULL,
+  `important` TINYINT(1) NOT NULL,
+  PRIMARY KEY (`id_сlassifieds`))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
