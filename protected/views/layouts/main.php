@@ -29,6 +29,9 @@
     <link rel="apple-touch-icon-precomposed" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/favicon.ico">
     
+    <!--FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+
     <!-- JavaScripts -->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.10.2.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-migrate-1.2.1.min.js"></script>
@@ -48,43 +51,34 @@
         </a>
         <div class="responsive_menu">
             <ul class="main_menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Events</a>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="#">События</a>
                     <ul>
-                        <li><a href="events-grid.html">Events Grid</a></li>
-                        <li><a href="events-list.html">Events List</a></li>
-                        <li><a href="event-single.html">Event Details</a></li>
+                        <li><a href="#">Событие_1</a></li>
+                        <li><a href="#">Событие_2</a></li>
+                        <li><a href="#">Событие_3</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Courses</a>
+                <li><a href="#">Кафедра</a>
                     <ul>
-                        <li><a href="courses.html">Course List</a></li>
-                        <li><a href="course-single.html">Course Single</a></li>
+                        <li><a href="#">ИБ</a></li>
+                        <li><a href="#">ПО</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Blog Entries</a>
+                <li><a href="#">Студентам</a>
                     <ul>
-                        <li><a href="blog.html">Blog Grid</a></li>
-                        <li><a href="blog-single.html">Blog Single</a></li>
-                        <li><a href="blog-disqus.html">Blog Disqus</a></li>
+                        <li><a href="#">Студентам_1</a></li>
+                        <li><a href="#">Студентам_2</a></li>
+                        <li><a href="#">Студентам_3</a></li>
                     </ul>
                 </li>
-                <li><a href="">Pages</a>
-                    <ul>
-                        <li><a href="archives.html">Archives</a></li>
-                        <li><a href="shortcodes.html">Shortcodes</a></li>
-                        <li><a href="gallery.html">Our Gallery</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Контакты</a></li>
             </ul> <!-- /.main_menu -->
-            <ul class="social_icons">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#"><i class="fa fa-rss"></i></a></li>
-            </ul> <!-- /.social_icons -->
+            <div class="search-form">
+                <form name="search_form" method="get" action="#" class="search_form">
+                    <input type="text" name="s" placeholder="Поиск по сайту..." title="Поиск по сату..." class="field_search">
+                </form>
+            </div>
         </div> <!-- /.responsive_menu -->
     </div> <!-- /responsive_navigation -->
 
@@ -92,13 +86,18 @@
     <header class="site-header">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 header-left">
-                    <p><i class="fa fa-phone"></i> +01 2334 853</p>
-                    <p><i class="fa fa-envelope"></i> <a href="mailto:email@universe.com">email@universe.com</a></p>
-                </div> <!-- /.header-left -->
+                <div class="col-md-4">
+                    <div class="logo left">
+                        <!----logo-imkn---->
+                        <a href="index.html" title="Universe" rel="home">
+                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="Universe">
+                        </a> 
+                    </div><!-- /.logo.left -->
+                </div><!-- /.col-md-4 -->
 
                 <div class="col-md-4">
-                    <div class="logo">
+                    <div class="logo"> 
+                        <!----logo-utmn---->
                         <a href="index.html" title="Universe" rel="home">
                             <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="Universe">
                         </a>
@@ -106,17 +105,9 @@
                 </div> <!-- /.col-md-4 -->
 
                 <div class="col-md-4 header-right">
-                    <ul class="small-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Apply Now</a></li>
-                    </ul>
-                    <div class="search-form">
-                        <form name="search_form" method="get" action="#" class="search_form">
-                            <input type="text" name="s" placeholder="Search the site..." title="Search the site..." class="field_search">
-                        </form>
-                    </div>
-                </div> <!-- /.header-right -->
+                    <p><i class="fa fa-phone"></i> +7 (3452) 123-123 (доп. 123)</p>
+                    <p><i class="fa fa-envelope"></i> <a href="mailto:email@utmn.ru">email@utmn.ru</a></p>
+                </div><!-- /.header-right -->
             </div>
         </div> <!-- /.container -->
 
@@ -124,42 +115,35 @@
             <div class="container">
                 <nav class="main-navigation clearfix visible-md visible-lg" role="navigation">
                         <ul class="main-menu sf-menu">
-                            <li class="active"><a href="index.html">Home</a></li>
-                            <li><a href="#">Events</a>
+                            <li class="active"><a href="index.html">Главная</a></li>
+                            <li><a href="#">События</a>
                                 <ul class="sub-menu">
-                                    <li><a href="events-grid.html">Events Grid</a></li>
-                                    <li><a href="events-list.html">Events List</a></li>
-                                    <li><a href="event-single.html">Events Details</a>
+                                    <li><a href="#">Событие_1</a></li>
+                                    <li><a href="#">Событие_2</a></li>
+                                    <li><a href="#">Событие_3</a></li>
                                 </ul>
                             </li>
-                            <li><a href="courses.html">Courses</a>
+                            <li><a href="#">Кафедра</a>
                                 <ul class="sub-menu">
-                                    <li><a href="course-single.html">Course Single</a></li>
+                                   <li><a href="#">ИБ</a></li>
+                                   <li><a href="#">ПО</a></li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Blog Entries</a>
+                            <li><a href="#">Студентам</a>
                                 <ul class="sub-menu">
-                                    <li><a href="blog-single.html">Blog Single</a></li>
-                                    <li><a href="blog-disqus.html">Blog Disqus</a></li>
+                                    <li><a href="#">Студентам_1</a></li>
+                                    <li><a href="#">Студентам_2</a></li>
+                                    <li><a href="#">Студентам_3</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="archives.html">Archives</a></li>
-                                    <li><a href="shortcodes.html">Shortcodes</a></li>
-                                    <li><a href="gallery.html">Our Gallery</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#">Контакты</a></li>
                         </ul> <!-- /.main-menu -->
 
-                        <ul class="social-icons pull-right">
-                            <li><a href="#" data-toggle="tooltip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" data-toggle="tooltip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" data-toggle="tooltip" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#" data-toggle="tooltip" title="Google+"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" data-toggle="tooltip" title="RSS"><i class="fa fa-rss"></i></a></li>
-                        </ul> <!-- /.social-icons -->
+                        <div class="search-form">
+                            <form name="search_form" method="get" action="#" class="search_form">
+                                <input type="text" name="s" placeholder="Поиск по сайту..." title="Поиск по сату..." class="field_search"> <button class="btn btn-primary"> Поиск </button>
+                            </form>
+                        </div>
                 </nav> <!-- /.main-navigation -->
             </div> <!-- /.container -->
         </div> <!-- /.nav-bar-main -->
