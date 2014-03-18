@@ -1,4 +1,8 @@
- 
+<?php
+/* @var $this SiteController */
+
+$this->pageTitle=Yii::app()->name;
+?>  
     <div class="container">
         <div class="row">
             <div class="col-md-8">

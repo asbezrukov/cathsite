@@ -1,3 +1,4 @@
+<?php /* @var $this Controller */ ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> 
 <![endif]-->
@@ -166,7 +167,9 @@
     </header> <!-- /.site-header -->
 
     <!---------------CONTENT-------------------->
-
+        <div id="content">
+            <?php echo $content; ?>
+        </div>
     <!--------------endCONTENT------------------>
 
     <!-- begin The Footer -->
