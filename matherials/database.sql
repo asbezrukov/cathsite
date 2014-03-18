@@ -89,6 +89,32 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Group` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `mydb`.`Laboratory`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Laboratory` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(200) NOT NULL,
+  `address` VARCHAR(200) NOT NULL,
+  `description` VARCHAR(300) NULL,
+  `photo` VARCHAR(300) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Laboratory-Employee`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Laboratory-Employee` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_employee` INT NOT NULL,
+  `id_laboratory` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
