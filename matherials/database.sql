@@ -144,6 +144,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Classifieds` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `mydb`.`Subscribers`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Subscribers` (
+  `id_subscribers` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id_subscribers`))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
