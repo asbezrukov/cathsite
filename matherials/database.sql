@@ -34,8 +34,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines` (
   `id_disciplines` INT NOT NULL AUTO_INCREMENT,
-  `disciplines_name` VARCHAR(50) NOT NULL,
-  `description` TEXT NULL DEFAULT NULL,
+  `disciplines_name` VARCHAR(100) NOT NULL,
+  `description` TEXT NULL,
   PRIMARY KEY (`id_disciplines`))
 ENGINE = InnoDB;
 
@@ -67,18 +67,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Student`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Student` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `fio` VARCHAR(100) NOT NULL,
-  `group` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `mydb`.`Group`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Group` (
@@ -86,7 +74,31 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Group` (
   `specialization` VARCHAR(100) NOT NULL,
   `course` INT NOT NULL,
   PRIMARY KEY (`number`),
-  UNIQUE INDEX `number_UNIQUE` (`number` ASC))
+  UNIQUE INDEX `number_UNIQUE` (`number` ASC),
+  INDEX `fk_spec_number_idx` (`specialization` ASC),
+  CONSTRAINT `fk_spec_number`
+    FOREIGN KEY (`specialization`)
+    REFERENCES `mydb`.`Specialization` (`number`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Student`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Student` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `fio` VARCHAR(100) NOT NULL,
+  `group` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_group_number_idx` (`group` ASC),
+  CONSTRAINT `fk_group_number`
+    FOREIGN KEY (`group`)
+    REFERENCES `mydb`.`Group` (`number`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
