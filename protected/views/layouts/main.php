@@ -89,8 +89,8 @@
                 <div class="col-md-4">
                     <div class="logo left">
                         <!----logo-imkn---->
-                        <a href="index.html" title="Universe" rel="home">
-                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="Universe">
+                        <a href="index.html" title="ИМиКН" rel="home">
+                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_IMKN.png" alt="ИМиКН">
                         </a> 
                     </div><!-- /.logo.left -->
                 </div><!-- /.col-md-4 -->
@@ -98,8 +98,8 @@
                 <div class="col-md-4">
                     <div class="logo"> 
                         <!----logo-utmn---->
-                        <a href="index.html" title="Universe" rel="home">
-                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="Universe">
+                        <a href="index.html" title="ТюмГу" rel="home">
+                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_TGU.png" alt="ТюмГу">
                         </a>
                     </div> <!-- /.logo -->
                 </div> <!-- /.col-md-4 -->
