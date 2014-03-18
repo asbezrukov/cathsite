@@ -185,19 +185,25 @@ blockquote h5 {
 }
 
 .header-left {
-  margin-top: 70px;
+  margin-top: 0px;
 }
+
 .header-left p i {
   margin-right: 7px;
 }
 
 .logo {
-  margin: 40px auto;
+  margin: 30px auto;
   text-align: center;
 }
 
+.logo.left {
+  margin: 30px auto;
+  text-align: left;
+}
+
 .header-right {
-  margin: 52px auto;
+  margin: 30px auto;
   text-align: right;
 }
 
@@ -219,7 +225,10 @@ blockquote h5 {
   box-shadow: none;
   border: 1px solid;
   height: 34px;
-  padding: 10px;
+  padding: 17px 20px;
+  margin-top: 8px;
+  margin-left: 230px;
+
 }
 
 .main-navigation {
@@ -446,6 +455,39 @@ blockquote h5 {
 .slider-caption {
   padding: 20px;
 }
+
+
+.block-head {
+  font-family: 'Roboto Slab bold';
+  text-transform: uppercase;
+  font-weight: 200;
+  border-bottom: 2px solid #d5dbe0;
+  color: #333333;
+  width: 95.33333%;
+  height: 40px;
+  line-height: 20px;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* ADS
+/*-----------------------------------------------------------------------------------*/
+.ads {
+  margin-top: 35px;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*  end ADS
+/*-----------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+/* INFORMATORY_BLOCK
+/*-----------------------------------------------------------------------------------*/
+.informatory_block {
+  margin-top: 30px;
+}
+/*-----------------------------------------------------------------------------------*/
+/*  end  INFORMATORY_BLOCK
+/*-----------------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------------*/
 /*	MAIN STYLING

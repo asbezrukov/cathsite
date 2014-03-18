@@ -2015,8 +2015,9 @@ textarea.input-lg {
 
 .btn {
   display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
+  padding: 7px 12px;
+  margin-top: 8px;
+  margin-right: 30px;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857;
@@ -2076,9 +2077,11 @@ textarea.input-lg {
 }
 
 .btn-primary {
-  color: white;
-  background-color: #428bca;
-  border-color: #357ebd;
+  color: #8ab5d6;
+  background-color: #003a6a;
+  border-color: #003a6a;
+  float: right;
+  border-color: #0a5592;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .btn-primary.dropdown-toggle {
   color: white;
