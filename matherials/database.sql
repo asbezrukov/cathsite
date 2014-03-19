@@ -2,7 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-DROP SCHEMA IF EXISTS `mydb` ;
 CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
@@ -35,7 +34,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines` (
   `id_disciplines` INT NOT NULL AUTO_INCREMENT,
   `disciplines_name` VARCHAR(100) NOT NULL,
-  `description` TEXT NULL,
+  `description` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id_disciplines`))
 ENGINE = InnoDB;
 
@@ -286,6 +285,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`CoursePapers` (
     REFERENCES `mydb`.`CourseThemes` (`id_theme`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Disciplines-Employee`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines-Employee` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_disciplines` INT NOT NULL,
+  `id_employee` INT NOT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
