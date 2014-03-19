@@ -299,6 +299,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines-Employee` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `mydb`.`Disciplines-Specialization`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines-Specialization` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_disciplines` INT NOT NULL,
+  `id_specialization` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
