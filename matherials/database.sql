@@ -310,6 +310,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines-Specialization` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `mydb`.`Disciplines-Files`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines-Files` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_disciplines` INT NOT NULL,
+  `id_files` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
