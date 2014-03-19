@@ -19,8 +19,8 @@ $this->pageTitle=Yii::app()->name;
                             <li>
                                 <img src="http://placehold.it/770x400" alt="Slide 1"/>
                                 <div class="slider-caption">
-                                    <h2><a href="blog-single.html">Unlocking the scrolls of Herculaneum</a></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                                    <h2><a href="blog-single.html">Предстоящие события</a></h2>
+                                    <p>защита работ...</p>
                                 </div>
                             </li>
                             <li>
