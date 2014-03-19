@@ -26,8 +26,8 @@ $this->pageTitle=Yii::app()->name;
                             <li>
                                 <img src="http://placehold.it/770x400" alt="Slide 1"/>
                                 <div class="slider-caption">
-                                    <h2><a href="blog-single.html">Corin Sworn wins Max Mara Art Prize</a></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                                    <h2><a href="blog-single.html">Преподаватели кафедры</a></h2>
+                                    <p>заведующий кафедры...</p>
                                 </div>
                             </li>
                         </ul> <!-- /.slides -->
