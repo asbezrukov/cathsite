@@ -9,4 +9,8 @@ class SiteController extends Controller
 		$this->render('index');
 	}
         
+        public function actionContacts()
+        {
+            $this->render('contacts');
+        }
 }
