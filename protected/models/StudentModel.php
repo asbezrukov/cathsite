@@ -1,0 +1,5 @@
+<?php
+StudentModel extends CActiveRecord
+{
+    
+}
