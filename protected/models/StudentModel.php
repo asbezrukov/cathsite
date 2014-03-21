@@ -1,5 +1,5 @@
 <?php
-StudentModel extends CActiveRecord
+class StudentModel extends CActiveRecord
 {
        public function tableName() {
         return 'student';

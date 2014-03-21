@@ -1,5 +1,5 @@
 <?php
-SubscribersModel extends CActiveRecord
+class SubscribersModel extends CActiveRecord
 {
        public function tableName() {
         return 'subscribers';

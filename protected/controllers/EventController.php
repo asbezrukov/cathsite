@@ -1,14 +1,14 @@
 <?php
 
-class EventController extends Controller(
+class EventController extends Controller{
 
-	public function actionList() (
-	)
+	public function actionList() {
+	}
 	
-	public function actionGrid() (
-	)
+	public function actionGrid() {
+	}
 	
-	public function actionDetail() (
-	)
+	public function actionDetail() {
+	}
 
-)
+}
