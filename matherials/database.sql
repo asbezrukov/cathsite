@@ -331,6 +331,19 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`FootRefCat` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `mydb`.`FootRef`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `mydb`.`FootRef` (
+  `id_FootRef` INT NOT NULL AUTO_INCREMENT ,
+  `idFootRefCat` INT NOT NULL ,
+  `name` VARCHAR(50) NULL ,
+  `url` VARCHAR(100) NULL ,
+  `authOnly` TINYINT(1) NULL ,
+  PRIMARY KEY (`id_FootRef`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
