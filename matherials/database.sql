@@ -344,6 +344,22 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`FootRef` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `mydb`.`Users`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `mydb`.`Users` (
+  `idUsers` INT NOT NULL AUTO_INCREMENT ,
+  `employee` TINYINT(1) NULL ,
+  `student` TINYINT(1) NULL ,
+  `username` VARCHAR(45) NOT NULL ,
+  `password` VARCHAR(45) NOT NULL ,
+  `role` VARCHAR(45) NULL ,
+  `date_last_auth` DATETIME NULL ,
+  `date_create` DATE NOT NULL ,
+  PRIMARY KEY (`idUsers`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
