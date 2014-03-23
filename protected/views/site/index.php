@@ -152,11 +152,11 @@ $this->pageTitle=Yii::app()->name;
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="#"> 
+                                            <a href="http://www.imkn.ru/KIB/shirokikh"> 
                                                 <div class="col-md-2"> 
                                                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
                                                 </div> 
-                                                <div class="col-md-10"> Заголовок <br/> <time> 23.03.2014 </time> </div> 
+                                                <div class="col-md-10"> Широких А.В. <br/> <time> 23.03.2014 </time> </div> 
                                             </a>
                                         </div> 
                                         <hr>
@@ -165,11 +165,11 @@ $this->pageTitle=Yii::app()->name;
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="#"> 
+                                            <a                      href="http://www.imkn.ru/KIB/Nissenbaum/SitePages/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%8F%D1%8F.aspx"> 
                                                 <div class="col-md-2"> 
                                                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
                                                 </div> 
-                                                <div class="col-md-10"> Заголовок </div> 
+                                                <div class="col-md-10"> Ниссенбаум О.В. </div> 
                                             </a>
                                         </div> 
                                         <hr> 
@@ -178,11 +178,11 @@ $this->pageTitle=Yii::app()->name;
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="#"> 
+                                            <a href="http://www.imkn.ru/KIB/Olennikov/SitePages/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%8F%D1%8F.aspx"> 
                                                 <div class="col-md-2"> 
                                                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
                                                 </div> 
-                                                <div class="col-md-10"> Заголовок заголовок Заголовок заголовок Заголовок заголовок  </div> 
+                                                <div class="col-md-10"> Оленников Е.А. </div> 
                                             </a> 
                                         </div>
                                     </div> 
