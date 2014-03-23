@@ -88,7 +88,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="logo left">
-                        <!----logo-imkn---->
+                        <!---logo-imkn-->
                         <a href="index.html" title="ИМиКН" rel="home">
                             <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_IMKN.png" alt="ИМиКН">
                         </a> 
@@ -97,7 +97,7 @@
 
                 <div class="col-md-4">
                     <div class="logo"> 
-                        <!----logo-utmn---->
+                        <!---logo-utmn-->
                         <a href="index.html" title="ТюмГу" rel="home">
                             <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_TGU.png" alt="ТюмГу">
                         </a>
@@ -150,11 +150,11 @@
 
     </header> <!-- /.site-header -->
 
-    <!---------------CONTENT-------------------->
+    <!---CONTENT-->
         <div id="content">
             <?php echo $content; ?>
         </div>
-    <!--------------endCONTENT------------------>
+    <!---endCONTENT-->
 
     <!-- begin The Footer -->
     <footer class="site-footer">
