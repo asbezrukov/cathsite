@@ -58,20 +58,22 @@ class CrudController extends Controller
      **/
     private function loadModel($mid, $id = null)
     {
-        //Создаем класс модели в зависимости от запроса
-        $class = new $mid();
+        //К названию модели дописываем Model и первый символ ставим в верхний регистр.
+        $className = ucfirst($mid)."Model";
+        //Создаем класс модели.
+        $object = new $className();
 
-        if ($class===null)
-            throw new CHttpException(404,'Класс "'.$mid.'" не найден');
-        //Получаем модель
-        $model = $class::model();
+        if ($object===null)
+            throw new CHttpException(404,'Класс "'.$className.'" не найден');
+        //Получаем модель.
+        $model = $object::model();
         if ($model===null)
-            throw new CHttpException(404,'Модель "'.$mid.'" не найдена');
-        //Если указан id получаем по нему строку
+            throw new CHttpException(404,'Модель "'.$className.'" не найдена');
+        //Если указан id получаем по нему строку модели.
         if (!empty($id) || $id !== null) {
             $model = $model->findByPk($id);
             if($model===null)
-                throw new CHttpException(404,'Запрошенная запись модели "'.$mid.'" с "id='.$id.'" не найдена');
+                throw new CHttpException(404,'Запрошенная запись модели "'.$className.'" с "id='.$id.'" не найдена');
         }
 
         return $model;
@@ -114,7 +116,7 @@ class CrudController extends Controller
     public function actionCreate($mid)
     {
         //Первый символ поднимаем в верхний регистр, т.к. название всех моделей начинается с большой буквы, для массива $_POST это имеет значения, в остальных случаях нет.
-        $postMid = ucfirst($mid);
+        $postMid = ucfirst($mid)."Model";
         //Создаем модель
         $model=$this->loadModel($mid);
         //Если данные отправлены, то записываем их и сохраняем в базе, иначе открываем форму создания записи.
@@ -148,7 +150,7 @@ class CrudController extends Controller
     public function actionUpdate($mid, $id)
     {
         //Действие работает аналогично действию 'actionCreate'
-        $postMid = ucfirst($mid);
+        $postMid = ucfirst($mid)."Model";
         $model=$this->loadModel($mid, $id);
 
         if(isset($_POST[$postMid]))
