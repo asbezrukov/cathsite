@@ -39,7 +39,8 @@ $this->pageTitle=Yii::app()->name;
                 <div class="ads">
                         <div class="ads-title"> Объявление </div>
                         <div class="ads-body">
-                              Объявляется конкурс на самый необычный код этой страницы 
+                              <p >Объявляется конкурс на самый необычный код этой страницы</p>
+                              <p>Что бы еще тут сделать?</p>
                         </div>
                 </div> <!-- /.widget-item -->
             </div> <!-- /.col-md-4 -->
