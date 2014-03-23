@@ -39,7 +39,7 @@ $this->pageTitle=Yii::app()->name;
                 <div class="ads">
                         <div class="ads-title"> Объявление </div>
                         <div class="ads-body">
-                            Объявления ОбъявленияОбъявленияОбъявленияОбъявленияОбъявленияОбъявленияОбъявленияОбъявления  ОбъявленияОбъявленияОбъявленияОбъявления ОбъявленияОбъявленияОбъявления  
+                              Объявляется конкурс на самый необычный код этой страницы 
                         </div>
                 </div> <!-- /.widget-item -->
             </div> <!-- /.col-md-4 -->
@@ -156,7 +156,7 @@ $this->pageTitle=Yii::app()->name;
                                                 <div class="col-md-2"> 
                                                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
                                                 </div> 
-                                                <div class="col-md-10"> Широких А.В. <br/> <time> 23.03.2014 </time> </div> 
+                                                <div class="col-md-10"> Широких А.В. </div> 
                                             </a>
                                         </div> 
                                         <hr>
