@@ -75,7 +75,7 @@ $this->pageTitle=Yii::app()->name;
                                                 <div class="col-md-2"> 
                                                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
                                                 </div> 
-                                                <div class="col-md-10"> Олимпиада по информатике<br/> <time>23.03.2014</time> </div> 
+                                                <div class="col-md-10"> Студ весна<br/> <time>23.03.2014</time> </div> 
                                             </a>
                                         </div> 
                                         <hr> 
@@ -109,7 +109,7 @@ $this->pageTitle=Yii::app()->name;
                                                 <div class="col-md-2"> 
                                                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
                                                 </div> 
-                                                <div class="col-md-10"> Заголовок <br/> <time> 23.03.2014 </time> </div> 
+                                                <div class="col-md-10"> Олимпиада по информатике <br/> <time> 23.03.2014 </time> </div> 
                                             </a>
                                         </div> 
                                         <hr>
@@ -122,7 +122,7 @@ $this->pageTitle=Yii::app()->name;
                                                 <div class="col-md-2"> 
                                                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
                                                 </div> 
-                                                <div class="col-md-10"> Заголовок </div> 
+                                                <div class="col-md-10">1 апреля - выходной)))  </div> 
                                             </a>
                                         </div> 
                                         <hr> 
@@ -131,11 +131,11 @@ $this->pageTitle=Yii::app()->name;
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="#"> 
+                                            <a href="http://www.utmn.ru/news/9924"> 
                                                 <div class="col-md-2"> 
                                                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
                                                 </div> 
-                                                <div class="col-md-10"> Заголовок заголовок Заголовок заголовок Заголовок заголовок  </div> 
+                                                <div class="col-md-10"> ИННОВАЦИОННЫЕ ТЕХНОЛОГИИ В ОБРАЗОВАНИИ </div> 
                                             </a> 
                                         </div>
                                     </div> 
