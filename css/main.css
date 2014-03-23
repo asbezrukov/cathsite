@@ -227,7 +227,8 @@ blockquote h5 {
   height: 34px;
   padding: 17px 20px;
   margin-top: 8px;
-  margin-left: 230px;
+  margin-left: 210px;
+  color: #fff;
 
 }
 
@@ -431,7 +432,6 @@ blockquote h5 {
 .contact-map,
 .course-post,
 #disqus_thread,
-.site-footer,
 .widget-item,
 .widget-sidebar,
 .main-slideshow,
@@ -472,8 +472,25 @@ blockquote h5 {
 /* ADS
 /*-----------------------------------------------------------------------------------*/
 .ads {
+  overflow: hidden;
   margin-top: 35px;
+  border: 4px solid #d5dbe0;
+  padding: 15px;
+  height: 395px;
 }
+
+.ads-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  font-size: 13px;
+}
+
+.ads-body {
+  margin: 0 0 20px 0;
+  font-size: 13px;
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /*  end ADS
@@ -482,9 +499,48 @@ blockquote h5 {
 /*-----------------------------------------------------------------------------------*/
 /* INFORMATORY_BLOCK
 /*-----------------------------------------------------------------------------------*/
-.informatory_block {
-  margin-top: 30px;
+.informatory_container {
+  margin-top: 40px;
+  margin-left: 5px;
 }
+
+.informatory-widget { 
+  margin-bottom: 45px; 
+  border: 4px solid #d5dbe0;
+  padding: 15px;
+}
+
+.informatory-widget-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  font-size: 13px;
+}
+
+.informatory_list {
+  margin-bottom: 45px; 
+}
+
+.informatory-widget .list-links {
+  padding: 0 0 0 15px;
+  margin: 0;
+}
+.informatory-widget .list-links li { 
+  line-height: 18px;
+  list-style: none;
+}
+
+hr {
+  display: block; 
+  border: none;
+  width: 290px;
+}
+
+time {
+  color: #000;
+  list-style: none;
+}
+
 /*-----------------------------------------------------------------------------------*/
 /*  end  INFORMATORY_BLOCK
 /*-----------------------------------------------------------------------------------*/
