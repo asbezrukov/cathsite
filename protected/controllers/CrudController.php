@@ -197,7 +197,7 @@ class CrudController extends Controller
      **/
     public function actionIndex($mid)
     {
-        $dataProvider=new CActiveDataProvider($mid);
+        $dataProvider=new CActiveDataProvider($mid."Model");
 
         $this->render('index',array(
             'dataProvider'=>$dataProvider
