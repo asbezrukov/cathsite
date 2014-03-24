@@ -207,10 +207,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`CourseApplication` (
   `id_cappl` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(200) NOT NULL,
-  `decription` TEXT NULL DEFAULT NULL,
+  `name` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `decription` TEXT NULL,
   `id_lecturer` INT NOT NULL,
-  `literature` VARCHAR(300) NULL DEFAULT NULL,
+  `literature` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
   `id_file` INT NOT NULL,
   PRIMARY KEY (`id_cappl`),
   INDEX `fk_id_lecturer_idx` (`id_lecturer` ASC),
@@ -234,12 +234,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`CourseThemes` (
   `id_theme` INT NOT NULL AUTO_INCREMENT,
-  `spec_number` VARCHAR(100) NOT NULL,
+  `spec_number` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `year` INT NOT NULL,
-  `name` VARCHAR(45) NOT NULL,
-  `description` TEXT NULL DEFAULT NULL,
+  `name` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `description` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
   `id_lecturer` INT NOT NULL,
-  `literature` VARCHAR(150) NOT NULL,
+  `literature` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `id_file` INT NOT NULL,
   PRIMARY KEY (`id_theme`),
   UNIQUE INDEX `idcrp_UNIQUE` (`id_theme` ASC),
@@ -269,10 +269,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`CoursePapers` (
   `id_cp` INT NOT NULL AUTO_INCREMENT,
-  `designrules` VARCHAR(300) NULL DEFAULT NULL,
+  `designrules` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
   `id_cappl` INT NOT NULL,
   `id_theme` INT NOT NULL,
-  `approved` VARCHAR(300) NULL DEFAULT NULL,
+  `approved` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
   PRIMARY KEY (`id_cp`),
   INDEX `fk_id_capple_idx` (`id_cappl` ASC),
   INDEX `fk_id_theme_idx` (`id_theme` ASC),
