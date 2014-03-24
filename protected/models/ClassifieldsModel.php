@@ -12,7 +12,7 @@ class ClassifieldsModel extends CActiveRecord
     public function rules() {
         
         return array(
-            
+
         );
     }
 

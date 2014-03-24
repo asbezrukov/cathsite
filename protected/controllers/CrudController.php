@@ -1,6 +1,7 @@
 <?php
 
 /**
+ *
  * Class CrudController
  *
  * В классе CrudController реализованы CRUD(Create, Read, Update, Delete) действия.
@@ -12,11 +13,11 @@
  *      /view/crud/[название модели (без постфикса 'Model')]/[Список файлов представлений].php
  *
  * Список действия:
- *      view   - выводит одну строку модели
- *      update - изменяет одно строку модели
- *      index  - выводит список записей модели
- *      admin  - выводит список записей модели в виде таблице с кнопками просмотра, обновления, удаления записи + форма поиска
- *      delete - удаляет одну запись модели
+ *      view   - выводит одну строку модели;
+ *      update - изменяет одно строку модели;
+ *      index  - выводит список записей модели;
+ *      admin  - выводит список записей модели в виде таблице с кнопками просмотра, обновления, удаления записи + форма поиска;
+ *      delete - удаляет одну запись модели.
  *
  * Пример ссылки: ?r=crud/update&mid=event&id=5
  *
@@ -53,34 +54,39 @@ class CrudController extends Controller
     }
 
     /**
-     *  Метод создает и возвращает экземпляр класса модели
+     *
+     *  Метод создает и возвращает экземпляр класса модели, если введен $id записи то возвращается модель с этой записью.
      *
      *  Входные параметры:
-     *      $mid (ModelId) - название модели для которой нужно создать экзэмп. класса
-     *      $id - идентификтор записи по которому нужно получить ее после создания экземп. класса (по ум. null)
+     *      $mid - название модели для которой нужно создать экзэмп. класса;
+     *      $id - идентификтор записи по которому нужно получить ее после создания экземп. класса (по ум. null).
      *
      **/
     private function loadModel($mid, $id = null)
     {
         //К названию модели дописываем Model и первый символ ставим в верхний регистр.
-        $className = ucfirst($mid)."Model";
+        $className = $this->modelClassFormatter($mid);
         //Создаем класс модели.
         $object = new $className();
-
         if ($object===null)
             throw new CHttpException(404,'Класс "'.$className.'" не найден');
-        //Получаем модель.
-        $model = $object::model();
-        if ($model===null)
-            throw new CHttpException(404,'Модель "'.$className.'" не найдена');
+
         //Если указан id получаем по нему строку модели.
         if (!empty($id) || $id !== null) {
+
+            //Получаем модель.
+            $model = $object::model();
+            if ($model===null)
+                throw new CHttpException(404,'Модель "'.$className.'" не найдена');
+
             $model = $model->findByPk($id);
             if($model===null)
                 throw new CHttpException(404,'Запрошенная запись модели "'.$className.'" с "id='.$id.'" не найдена');
+
+            return $model;
         }
 
-        return $model;
+        return $object;
     }
 
     /**
@@ -95,6 +101,7 @@ class CrudController extends Controller
      *      crud/view  - контроллер/действие
      *      mid=news  - таблица
      *      id=8  - 8 запись в таблице news
+     *
      **/
     public function actionView($mid, $id)
     {
@@ -120,7 +127,7 @@ class CrudController extends Controller
     public function actionCreate($mid)
     {
         //Первый символ поднимаем в верхний регистр, т.к. название всех моделей начинается с большой буквы, для массива $_POST это имеет значения, в остальных случаях нет.
-        $postMid = ucfirst($mid)."Model";
+        $postMid = $this->modelClassFormatter($mid);
         //Создаем модель
         $model=$this->loadModel($mid);
         //Если данные отправлены, то записываем их и сохраняем в базе, иначе открываем форму создания записи.
@@ -154,7 +161,7 @@ class CrudController extends Controller
     public function actionUpdate($mid, $id)
     {
         //Действие работает аналогично действию 'actionCreate'
-        $postMid = ucfirst($mid)."Model";
+        $postMid = $this->modelClassFormatter($mid);
         $model=$this->loadModel($mid, $id);
 
         if(isset($_POST[$postMid]))
@@ -180,6 +187,8 @@ class CrudController extends Controller
      *      $mid - название модели
      *      $id - идентификатор записи
      *
+     *  Пример вызова: ?r=crud/delete&mid=news&id=155
+     *
      **/
     public function actionDelete($mid, $id)
     {
@@ -198,10 +207,12 @@ class CrudController extends Controller
      *  Входные параметры:
      *      $mid - название модели
      *
+     *  Пример вызова: ?r=crud/index&mid=group
+     *
      **/
     public function actionIndex($mid)
     {
-        $dataProvider=new CActiveDataProvider($mid."Model");
+        $dataProvider=new CActiveDataProvider($this->modelClassFormatter($mid));
 
         $this->render($mid.'/index',array(
             'dataProvider'=>$dataProvider
@@ -215,6 +226,8 @@ class CrudController extends Controller
      *  Входные параметры:
      *      $mid - название модели
      *
+     *  Пример вызова: ?r=crud/admin&mid=users
+     *
      **/
     public function actionAdmin($mid)
     {
@@ -227,6 +240,10 @@ class CrudController extends Controller
         $this->render($mid.'/admin',array(
             'model'=>$model,
         ));
+    }
+
+    private function modelClassFormatter($mid) {
+        return ucfirst($mid)."Model";
     }
 
     protected function performAjaxValidation($model)
