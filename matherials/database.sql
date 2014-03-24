@@ -2,7 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-DROP SCHEMA IF EXISTS `mydb` ;
 CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
@@ -35,7 +34,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines` (
   `id_disciplines` INT NOT NULL AUTO_INCREMENT,
   `disciplines_name` VARCHAR(100) NOT NULL,
-  `description` TEXT NULL,
+  `description` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id_disciplines`))
 ENGINE = InnoDB;
 
@@ -88,11 +87,11 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Student`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Student` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_stud` INT NOT NULL AUTO_INCREMENT,
   `fio` VARCHAR(100) NOT NULL,
   `group` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  PRIMARY KEY (`id_stud`),
+  UNIQUE INDEX `id_UNIQUE` (`id_stud` ASC),
   INDEX `fk_group_number_idx` (`group` ASC),
   CONSTRAINT `fk_group_number`
     FOREIGN KEY (`group`)
@@ -216,6 +215,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`CourseApplication` (
   PRIMARY KEY (`id_cappl`),
   INDEX `fk_id_lecturer_idx` (`id_lecturer` ASC),
   INDEX `fk_id_file_idx` (`id_file` ASC),
+  UNIQUE INDEX `id_cappl_UNIQUE` (`id_cappl` ASC),
   CONSTRAINT `fk_id_lecturer`
     FOREIGN KEY (`id_lecturer`)
     REFERENCES `mydb`.`Employee` (`id`)
@@ -396,8 +396,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Users` (
   `student` TINYINT(1) NULL DEFAULT NULL,
   `username` VARCHAR(100) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
-  `role` VARCHAR(100) NULL,
-  `date_last_auth` DATETIME NULL,
+  `role` VARCHAR(100) NULL DEFAULT NULL,
+  `date_last_auth` DATETIME NULL DEFAULT NULL,
   `date_create` DATETIME NOT NULL,
   PRIMARY KEY (`idUsers`),
   UNIQUE INDEX `idUsers_UNIQUE` (`idUsers` ASC))
