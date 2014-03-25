@@ -11,20 +11,20 @@ USE `mydb` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Employee` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `fio` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `photo` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
-  `prof_interest` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
-  `projects` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
-  `languages` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
+  `fio` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `photo` VARCHAR(200) CHARACTER SET 'utf8' NULL,
+  `prof_interest` TEXT CHARACTER SET 'utf8' NULL DEFAULT NULL,
+  `projects` VARCHAR(300) CHARACTER SET 'utf8' NULL DEFAULT NULL,
+  `languages` VARCHAR(200) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `begin_date` DATE NOT NULL,
-  `email` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
-  `phone` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
-  `degree` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `email` VARCHAR(100) CHARACTER SET 'utf8' NULL,
+  `phone` VARCHAR(100) CHARACTER SET 'utf8' NULL DEFAULT NULL,
+  `degree` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
   `lecturer` TINYINT(1) NOT NULL,
-  `position` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `training` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
-  `consult_time` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
-  `rank` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `position` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `training` VARCHAR(200) CHARACTER SET 'utf8' NULL,
+  `consult_time` VARCHAR(200) CHARACTER SET 'utf8' NULL DEFAULT NULL,
+  `rank` VARCHAR(100) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB;
@@ -35,8 +35,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines` (
   `id_disciplines` INT NOT NULL AUTO_INCREMENT,
-  `disciplines_name` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `description` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `disciplines_name` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `description` TEXT CHARACTER SET 'utf8' NULL,
   PRIMARY KEY (`id_disciplines`))
 ENGINE = InnoDB;
 
@@ -46,7 +46,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`EventCategory` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `ec_name` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `ec_name` VARCHAR(200) CHARACTER SET 'utf8' NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB;
@@ -57,12 +57,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Event` (
   `id_event` INT NOT NULL AUTO_INCREMENT,
-  `name_event` VARCHAR(100) NOT NULL,
+  `name_event` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `id_category` INT NOT NULL,
   `date_publication` DATE NOT NULL,
   `hold_date` DATE NOT NULL,
-  `text_description` VARCHAR(1000) NULL,
-  `url_pictures` VARCHAR(500) NULL,
+  `text_description` VARCHAR(1000) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `url_pictures` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
   PRIMARY KEY (`id_event`),
   INDEX `fk_event_category_idx` (`id_category` ASC),
   CONSTRAINT `fk_event_category`
@@ -77,8 +77,8 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Specialization`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Specialization` (
-  `number` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `s_name` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `number` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `s_name` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
   PRIMARY KEY (`number`),
   UNIQUE INDEX `id_UNIQUE` (`number` ASC))
 ENGINE = InnoDB;
@@ -88,8 +88,8 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Group`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Group` (
-  `number` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `specialization` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `number` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `specialization` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
   `course` INT NOT NULL,
   PRIMARY KEY (`number`),
   UNIQUE INDEX `number_UNIQUE` (`number` ASC),
@@ -107,8 +107,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Student` (
   `id_stud` INT NOT NULL AUTO_INCREMENT,
-  `fio` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `group` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `fio` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `group` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
   PRIMARY KEY (`id_stud`),
   UNIQUE INDEX `id_UNIQUE` (`id_stud` ASC),
   INDEX `fk_group_number_idx` (`group` ASC),
@@ -125,10 +125,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Laboratory` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `l_name` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `address` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `description` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
-  `photo` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
+  `l_name` VARCHAR(200) CHARACTER SET 'utf8' NOT NULL,
+  `address` VARCHAR(200) CHARACTER SET 'utf8' NOT NULL,
+  `description` VARCHAR(300) CHARACTER SET 'utf8' NULL,
+  `photo` VARCHAR(300) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB;
@@ -163,13 +163,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`News` (
   `id_news` INT NOT NULL AUTO_INCREMENT,
-  `category` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `category` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
   `date_publication` DATE NOT NULL,
-  `news_pictures` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `news_pictures` VARCHAR(200) CHARACTER SET 'utf8' NULL,
   `publication_main` TINYINT(1) NOT NULL,
-  `header` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `preview` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `text_description` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `header` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `preview` TEXT CHARACTER SET 'utf8' NOT NULL,
+  `text_description` TEXT CHARACTER SET 'utf8' NOT NULL,
   PRIMARY KEY (`id_news`))
 ENGINE = InnoDB;
 
@@ -180,8 +180,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Classifieds` (
   `id_сlassifieds` INT NOT NULL AUTO_INCREMENT,
   `date_publication` DATE NOT NULL,
-  `header` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `text` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `header` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `text` TEXT CHARACTER SET 'utf8' NOT NULL,
   `important` TINYINT(1) NOT NULL,
   PRIMARY KEY (`id_сlassifieds`))
 ENGINE = InnoDB;
@@ -192,8 +192,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Subscribers` (
   `id_subscribers` INT NOT NULL AUTO_INCREMENT,
-  `s_name` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `email` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `s_name` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `email` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
   PRIMARY KEY (`id_subscribers`))
 ENGINE = InnoDB;
 
@@ -203,7 +203,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Files` (
   `id_file` INT NOT NULL AUTO_INCREMENT,
-  `filename` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `filename` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
   `loaddate` DATE NOT NULL,
   PRIMARY KEY (`id_file`))
 ENGINE = InnoDB;
@@ -214,9 +214,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`PracticeReports` (
   `id_preport` INT NOT NULL AUTO_INCREMENT,
-  `designrules` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `applform` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `practplaces` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `designrules` VARCHAR(500) CHARACTER SET 'utf8' NOT NULL,
+  `applform` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `practplaces` VARCHAR(200) CHARACTER SET 'utf8' NOT NULL,
   PRIMARY KEY (`id_preport`))
 ENGINE = InnoDB;
 
@@ -226,10 +226,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`CourseApplication` (
   `id_cappl` INT NOT NULL AUTO_INCREMENT,
-  `ca_name` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `decription` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `ca_name` VARCHAR(200) CHARACTER SET 'utf8' NOT NULL,
+  `decription` TEXT CHARACTER SET 'utf8' NULL,
   `id_lecturer` INT NOT NULL,
-  `literature` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
+  `literature` VARCHAR(300) CHARACTER SET 'utf8' NULL,
   `id_file` INT NOT NULL,
   PRIMARY KEY (`id_cappl`),
   INDEX `fk_id_lecturer_idx` (`id_lecturer` ASC),
@@ -253,12 +253,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`CourseThemes` (
   `id_theme` INT NOT NULL AUTO_INCREMENT,
-  `spec_number` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `spec_number` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
   `year` INT NOT NULL,
-  `ct_name` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `description` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `ct_name` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
+  `description` TEXT CHARACTER SET 'utf8' NULL,
   `id_lecturer` INT NOT NULL,
-  `literature` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `literature` VARCHAR(150) CHARACTER SET 'utf8' NOT NULL,
   `id_file` INT NOT NULL,
   PRIMARY KEY (`id_theme`),
   UNIQUE INDEX `idcrp_UNIQUE` (`id_theme` ASC),
@@ -288,10 +288,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`CoursePapers` (
   `id_cp` INT NOT NULL AUTO_INCREMENT,
-  `designrules` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `designrules` VARCHAR(300) CHARACTER SET 'utf8' NULL,
   `id_cappl` INT NOT NULL,
   `id_theme` INT NOT NULL,
-  `approved` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
+  `approved` VARCHAR(300) CHARACTER SET 'utf8' NULL,
   PRIMARY KEY (`id_cp`),
   INDEX `fk_id_capple_idx` (`id_cappl` ASC),
   INDEX `fk_id_theme_idx` (`id_theme` ASC),
@@ -337,7 +337,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines-Specialization` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_disciplines` INT NOT NULL,
-  `num_specialization` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `num_specialization` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_discipline_idx` (`id_disciplines` ASC),
   INDEX `fk_specialization_idx` (`num_specialization` ASC),
@@ -382,7 +382,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`FootRefCat` (
   `idFootRefCat` INT NOT NULL AUTO_INCREMENT,
-  `frc_name` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `frc_name` VARCHAR(50) CHARACTER SET 'utf8' NOT NULL,
   PRIMARY KEY (`idFootRefCat`))
 ENGINE = InnoDB;
 
@@ -393,8 +393,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`FootRef` (
   `id_FootRef` INT NOT NULL AUTO_INCREMENT,
   `idFootRefCat` INT NOT NULL,
-  `fr_name` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
-  `url` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
+  `fr_name` VARCHAR(150) CHARACTER SET 'utf8' NULL DEFAULT NULL,
+  `url` VARCHAR(500) CHARACTER SET 'utf8' NULL,
   `authOnly` TINYINT(1) NULL DEFAULT NULL,
   PRIMARY KEY (`id_FootRef`),
   INDEX `fk_ref_ctegory_idx` (`idFootRefCat` ASC),
@@ -413,9 +413,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Users` (
   `idUsers` INT NOT NULL AUTO_INCREMENT,
   `employee` TINYINT(1) NULL,
   `student` TINYINT(1) NULL DEFAULT NULL,
-  `username` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `password` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `role` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `username` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `password` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
+  `role` VARCHAR(100) CHARACTER SET 'utf8' NULL,
   `date_last_auth` DATETIME NULL DEFAULT NULL,
   `date_create` DATETIME NOT NULL,
   PRIMARY KEY (`idUsers`),
