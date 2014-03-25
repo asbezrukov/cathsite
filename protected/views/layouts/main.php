@@ -98,7 +98,7 @@
                 <div class="col-md-4">
                     <div class="logo"> 
                         <!---logo-utmn-->
-                        <a href="index.html" title="ТюмГу" rel="home">
+                        <a href="http://www.utmn.ru/" title="ТюмГу" rel="nofollow">
                             <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_TGU.png" alt="ТюмГу">
                         </a>
                     </div> <!-- /.logo -->
