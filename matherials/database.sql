@@ -2,6 +2,7 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+DROP SCHEMA IF EXISTS `mydb` ;
 CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
@@ -59,7 +60,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Specialization` (
   `number` VARCHAR(100) NOT NULL,
-  `name` VARCHAR(100) NOT NULL,
+  `s_name` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`number`),
   UNIQUE INDEX `id_UNIQUE` (`number` ASC))
 ENGINE = InnoDB;
@@ -106,7 +107,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Laboratory` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(200) NOT NULL,
+  `l_name` VARCHAR(200) NOT NULL,
   `address` VARCHAR(200) NOT NULL,
   `description` VARCHAR(300) NULL DEFAULT NULL,
   `photo` VARCHAR(300) NULL DEFAULT NULL,
@@ -173,7 +174,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Subscribers` (
   `id_subscribers` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50) NOT NULL,
+  `s_name` VARCHAR(50) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id_subscribers`))
 ENGINE = InnoDB;
@@ -207,10 +208,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`CourseApplication` (
   `id_cappl` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `decription` TEXT NULL,
+  `ca_name` VARCHAR(200) CHARACTER SET 'utf8' NOT NULL,
+  `decription` TEXT NULL DEFAULT NULL,
   `id_lecturer` INT NOT NULL,
-  `literature` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `literature` VARCHAR(300) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `id_file` INT NOT NULL,
   PRIMARY KEY (`id_cappl`),
   INDEX `fk_id_lecturer_idx` (`id_lecturer` ASC),
@@ -234,12 +235,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`CourseThemes` (
   `id_theme` INT NOT NULL AUTO_INCREMENT,
-  `spec_number` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `spec_number` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
   `year` INT NOT NULL,
-  `name` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `description` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `ct_name` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
+  `description` TEXT CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `id_lecturer` INT NOT NULL,
-  `literature` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `literature` VARCHAR(150) CHARACTER SET 'utf8' NOT NULL,
   `id_file` INT NOT NULL,
   PRIMARY KEY (`id_theme`),
   UNIQUE INDEX `idcrp_UNIQUE` (`id_theme` ASC),
@@ -269,10 +270,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`CoursePapers` (
   `id_cp` INT NOT NULL AUTO_INCREMENT,
-  `designrules` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
+  `designrules` VARCHAR(300) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `id_cappl` INT NOT NULL,
   `id_theme` INT NOT NULL,
-  `approved` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
+  `approved` VARCHAR(300) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   PRIMARY KEY (`id_cp`),
   INDEX `fk_id_capple_idx` (`id_cappl` ASC),
   INDEX `fk_id_theme_idx` (`id_theme` ASC),
@@ -363,7 +364,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`FootRefCat` (
   `idFootRefCat` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50) NOT NULL,
+  `frc_name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`idFootRefCat`))
 ENGINE = InnoDB;
 
@@ -374,7 +375,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`FootRef` (
   `id_FootRef` INT NOT NULL AUTO_INCREMENT,
   `idFootRefCat` INT NOT NULL,
-  `name` VARCHAR(50) NULL DEFAULT NULL,
+  `fr_name` VARCHAR(50) NULL,
   `url` VARCHAR(100) NULL DEFAULT NULL,
   `authOnly` TINYINT(1) NULL DEFAULT NULL,
   PRIMARY KEY (`id_FootRef`),
