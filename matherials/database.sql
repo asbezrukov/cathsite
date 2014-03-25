@@ -2,6 +2,7 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+DROP SCHEMA IF EXISTS `mydb` ;
 CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
@@ -41,17 +42,34 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `mydb`.`EventCategory`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`EventCategory` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `ec_name` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `mydb`.`Event`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Event` (
   `id_event` INT NOT NULL AUTO_INCREMENT,
-  `category` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `name_event` VARCHAR(100) NOT NULL,
+  `id_category` INT NOT NULL,
   `date_publication` DATE NOT NULL,
   `hold_date` DATE NOT NULL,
-  `name_event` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `text_description` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
-  `url_pictures` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
-  PRIMARY KEY (`id_event`))
+  `text_description` VARCHAR(1000) NULL,
+  `url_pictures` VARCHAR(500) NULL,
+  PRIMARY KEY (`id_event`),
+  INDEX `fk_event_category_idx` (`id_category` ASC),
+  CONSTRAINT `fk_event_category`
+    FOREIGN KEY (`id_category`)
+    REFERENCES `mydb`.`EventCategory` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
