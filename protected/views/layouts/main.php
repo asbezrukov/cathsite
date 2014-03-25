@@ -207,10 +207,10 @@
                     <div class="footer-widget">
 						<h4 class="footer-widget-title">Социальные сети</h4>
                         <u><ul class="list-links">
-                            <li><a href="http://vk.com/club172205">Группа ИМиКН в VK</a></li>
-                            <li><a href="#">Страница ИМиКН в FB</a></li>
-                            <li><a href="http://vk.com/imenit_aktiv">Cтудактив в VK</a></li>
-                            <li><a href="#">Студактив в Twitter</a></li></u>
+                            <li><a href="http://vk.com/club172205" rel="nofollow">Группа ИМиКН в VK</a></li>
+                            <li><a href="#" rel="nofollow">Страница ИМиКН в FB</a></li>
+                            <li><a href="http://vk.com/imenit_aktiv" rel="nofollow">Cтудактив в VK</a></li>
+                            <li><a href="#" rel="nofollow">Студактив в Twitter</a></li></u>
                         </ul>  
                     </div>
                 </div>
