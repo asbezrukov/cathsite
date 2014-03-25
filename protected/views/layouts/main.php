@@ -196,7 +196,7 @@
                         <h4 class="footer-widget-title">Полезные ссылки</h4>
                         <u><ul class="list-links">
                             <li><a href="http://www.utmn.ru/">Сайт университета</a></li>
-                            <li><a href="http://www.imkn.ru/">Сайт ИМКН</a></li>
+                            <li><a href="http://www.imkn.ru/">Сайт ИМиКН</a></li>
                             <li><a href="http://www.utmn.ru/sec/985">Расписание занятий</a></li>
                             <li><a href="http://www.tmnlib.ru/jirbis/">Библиотека ТюмГУ</a></li>
                             <li><a href="#">Каталог научных статей</a></li></u>
