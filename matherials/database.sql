@@ -2,7 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-DROP SCHEMA IF EXISTS `mydb` ;
 CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
@@ -59,8 +58,8 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Specialization`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Specialization` (
-  `number` VARCHAR(100) NOT NULL,
-  `s_name` VARCHAR(100) NOT NULL,
+  `number` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `s_name` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   PRIMARY KEY (`number`),
   UNIQUE INDEX `id_UNIQUE` (`number` ASC))
 ENGINE = InnoDB;
@@ -162,8 +161,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Classifieds` (
   `id_сlassifieds` INT NOT NULL AUTO_INCREMENT,
   `date_publication` DATE NOT NULL,
-  `header` VARCHAR(100) NOT NULL,
-  `text` TEXT NOT NULL,
+  `header` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `text` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `important` TINYINT(1) NOT NULL,
   PRIMARY KEY (`id_сlassifieds`))
 ENGINE = InnoDB;
@@ -196,9 +195,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`PracticeReports` (
   `id_preport` INT NOT NULL AUTO_INCREMENT,
-  `designrules` VARCHAR(500) NOT NULL,
-  `applform` VARCHAR(100) NOT NULL,
-  `practplaces` VARCHAR(200) NOT NULL,
+  `designrules` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `applform` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `practplaces` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   PRIMARY KEY (`id_preport`))
 ENGINE = InnoDB;
 
@@ -364,7 +363,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`FootRefCat` (
   `idFootRefCat` INT NOT NULL AUTO_INCREMENT,
-  `frc_name` VARCHAR(50) NOT NULL,
+  `frc_name` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   PRIMARY KEY (`idFootRefCat`))
 ENGINE = InnoDB;
 
@@ -375,8 +374,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`FootRef` (
   `id_FootRef` INT NOT NULL AUTO_INCREMENT,
   `idFootRefCat` INT NOT NULL,
-  `fr_name` VARCHAR(50) NULL,
-  `url` VARCHAR(100) NULL DEFAULT NULL,
+  `fr_name` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
+  `url` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
   `authOnly` TINYINT(1) NULL DEFAULT NULL,
   PRIMARY KEY (`id_FootRef`),
   INDEX `fk_ref_ctegory_idx` (`idFootRefCat` ASC),
