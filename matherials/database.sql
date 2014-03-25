@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Employee` (
   `position` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `training` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
   `consult_time` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
+  `rank` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB;
@@ -49,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Event` (
   `hold_date` DATE NOT NULL,
   `name_event` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `text_description` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
-  `url_pictures` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
+  `url_pictures` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
   PRIMARY KEY (`id_event`))
 ENGINE = InnoDB;
 
@@ -173,7 +174,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Subscribers` (
   `id_subscribers` INT NOT NULL AUTO_INCREMENT,
-  `s_name` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `s_name` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `email` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   PRIMARY KEY (`id_subscribers`))
 ENGINE = InnoDB;
@@ -374,8 +375,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`FootRef` (
   `id_FootRef` INT NOT NULL AUTO_INCREMENT,
   `idFootRefCat` INT NOT NULL,
-  `fr_name` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
-  `url` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
+  `fr_name` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `url` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL DEFAULT NULL,
   `authOnly` TINYINT(1) NULL DEFAULT NULL,
   PRIMARY KEY (`id_FootRef`),
   INDEX `fk_ref_ctegory_idx` (`idFootRefCat` ASC),
