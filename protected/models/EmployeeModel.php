@@ -4,7 +4,7 @@ class EmployeeModel extends CActiveRecord
 {
     
     public function tableName() {
-        return 'employee';
+        return 'Employee';
     }
     
     public function rules() {

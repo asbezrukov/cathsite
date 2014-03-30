@@ -1,16 +1,16 @@
 <?php
 
-class DisciplinesModel extends CActiveRecord {
-
+class ClassifiedsModel extends CActiveRecord
+{
     //Здесь храняться данные полученные из массива $_POST в контрллере
     public $tempData = array();
 
     public function tableName() {
-        return 'Disciplines';
+        return 'Classifieds';
     }
-
+    
     public function rules() {
-
+        
         return array(
 
         );
@@ -35,5 +35,5 @@ class DisciplinesModel extends CActiveRecord {
     public static function model($className=__CLASS__) {
         return parent::model($className);
     }
-
+    
 }

@@ -1,8 +1,8 @@
 <?php
 class StudentModel extends CActiveRecord
 {
-       public function tableName() {
-        return 'student';
+    public function tableName() {
+        return 'Student';
     }
     
     public function rules() {

@@ -1,12 +1,12 @@
 <?php
 
-class PracticeReportsModel extends CActiveRecord
+class LaboratoryModel extends CActiveRecord
 {
-    //Çäåñü õðàíÿòüñÿ äàííûå ïîëó÷åííûå èç ìàññèâà $_POST â êîíòðëëåðå
+    //Ð—Ð´ÐµÑÑŒ Ñ…Ñ€Ð°Ð½ÑÑ‚ÑŒÑÑ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð½Ñ‹Ðµ Ð¸Ð· Ð¼Ð°ÑÑÐ¸Ð²Ð° $_POST Ð² ÐºÐ¾Ð½Ñ‚Ñ€Ð»Ð»ÐµÑ€Ðµ
     public $tempData = array();
 
     public function tableName() {
-        return 'practicereports';
+        return 'Laboratory';
     }
     
     public function rules() {
@@ -17,8 +17,8 @@ class PracticeReportsModel extends CActiveRecord
     }
 
     /**
-     *  Ìåòîä âûïîëíÿåòñÿ ïîñëå âûçîâà ìåòîäà ìîäåëè save(),
-     *  Â íåì áóäóò çàïèñûâàòüñÿ äàííûå èç ïåðåìåííîé tempData â ìîäåëü, è ïðîâåðêà íà âàëèäíîñòü.
+     *  ÐœÐµÑ‚Ð¾Ð´ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÑÐµÑ‚ÑÑ Ð¿Ð¾ÑÐ»Ðµ Ð²Ñ‹Ð·Ð¾Ð²Ð° Ð¼ÐµÑ‚Ð¾Ð´Ð° Ð¼Ð¾Ð´ÐµÐ»Ð¸ save(),
+     *  Ð’ Ð½ÐµÐ¼ Ð±ÑƒÐ´ÑƒÑ‚ Ð·Ð°Ð¿Ð¸ÑÑ‹Ð²Ð°Ñ‚ÑŒÑÑ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¸Ð· Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð¾Ð¹ tempData Ð² Ð¼Ð¾Ð´ÐµÐ»ÑŒ, Ð¸ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð½Ð° Ð²Ð°Ð»Ð¸Ð´Ð½Ð¾ÑÑ‚ÑŒ.
      */
     public function beforeSave() {
 

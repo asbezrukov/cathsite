@@ -2,12 +2,11 @@
 
 class DisciplinesEmployeeModel extends CActiveRecord 
 {
-
 	public $tempData = array();
 
 	public function tableName()
 	{
-	return 'DisciplinesEmployee';
+	    return 'DisciplinesEmployee';
 	}
 
 	

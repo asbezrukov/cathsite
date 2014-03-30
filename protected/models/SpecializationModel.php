@@ -5,9 +5,8 @@ class SpecializationModel extends CActiveRecord
 
 	public $tempData = array();
 
-	public function tableName()
-	{
-	return 'Specialization';
+	public function tableName() {
+	    return 'Specialization';
 	}
 
 	
@@ -17,21 +16,21 @@ class SpecializationModel extends CActiveRecord
 	}
 	
 	public function relations()
-		{
+	{
 		return array();
-		}
+    }
 		
-		public function attributeLabels()
-		{
+    public function attributeLabels()
+    {
 		return array();
-		}
+    }
 		
-		public function search()
-		{
+    public function search()
+    {
+
+    }
 		
-		}
-		
-		public function beforeSave() {
+    public function beforeSave() {
 
         if ($this->validate())
             return true;
@@ -39,12 +38,12 @@ class SpecializationModel extends CActiveRecord
             return false;
     }
 
-		public function afterSave() {
-			unset($this->tempData);
+    public function afterSave() {
+        unset($this->tempData);
     }
 		
-		public static function model ($className=__CLASS__)
-		{
-			return parent::model($className);
-		}
+    public static function model ($className=__CLASS__)
+    {
+        return parent::model($className);
+    }
 }

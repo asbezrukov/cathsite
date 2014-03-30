@@ -1,8 +1,8 @@
 <?php
 class SubscribersModel extends CActiveRecord
 {
-       public function tableName() {
-        return 'subscribers';
+    public function tableName() {
+        return 'Subscribers';
     }
     
     public function rules() {
