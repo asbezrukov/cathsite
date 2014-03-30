@@ -2,7 +2,7 @@
 
 class EmployeeModel extends CActiveRecord
 {
-    
+
     public function tableName() {
         return 'Employee';
     }
