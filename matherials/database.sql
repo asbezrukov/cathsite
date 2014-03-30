@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Employee` (
   `name` VARCHAR(50) NOT NULL,
   `patronymic` VARCHAR(50) NOT NULL,
   `photo` VARCHAR(200) CHARACTER SET 'utf8' NULL DEFAULT NULL,
-  `prof_interest` TEXT CHARACTER SET 'utf8' NULL,
+  `prof_interest` TEXT CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `projects` VARCHAR(300) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `languages` VARCHAR(200) CHARACTER SET 'utf8' NULL DEFAULT NULL,
   `begin_date` DATE NOT NULL,
@@ -157,6 +157,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Laboratory-Employee` (
     REFERENCES `mydb`.`Laboratory` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`NewsCategory`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`NewsCategory` (
+  `id_newsCategory` INT NOT NULL AUTO_INCREMENT,
+  `nc_name` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  PRIMARY KEY (`id_newsCategory`),
+  UNIQUE INDEX `id_newsCategory_UNIQUE` (`id_newsCategory` ASC))
 ENGINE = InnoDB;
 
 
