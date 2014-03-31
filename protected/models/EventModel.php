@@ -2,9 +2,19 @@
 
 class EventModel extends CActiveRecord
 {
-    //Здесь храняться данные полученные из массива $_POST в контрллере
     public $tempData = array();
+	public $image;
 
+	public function recently($limit=1)
+	{
+		$criteria=new CDbCriteria;
+		$criteria->select='id_event, name_event, hold_date, text_description';
+		$criteria->order='hold_date DESC';
+		$criteria->limit=$limit;
+		$this->setDbCriteria($criteria);
+		return $this;
+	}
+	
     public function tableName() {
         return 'Event';
     }
@@ -12,14 +22,10 @@ class EventModel extends CActiveRecord
     public function rules() {
         
         return array(
-
+			array('image', 'file', 'types'=>'jpg, gif, png'),
         );
     }
 
-    /**
-     *  Метод выполняется после вызова метода модели save(),
-     *  В нем будут записываться данные из переменной tempData в модель, и проверка на валидность.
-     */
     public function beforeSave() {
 
         if ($this->validate())
