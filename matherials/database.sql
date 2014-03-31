@@ -284,17 +284,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`CourseThemes` (
   INDEX `fk_id_lecturer_idx` (`id_lecturer` ASC),
   INDEX `fk_id_file_idx` (`id_file` ASC),
   INDEX `fk_spec_number_idx` (`spec_number` ASC),
-  CONSTRAINT `fk_id_lecturer`
+  CONSTRAINT `fk_id_lecturer_ct`
     FOREIGN KEY (`id_lecturer`)
     REFERENCES `mydb`.`Employee` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_id_file`
+  CONSTRAINT `fk_id_file_ct`
     FOREIGN KEY (`id_file`)
     REFERENCES `mydb`.`Files` (`id_file`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_spec_number`
+  CONSTRAINT `fk_spec_number_ct`
     FOREIGN KEY (`spec_number`)
     REFERENCES `mydb`.`Specialization` (`number`)
     ON DELETE NO ACTION
@@ -360,12 +360,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines-Specialization` (
   PRIMARY KEY (`id`),
   INDEX `fk_discipline_idx` (`id_disciplines` ASC),
   INDEX `fk_specialization_idx` (`num_specialization` ASC),
-  CONSTRAINT `fk_discipline`
+  CONSTRAINT `fk_discipline_ds`
     FOREIGN KEY (`id_disciplines`)
     REFERENCES `mydb`.`Disciplines` (`id_disciplines`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_specialization`
+  CONSTRAINT `fk_specialization_ds`
     FOREIGN KEY (`num_specialization`)
     REFERENCES `mydb`.`Specialization` (`number`)
     ON DELETE NO ACTION
@@ -383,12 +383,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Disciplines-Files` (
   PRIMARY KEY (`id`),
   INDEX `fk_discipline_idx` (`id_disciplines` ASC),
   INDEX `fk_file_idx` (`id_files` ASC),
-  CONSTRAINT `fk_discipline`
+  CONSTRAINT `fk_discipline_df`
     FOREIGN KEY (`id_disciplines`)
     REFERENCES `mydb`.`Disciplines` (`id_disciplines`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_file`
+  CONSTRAINT `fk_file_df`
     FOREIGN KEY (`id_files`)
     REFERENCES `mydb`.`Files` (`id_file`)
     ON DELETE NO ACTION
