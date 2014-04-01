@@ -11,7 +11,7 @@ class EventModel extends CActiveRecord
 		$criteria->select='id_event, name_event, hold_date, text_description';
 		$criteria->order='hold_date DESC';
 		$criteria->limit=$limit;
-		if($past != null)
+		if(isset($past))
 		{
 			$criteria->condition=$past?'hold_date < :p1':'hold_date > :p1';
 			$criteria->params=array('p1'=>CDbExpression('NOW()'));
@@ -24,8 +24,7 @@ class EventModel extends CActiveRecord
 		return array(
 			'category'=>array(
 				self::BELONGS_TO, 'EventCategory', 'id_category')
-			)
-		)
+			);
 	}
 	
     public function tableName() {
