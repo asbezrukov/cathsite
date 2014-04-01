@@ -19,6 +19,15 @@ class EventModel extends CActiveRecord
 		return $this->findAll($criteria);
 	}
 	
+	public function relations()
+	{
+		return array(
+			'category'=>array(
+				self::BELONGS_TO, 'EventCategory', 'id_category')
+			)
+		)
+	}
+	
     public function tableName() {
         return 'Event';
     }
