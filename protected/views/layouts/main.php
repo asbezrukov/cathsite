@@ -51,7 +51,7 @@
         </a>
         <div class="responsive_menu">
             <ul class="main_menu">
-                <li><a href="index.html">Главная</a></li>
+                <li><a href="?r=site/index">Главная</a></li>
                 <li><a href="#">События</a>
                     <ul>
                         <li><a href="#">Событие_1</a></li>
@@ -115,7 +115,7 @@
             <div class="container">
                 <nav class="main-navigation clearfix visible-md visible-lg" role="navigation">
                         <ul class="main-menu sf-menu">
-                            <li class="active"><a href="index.html">Главная</a></li>
+                            <li class="active"><a href="?r=site/index">Главная</a></li>
                             <li><a href="#">События</a>
                                 <ul class="sub-menu">
                                     <li><a href="#">Событие_1</a></li>
