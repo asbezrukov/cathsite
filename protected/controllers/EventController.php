@@ -22,10 +22,13 @@ class EventController extends Controller {
         $arResult['recently'] = $model->recently(3);
 
         $arResult['pages'] = $pages;
-        $data = EventModel::model()->findAll($criteria);
-
-        $arResult['dataProvider'] = new CArrayDataProvider($data);
-
+       //$data = EventModel::model()->recently();
+        $data = $model->recently();
+        $dataProvider = new CActiveDataProvider($model);
+        $dataProvider->setData($data);
+		
+		$arResult['dataProvider'] = $dataProvider;
+		
         $this->render('list', array('arResult'=>$arResult));
     }
 

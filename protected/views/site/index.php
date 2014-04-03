@@ -100,7 +100,7 @@ $this->pageTitle=Yii::app()->name;
                 </div>
                 <div class="col-md-4">
                     <div class="informatory-widget">
-                        <h4 class="informatory-widget-title">События</h4>
+                        <h4 class="informatory-widget-title"> <a href="/?r=event/list"> События </a> </h4>
                         <u>
                             <ul class="list-links">
                                 <li> 
