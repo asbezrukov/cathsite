@@ -2,8 +2,6 @@
 /* @var $this SiteController */
 
 $this->pageTitle=Yii::app()->name;
-/*echo "<pre>";
-print_r($arResult);*/
 ?>  
 
     <!-- Being Page Title -->
@@ -30,9 +28,7 @@ print_r($arResult);*/
             <div class="col-md-8">
                 <div class="row"> 
                     <div class="col-md-12">
-                        <?php
-                        //echo "<pre>";
-                       // print_r($arResult['dataProvider']);
+                        <?php 
                             $this->widget('zii.widgets.CListView', array (
                                 'dataProvider'=>$arResult['dataProvider'],
                                 'itemView'=>'_view'
@@ -43,16 +39,15 @@ print_r($arResult);*/
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="load-more-btn">
-                            <a href="#">Click here to load more events</a>
+                        <div class="load-more-btn"> 
                             <?php 
-                                /*$this->widget('CLinkPager', array (
-                                    'firstPageLable'=>'<<',
-                                    'prevPageLable'=>'<',
-                                    'nextPageLable'=>'>',
-                                    'lastPageLable'=>'>>',
+                                $this->widget('CLinkPager', array (
+                                    'firstPageLabel'=>'<<',
+                                    'prevPageLabel'=>'<',
+                                    'nextPageLabel'=>'>',
+                                    'lastPageLabel'=>'>>',
                                     'pages'=>$arResult['pages']
-                                    ));*/
+                                    ));
                             ?>
                         </div>
                     </div> <!-- /.col-md-12 -->
