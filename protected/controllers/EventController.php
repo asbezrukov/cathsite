@@ -40,7 +40,7 @@ class EventController extends Controller {
     public function actionGrid() {
     }
 
-    public function actionDetail($id) {
+    public function actionSingle($id) {
 
         $data = EventModel::model()->findByPk($id);
         $data['category'] = $data->category;
