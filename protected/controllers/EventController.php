@@ -17,10 +17,10 @@ class EventController extends Controller {
         $model = new EventModel;
 
         $pages = new CPagination($model->count($criteria));
-        $pages->pageSize = 5;
+        $pages->pageSize = 3;
         $pages->applyLimit($criteria);
 
-        $dataRecently = $model->recently(3);
+        $dataRecently = $model->recently(6, false);
 
         $data = $model->findAll($criteria);
         foreach ($data as $i=>$item) {
