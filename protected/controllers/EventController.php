@@ -46,7 +46,8 @@ class EventController extends Controller {
     {
         $model = new EventModel();
         $data = $model->findByPk($id);
-        $category = $data->category;
+        $data['category'] = $data->category;
+        $category = EventCategoryModel::model()->findAll();
         $dataRecently = $model->recently(6, true);
 
         $arResult['data'] = $data;
