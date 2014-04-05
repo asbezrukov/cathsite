@@ -15,9 +15,8 @@ class EventModel extends CActiveRecord
 			$criteria->limit=$limit;
 		}
 		if(isset($past))
-		{
-			$criteria->condition=$past?'hold_date < :p1':'hold_date > :p1';
-			$criteria->params=array('p1'=>CDbExpression('NOW()'));
+		{ 
+			$criteria->condition=$past?'hold_date < NOW()':'hold_date > NOW()'; 
 		}
 		return $this->findAll($criteria);
 	}
