@@ -89,52 +89,11 @@ $this->pageTitle=Yii::app()->name;
 
                 <div class="widget-main">
                     <div class="widget-main-title">
-                        <h4 class="widget-title">Фотогалерея</h4>
+                        <h4 class="widget-title">Категории</h4>
                     </div>
                     <div class="widget-inner">
-                        <div class="gallery-small-thumbs clearfix">
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg" title="Gallery Tittle One">
-                                    <img src="http://placehold.it/70x70" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg" title="Gallery Tittle Two">
-                                    <img src="http://placehold.it/70x70" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
-                                    <img src="http://placehold.it/70x70" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
-                                    <img src="http://placehold.it/70x70" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
-                                    <img src="http://placehold.it/70x70" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
-                                    <img src="http://placehold.it/70x70" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
-                                    <img src="http://placehold.it/70x70" alt="" />
-                                </a>
-                            </div>
-                            <div class="thumb-small-gallery">
-                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
-                                    <img src="http://placehold.it/70x70" alt="" />
-                                </a>
-                            </div>
-                        </div> <!-- /.galler-small-thumbs -->
-                    </div> <!-- /.widget-inner -->
+                        
+                    </div> <!-- /.widget-inner --> 
                 </div> <!-- /.widget-main -->
 
             </div> <!-- /.col-md-4 -->
