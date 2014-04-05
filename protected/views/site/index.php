@@ -19,7 +19,7 @@ $this->pageTitle=Yii::app()->name;
                             <li>
                                 <img src="http://placehold.it/770x400" alt="Slide 1"/>
                                 <div class="slider-caption">
-                                    <h2><a href="blog-single.html">Предстоящие события</a></h2>
+                                    <h2><a href="/?r=event/list">Предстоящие события</a></h2>
                                     <p>защита работ...</p>
                                 </div>
                             </li>

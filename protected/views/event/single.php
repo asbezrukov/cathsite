@@ -1,75 +1,55 @@
 <?php
 /* @var $this SiteController */
 
-$this->pageTitle=Yii::app()->name;
-//echo "<pre>";
-//print_r($arResult);
+$this->pageTitle=Yii::app()->name; 
 
 ?>  
-
     <!-- Being Page Title -->
     <div class="container">
         <div class="page-title clearfix">
             <div class="row">
                 <div class="col-md-12">
                     <h6><a href="/">Главная</a></h6>
-                    <h6><span class="?r=event/list">Все события</span></h6>
-                    <div class="grid-or-list">
-                        <ul>
-                            <li><a href="events-grid.html"><i class="fa fa-th"></i></a></li>
-                            <li><a href="events-list.html"><i class="fa fa-list"></i></a></li>
-                        </ul>
-                    </div>
+                    <h6><a href="/?r=event/list">Все события</a></h6>
+                    <h6><span class="page-active">Public and Patient Involvement in Health Research</span></h6>
                 </div>
             </div>
         </div>
     </div>
 
+
     <div class="container">
-        <div class="row"> 
+        <div class="row">
+
             <!-- Here begin Main Content -->
             <div class="col-md-8">
-                <div class="row"> 
-                    <div class="col-md-12">
-                        <?php 
-                            $this->widget('zii.widgets.CListView', array (
-                                'dataProvider'=>$arResult['dataProvider'],
-                                'itemView'=>'_view',
-                                'enablePagination'=>false,
-                                'summaryText'=>''
-                                ));
-                        ?>
-                    </div>    
-                </div> <!-- /.row -->
-
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="load-more-btn"> 
-                            <?php 
-                                $this->widget('CLinkPager', array (
-                                    'header'=>'',
-                                    'firstPageLabel'=>'<<',
-                                    'prevPageLabel'=>'<',
-                                    'nextPageLabel'=>'>',
-                                    'lastPageLabel'=>'>>',
-                                    'pages'=>$arResult['pages']
-                                    ));
-                            ?>
-                        </div>
-                    </div> <!-- /.col-md-12 -->
+                        <div class="event-container clearfix">
+                            <div class="left-event-content">
+                                <img src="http://placehold.it/225x240" alt="">
+                            </div> <!-- /.left-event-content -->
+                            <div class="right-event-content">
+                                <h2 class="event-title"><?php echo $arResult['data']->name_event; ?></h2> 
+                                <span class="event-time"><?php echo $arResult['data']->hold_date; ?></span>
+                                <p><?php echo $arResult['data']->text_description; ?></p>
+                                <div class="google-map-canvas" id="map-canvas" style="height: 210px;"></div>
+                            </div> <!-- /.right-event-content -->
+                        </div> <!-- /.event-container -->
+                    </div>
                 </div> <!-- /.row -->
-
             </div> <!-- /.col-md-8 -->
 
             <!-- Here begin Sidebar -->
             <div class="col-md-4">
-                <div class="widget-main">
+
+                 <div class="widget-main">
                     <div class="widget-main-title">
                         <h4 class="widget-title">Предстоящие события</h4>
                     </div> <!-- /.widget-main-title -->
                     <div class="widget-inner">
                     <?php     
-                        foreach ($arResult['recently'] as $node) {
+                        foreach ($arResult['data'] as $node) {
                             $temp=$node->getAttributes();  ?>
                         
                         <div class="event-small-list clearfix">

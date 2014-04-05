@@ -7,7 +7,7 @@
         </div>
         <div class="list-event-header">
             <span class="event-date small-text"><i class="fa fa-calendar-o"></i><?php echo CHtml::encode($data->hold_date); ?></span>
-            <div class="view-details"><a href="event-single.html" class="lightBtn">Подробнее</a></div>
+            <div class="view-details"><a href="?r=event/single&id=<?=$data['id_event']?>" class="lightBtn">Подробнее</a></div>
         </div>
         <h5 class="event-title"><a href="event-single.html"> <?php echo CHtml::encode($data->name_event); ?> </a></h5>
         <div class="event-body"><p><?php echo CHtml::encode($data->text_description); ?></p></div>
