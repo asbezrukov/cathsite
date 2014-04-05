@@ -4,6 +4,7 @@
 $this->pageTitle=Yii::app()->name;
 //echo "<pre>";
 //print_r($arResult);
+
 ?>  
 
     <!-- Being Page Title -->
@@ -11,8 +12,8 @@ $this->pageTitle=Yii::app()->name;
         <div class="page-title clearfix">
             <div class="row">
                 <div class="col-md-12">
-                    <h6><a href="index.html">Home</a></h6>
-                    <h6><span class="page-active">Events List</span></h6>
+                    <h6><a href="index.html">Главная</a></h6>
+                    <h6><span class="page-active">Все события</span></h6>
                     <div class="grid-or-list">
                         <ul>
                             <li><a href="events-grid.html"><i class="fa fa-th"></i></a></li>
@@ -64,76 +65,76 @@ $this->pageTitle=Yii::app()->name;
             <div class="col-md-4">
                 <div class="widget-main">
                     <div class="widget-main-title">
-                        <h4 class="widget-title">Upcoming Events</h4>
+                        <h4 class="widget-title">Предстоящие события</h4>
                     </div> <!-- /.widget-main-title -->
                     <div class="widget-inner">
+                    <?php     
+                        foreach ($arResult['recently'] as $node) {
+                            $temp=$node->getAttributes();  ?>
+                        
                         <div class="event-small-list clearfix">
                             <div class="calendar-small">
                                 <span class="s-month">Jan</span>
                                 <span class="s-date">24</span>
                             </div>
                             <div class="event-small-details">
-                                <h5 class="event-small-title"><a href="event-single.html">Nelson Mandela Memorial Tribute</a></h5>
-                                <p class="event-small-meta small-text">Cramton Auditorium 9:00 AM to 1:00 PM</p>
+                                <h5 class="event-small-title"><a href="event-single.html"><?php echo $temp['name_event']; ?></a></h5>
+                                <div class="event-small-body"><p class="event-small-meta small-text"><?php echo $temp['hold_date'].' '.$temp['text_description']; ?></p></div>
                             </div>
                         </div>
-                        <div class="event-small-list clearfix">
-                            <div class="calendar-small">
-                                <span class="s-month">Jan</span>
-                                <span class="s-date">24</span>
-                            </div>
-                            <div class="event-small-details">
-                                <h5 class="event-small-title"><a href="event-single.html">OVADA Oxford Open</a></h5>
-                                <p class="event-small-meta small-text">Posner Center 4:30 PM to 6:00 PM</p>
-                            </div>
-                        </div>
-                        <div class="event-small-list clearfix">
-                            <div class="calendar-small">
-                                <span class="s-month">Jan</span>
-                                <span class="s-date">24</span>
-                            </div>
-                            <div class="event-small-details">
-                                <h5 class="event-small-title"><a href="event-single.html">Filming Objects And Sculpture</a></h5>
-                                <p class="event-small-meta small-text">A70 Cyert Hall 12:00 PM to 1:00 PM</p>
-                            </div>
-                        </div>
-                        <div class="event-small-list clearfix">
-                            <div class="calendar-small">
-                                <span class="s-month">Jan</span>
-                                <span class="s-date">24</span>
-                            </div>
-                            <div class="event-small-details">
-                                <h5 class="event-small-title"><a href="event-single.html">Filming Objects And Sculpture</a></h5>
-                                <p class="event-small-meta small-text">A70 Cyert Hall 12:00 PM to 1:00 PM</p>
-                            </div>
-                        </div>
-                        <div class="event-small-list clearfix">
-                            <div class="calendar-small">
-                                <span class="s-month">Jan</span>
-                                <span class="s-date">24</span>
-                            </div>
-                            <div class="event-small-details">
-                                <h5 class="event-small-title"><a href="event-single.html">Filming Objects And Sculpture</a></h5>
-                                <p class="event-small-meta small-text">A70 Cyert Hall 12:00 PM to 1:00 PM</p>
-                            </div>
-                        </div>
-                        <div class="event-small-list clearfix">
-                            <div class="calendar-small">
-                                <span class="s-month">Jan</span>
-                                <span class="s-date">24</span>
-                            </div>
-                            <div class="event-small-details">
-                                <h5 class="event-small-title"><a href="event-single.html">Filming Objects And Sculpture</a></h5>
-                                <p class="event-small-meta small-text">A70 Cyert Hall 12:00 PM to 1:00 PM</p>
-                            </div>
-                        </div>
+                        <?}           
+                    ?>
                     </div> <!-- /.widget-inner -->
                 </div> <!-- /.widget-main -->
 
                 <div class="widget-main">
                     <div class="widget-main-title">
-                        <h4 class="widget-title">Photo from Events</h4>
+                        <h4 class="widget-title">Фотогалерея</h4>
                     </div>
+                    <div class="widget-inner">
+                        <div class="gallery-small-thumbs clearfix">
+                            <div class="thumb-small-gallery">
+                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg" title="Gallery Tittle One">
+                                    <img src="http://placehold.it/70x70" alt="" />
+                                </a>
+                            </div>
+                            <div class="thumb-small-gallery">
+                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg" title="Gallery Tittle Two">
+                                    <img src="http://placehold.it/70x70" alt="" />
+                                </a>
+                            </div>
+                            <div class="thumb-small-gallery">
+                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
+                                    <img src="http://placehold.it/70x70" alt="" />
+                                </a>
+                            </div>
+                            <div class="thumb-small-gallery">
+                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
+                                    <img src="http://placehold.it/70x70" alt="" />
+                                </a>
+                            </div>
+                            <div class="thumb-small-gallery">
+                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
+                                    <img src="http://placehold.it/70x70" alt="" />
+                                </a>
+                            </div>
+                            <div class="thumb-small-gallery">
+                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
+                                    <img src="http://placehold.it/70x70" alt="" />
+                                </a>
+                            </div>
+                            <div class="thumb-small-gallery">
+                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
+                                    <img src="http://placehold.it/70x70" alt="" />
+                                </a>
+                            </div>
+                            <div class="thumb-small-gallery">
+                                <a class="fancybox" data-fancybox-group="gallery1" href="images/slide1.jpg">
+                                    <img src="http://placehold.it/70x70" alt="" />
+                                </a>
+                            </div>
+                        </div> <!-- /.galler-small-thumbs -->
+                    </div> <!-- /.widget-inner -->
                 </div> <!-- /.widget-main -->
 
             </div> <!-- /.col-md-4 -->

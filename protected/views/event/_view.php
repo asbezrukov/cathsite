@@ -6,11 +6,10 @@
             </a>
         </div>
         <div class="list-event-header">
-            <span class="event-place small-text"><i class="fa fa-globe"></i>109 Health</span>
             <span class="event-date small-text"><i class="fa fa-calendar-o"></i><?php echo CHtml::encode($data->hold_date); ?></span>
-            <div class="view-details"><a href="event-single.html" class="lightBtn">View Details</a></div>
+            <div class="view-details"><a href="event-single.html" class="lightBtn">Подробнее</a></div>
         </div>
         <h5 class="event-title"><a href="event-single.html"> <?php echo CHtml::encode($data->name_event); ?> </a></h5>
-        <p><?php echo CHtml::encode($data->text_description); ?></p>
+        <div class="event-body"><p><?php echo CHtml::encode($data->text_description); ?></p></div>
     </div> <!-- /.box-content-inner -->
 </div> <!-- /.list-event-item -->
