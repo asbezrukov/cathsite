@@ -1,6 +1,6 @@
 <?php 
 
-class LecturersController extends Controller
+class StaffController extends Controller
 {
 	public function actionIndex()
 	{
