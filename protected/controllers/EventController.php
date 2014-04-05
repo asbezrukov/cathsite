@@ -2,17 +2,17 @@
 
 class EventController extends Controller {
 
-    public function actionIndex() {
-
+    public function actionIndex()
+    {
         $model = new EventModel;
 
-        $arResult['recently'] = $model->recently(3);
+        $arResult['recently'] = $model->recently(3, true);
 
         $this->render('index', array('arResult'=>$arResult));
     }
 
-    public function actionList() {
-
+    public function actionList()
+    {
         $criteria = new CDbCriteria;
         $model = new EventModel;
 
@@ -32,20 +32,25 @@ class EventController extends Controller {
 
         $arResult['pages'] = $pages;
         $arResult['recently'] = $dataRecently;
-		$arResult['dataProvider'] = $dataProvider;
-		
+        $arResult['dataProvider'] = $dataProvider;
+
         $this->render('list', array('arResult'=>$arResult));
     }
 
-    public function actionGrid() {
+    public function actionGrid()
+    {
     }
 
-    public function actionSingle($id) {
-
-        $data = EventModel::model()->findByPk($id);
-        $data['category'] = $data->category;
+    public function actionSingle($id)
+    {
+        $model = new EventModel();
+        $data = $model->findByPk($id);
+        $category = $data->category;
+        $dataRecently = $model->recently(6, true);
 
         $arResult['data'] = $data;
+        $arResult['category'] = $category;
+        $arResult['recently'] = $dataRecently;
         $this->render('single', array('arResult'=>$arResult));
     }
 

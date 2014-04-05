@@ -41,24 +41,31 @@
                     <div class="widget-main-title">
                         <h4 class="widget-title">Предстоящие события</h4>
                     </div> <!-- /.widget-main-title -->
-                    <div class="widget-inner">
-                    <?php     
-                        foreach ($arResult['data'] as $node) {
-                            $temp=$node->getAttributes();  ?>
-                        
-                        <div class="event-small-list clearfix">
-                            <div class="calendar-small">
-                                <span class="s-month">Jan</span>
-                                <span class="s-date">24</span>
-                            </div>
-                            <div class="event-small-details">
-                                <h5 class="event-small-title"><a href="event-single.html"><?php echo $temp['name_event']; ?></a></h5>
-                                <div class="event-small-body"><p class="event-small-meta small-text"><?php echo $temp['hold_date'].' '.$temp['text_description']; ?></p></div>
-                            </div>
-                        </div>
-                        <?}           
-                    ?>
-                    </div> <!-- /.widget-inner -->
+                     <div class="widget-inner">
+                         <?php foreach ($arResult['recently'] as $node) { ?>
+                             <?php //$temp=$node->getAttributes(); ?>
+
+                             <div class="event-small-list clearfix">
+                                 <div class="calendar-small">
+                                     <span class="s-month">Jan</span>
+                                     <span class="s-date">24</span>
+                                 </div>
+                                 <div class="event-small-details">
+                                     <h5 class="event-small-title">
+                                         <a href="event-single.html">
+                                             <?php echo $node->name_event; ?>
+                                         </a>
+                                     </h5>
+                                     <div class="event-small-body">
+                                         <p class="event-small-meta small-text">
+                                             <?php echo $node->hold_date.' '.$node->text_description; ?>
+                                         </p>
+                                     </div>
+                                 </div>
+                             </div>
+
+                         <?php } ?>
+                     </div> <!-- /.widget-inner -->
                 </div> <!-- /.widget-main -->
 
                 <div class="widget-main">
