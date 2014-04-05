@@ -1,9 +1,3 @@
-<?php
-/* @var $this SiteController */
-
-$this->pageTitle=Yii::app()->name; 
-
-?>  
     <!-- Being Page Title -->
     <div class="container">
         <div class="page-title clearfix">
@@ -30,9 +24,9 @@ $this->pageTitle=Yii::app()->name;
                                 <img src="http://placehold.it/225x240" alt="">
                             </div> <!-- /.left-event-content -->
                             <div class="right-event-content">
-                                <h2 class="event-title"><?php echo $arResult['data']->name_event; ?></h2> 
-                                <span class="event-time"><?php echo $arResult['data']->hold_date; ?></span>
-                                <p><?php echo $arResult['data']->text_description; ?></p>
+                                <h2 class="event-title"><?php echo CHtml::encode($arResult['data']->name_event); ?></h2> 
+                                <span class="event-time"><?php echo CHtml::encode($arResult['data']->hold_date); ?></span>
+                                <p><?php echo CHtml::encode($arResult['data']->text_description); ?></p>
                                 <div class="google-map-canvas" id="map-canvas" style="height: 210px;"></div>
                             </div> <!-- /.right-event-content -->
                         </div> <!-- /.event-container -->
