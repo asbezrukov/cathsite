@@ -52,7 +52,7 @@
                                  </div>
                                  <div class="event-small-details">
                                      <h5 class="event-small-title">
-                                         <a href="event-single.html">
+                                         <a href="?r=event/single&id=<?=$node->id_event?>">
                                              <?php echo $node->name_event; ?>
                                          </a>
                                      </h5>

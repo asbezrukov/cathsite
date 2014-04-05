@@ -70,7 +70,7 @@ $this->pageTitle=Yii::app()->name;
                     <div class="widget-inner">
                     <?php     
                         foreach ($arResult['recently'] as $node) {
-                            $temp=$node->getAttributes();  ?>
+                              ?>
                         
                         <div class="event-small-list clearfix">
                             <div class="calendar-small">
@@ -78,8 +78,8 @@ $this->pageTitle=Yii::app()->name;
                                 <span class="s-date">24</span>
                             </div>
                             <div class="event-small-details">
-                                <h5 class="event-small-title"><a href="event-single.html"><?php echo $temp['name_event']; ?></a></h5>
-                                <div class="event-small-body"><p class="event-small-meta small-text"><?php echo $temp['hold_date'].' '.$temp['text_description']; ?></p></div>
+                                <h5 class="event-small-title"><a href="?r=event/single&id=<?=$node->id_event?>"><?php echo $node->name_event; ?></a></h5>
+                                <div class="event-small-body"><p class="event-small-meta small-text"><?php echo $node->hold_date.' '.$node->text_description; ?></p></div>
                             </div>
                         </div>
                         <?}           
