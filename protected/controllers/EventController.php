@@ -30,6 +30,7 @@ class EventController extends Controller {
         $dataProvider = new CActiveDataProvider($model);
         $dataProvider->setData($data);
 
+        $arResult['category'] = EventCategoryModel::model()->findAll();
         $arResult['pages'] = $pages;
         $arResult['recently'] = $dataRecently;
         $arResult['dataProvider'] = $dataProvider;
