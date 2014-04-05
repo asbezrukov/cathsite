@@ -451,11 +451,20 @@ blockquote h5 {
 .widget-item,
 .widget-main-title,
 .widget-inner,
-.box-content-inner,
 .slider-caption {
   padding: 20px;
+} 
+
+.box-content-inner {
+  padding: 20px;
+  height: 190px;
+  overflow: hidden;
 }
 
+.event-body { 
+  height: 75px;
+  overflow: hidden;
+}
 
 .block-head {
   font-family: 'Roboto Slab bold';
@@ -664,6 +673,12 @@ input, select {
 .gallery-title {
   margin: 2px 0 0 0;
 }
+
+.event-small-body { 
+  height: 40px;
+  overflow: hidden;
+}
+
 .blog-list-title a,
 .blog-grid-title a,
 .event-small-title a,
@@ -813,7 +828,7 @@ input, select {
 .load-more-btn a {
   padding: 12px 20px;
   font-weight: 700;
-  display: block;
+  display: inline-block;
 }
 .load-more-btn:active {
   border-bottom: 0;
