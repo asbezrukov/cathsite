@@ -31,7 +31,9 @@ $this->pageTitle=Yii::app()->name;
                         <?php 
                             $this->widget('zii.widgets.CListView', array (
                                 'dataProvider'=>$arResult['dataProvider'],
-                                'itemView'=>'_view'
+                                'itemView'=>'_view',
+                                'enablePagination'=>false,
+                                'summaryText'=>''
                                 ));
                         ?>
                     </div>    
