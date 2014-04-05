@@ -92,7 +92,10 @@ $this->pageTitle=Yii::app()->name;
                         <h4 class="widget-title">Категории</h4>
                     </div>
                     <div class="widget-inner">
-                        
+                     <?php     
+                        foreach ($arResult['category'] as $node) {?>
+                        <h5 class="event-small-title"><a href="?r=event/category$id="><?php echo $node->ec_name; ?></a></h5>                           
+                    <?}?>    
                     </div> <!-- /.widget-inner --> 
                 </div> <!-- /.widget-main -->
 

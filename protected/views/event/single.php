@@ -74,7 +74,7 @@
                     </div>
                     <div class="widget-inner">
                         <?php     
-                            foreach ($arResult['category'] as $node) {?>
+                            foreach ($arResult['category'] as $node) {?> 
                             <h5 class="event-small-title"><a href="?r=event/category&id="><?php echo $node->ec_name; ?></a></h5>
                         <?}?> 
                     </div> <!-- /.widget-inner -->
