@@ -29,7 +29,7 @@ class NewsController extends Controller
 	
 	    public function actionGrid() 
 	{
-	
+	 
     }
 	
 	public function actionDetail()
