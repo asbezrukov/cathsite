@@ -45,10 +45,10 @@
                          <?php foreach ($arResult['recently'] as $node) { ?>
                              <?php //$temp=$node->getAttributes(); ?>
 
-                             <div class="event-small-list clearfix">
+                            <div class="event-small-list clearfix">
                                  <div class="calendar-small">
-                                     <span class="s-month">Jan</span>
-                                     <span class="s-date">24</span>
+                                     <span class="s-month"><?php echo date_format(new DateTime($node->hold_date),"F"); ?></span>
+                                     <span class="s-date"><?php echo date_format(new DateTime($node->hold_date),"d"); ?></span>
                                  </div>
                                  <div class="event-small-details">
                                      <h5 class="event-small-title">
@@ -58,11 +58,11 @@
                                      </h5>
                                      <div class="event-small-body">
                                          <p class="event-small-meta small-text">
-                                             <?php echo $node->hold_date.' '.$node->text_description; ?>
+                                             <?php echo $node->text_description; ?>
                                          </p>
                                      </div>
                                  </div>
-                             </div>
+                            </div>
 
                          <?php } ?>
                      </div> <!-- /.widget-inner -->
