@@ -26,7 +26,7 @@ class EventModel extends CActiveRecord
 	{
 		return array(
 			'category'=>array(
-				self::BELONGS_TO, 'EventCategory', 'id_category')
+				self::BELONGS_TO, 'EventCategoryModel', 'id_category')
 			);
 	}
 	
