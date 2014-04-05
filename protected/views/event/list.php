@@ -2,6 +2,8 @@
 /* @var $this SiteController */
 
 $this->pageTitle=Yii::app()->name;
+//echo "<pre>";
+//print_r($arResult);
 ?>  
 
     <!-- Being Page Title -->
@@ -44,6 +46,7 @@ $this->pageTitle=Yii::app()->name;
                         <div class="load-more-btn"> 
                             <?php 
                                 $this->widget('CLinkPager', array (
+                                    'header'=>'',
                                     'firstPageLabel'=>'<<',
                                     'prevPageLabel'=>'<',
                                     'nextPageLabel'=>'>',
@@ -59,7 +62,6 @@ $this->pageTitle=Yii::app()->name;
 
             <!-- Here begin Sidebar -->
             <div class="col-md-4">
-
                 <div class="widget-main">
                     <div class="widget-main-title">
                         <h4 class="widget-title">Upcoming Events</h4>
