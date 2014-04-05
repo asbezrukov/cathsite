@@ -15,15 +15,15 @@ class EventController extends Controller {
         $count = EventModel::model()->count($criteria);
 
         $pages = new CPagination($count);
-        $pages->pageSize = 10;
+        $pages->pageSize = 5;
         $pages->applyLimit($criteria);
 
         $model = new EventModel();
         $arResult['recently'] = $model->recently(3);
 
         $arResult['pages'] = $pages;
-       //$data = EventModel::model()->recently();
-        $data = $model->recently();
+        $data = EventModel::model()->findAll($criteria);
+        //$data = $model->recently();
         $dataProvider = new CActiveDataProvider($model);
         $dataProvider->setData($data);
 		
