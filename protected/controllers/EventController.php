@@ -35,7 +35,16 @@ class EventController extends Controller {
     public function actionGrid() {
     }
 
-    public function actionDetail() {
+    public function actionDetail($id) {
+        $criteria = new CDbCriteria();
+        $model = new EventModel();
+
+        $criteria->condition = "id_event = :p1";
+        $criteria->params = array('p1'=>$id);
+
+        $arResult['data'] = $model->findAll($criteria);
+
+        $this->render('detail', array('arResult'=>$arResult));
     }
 
 }
