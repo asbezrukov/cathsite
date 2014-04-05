@@ -46,7 +46,7 @@ class EventController extends Controller {
         $data['category'] = $data->category;
 
         $arResult['data'] = $data;
-        $this->render('detail', array('arResult'=>$arResult));
+        $this->render('single', array('arResult'=>$arResult));
     }
 
 }
