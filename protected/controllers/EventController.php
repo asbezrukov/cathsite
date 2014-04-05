@@ -20,7 +20,7 @@ class EventController extends Controller {
         $pages->pageSize = 3;
         $pages->applyLimit($criteria);
 
-        $dataRecently = $model->recently(6, false);
+        $dataRecently = $model->recently(6, true);
 
         $data = $model->findAll($criteria);
         foreach ($data as $i=>$item) {
