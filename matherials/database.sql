@@ -276,7 +276,7 @@ CREATE TABLE `Employee` (
   `rank` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -285,6 +285,7 @@ CREATE TABLE `Employee` (
 
 LOCK TABLES `Employee` WRITE;
 /*!40000 ALTER TABLE `Employee` DISABLE KEYS */;
+INSERT INTO `Employee` VALUES (1,'Иванов','Иван','Иванович',NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'',0,'',NULL,NULL,NULL),(2,'Петров','Петр','Петрович','image/',NULL,NULL,NULL,'0000-00-00',NULL,NULL,'degree1',0,'position1',NULL,'All day, all night','rank1'),(3,'Сидоров','Иван','Петрович','image/',NULL,NULL,NULL,'0000-00-00',NULL,NULL,'degree1',0,'position2',NULL,'All day, all night','rank3'),(4,'Сотрудников','Сотрудник','Сотрудникович','image/',NULL,NULL,NULL,'0000-00-00',NULL,NULL,'degree2',0,'position3',NULL,'All day, all night','rank5');
 /*!40000 ALTER TABLE `Employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -521,7 +522,7 @@ CREATE TABLE `News` (
   PRIMARY KEY (`id_news`),
   KEY `fk_category` (`category`),
   CONSTRAINT `fk_category` FOREIGN KEY (`category`) REFERENCES `NewsCategory` (`id_newsCategory`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -530,6 +531,7 @@ CREATE TABLE `News` (
 
 LOCK TABLES `News` WRITE;
 /*!40000 ALTER TABLE `News` DISABLE KEYS */;
+INSERT INTO `News` VALUES (2,1,'0000-00-00','image/',0,'Title','Cool story bro','Text here'),(3,1,'2014-11-11','image/',0,'News1','Preview here...','Text here'),(4,1,'2014-11-12','image/',0,'News2','Preview here...','Text here'),(5,1,'2014-11-13','image/',0,'News3','Preview here...','Text here'),(6,1,'2014-11-14','image/',0,'News4','Preview here...','Text here'),(7,1,'2014-11-14','image/',0,'News5','Preview here...','Text here'),(8,1,'2014-11-14','image/',0,'News6','Preview here...','Text here'),(9,1,'2014-11-14','image/',0,'News7','Preview here...','Text here'),(10,1,'2014-11-14','image/',0,'News8','Preview here...','Text here');
 /*!40000 ALTER TABLE `News` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -545,7 +547,7 @@ CREATE TABLE `NewsCategory` (
   `nc_name` varchar(200) NOT NULL,
   PRIMARY KEY (`id_newsCategory`),
   UNIQUE KEY `id_newsCategory_UNIQUE` (`id_newsCategory`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -554,6 +556,7 @@ CREATE TABLE `NewsCategory` (
 
 LOCK TABLES `NewsCategory` WRITE;
 /*!40000 ALTER TABLE `NewsCategory` DISABLE KEYS */;
+INSERT INTO `NewsCategory` VALUES (1,'cat1');
 /*!40000 ALTER TABLE `NewsCategory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -696,4 +699,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-01  8:49:28
+-- Dump completed on 2014-04-06 18:04:45
