@@ -12,7 +12,7 @@ $this->pageTitle=Yii::app()->name;
                             <li>
                                 <img src="http://placehold.it/770x400" alt="Slide 1"/>
                                 <div class="slider-caption">
-                                    <h2><a href="blog-single.html">Последние новости</a></h2>
+                                    <h2><a href="?r=news/list" class="none">Последние новости</a></h2>
                                     <p>Самая актуальная новость...</p>
                                 </div>
                             </li>
@@ -53,7 +53,7 @@ $this->pageTitle=Yii::app()->name;
             <div class="row">
                 <div class="col-md-4">
                     <div class="informatory-widget">
-                        <h4 class="informatory-widget-title">НОВОСТИ</h4>
+                        <h4 class="informatory-widget-title"><a href="?r=news/list" class="none">НОВОСТИ</a></h4>
                         <u>
                             <ul class="list-links">
                                 <li> 
