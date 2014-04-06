@@ -5,19 +5,22 @@ class NewsModel extends CActiveRecord
     public $tempData = array();
 	public $image;
 
-	public function recently($limit=3)
+	public function recently($limit=null)
 	{
 		$criteria = new CDbCriteria;
 		$criteria->select = 'id_news, header, date_publication, preview, text_description';
 		$criteria->order = 'date_publication DESC';
-		$criteria->limit = $limit;
+        if(isset($limit))
+        {
+	       $criteria->limit = $limit;
+        }
 		return $this->findAll($criteria);
 	}
 	
 	public function relations()
 	{
 		return array(
-			'category' =>array(self::BELONGS_TO, 'NewsCategoryModel', 'category')
+			'iscategory' =>array(self::BELONGS_TO, 'NewsCategoryModel', 'category')
 		);
 	}
 	
