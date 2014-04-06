@@ -5,7 +5,7 @@ class NewsModel extends CActiveRecord
     public $tempData = array();
 	public $image;
 
-	public function last_news($limit=3)
+	public function recently($limit=3)
 	{
 		$criteria = new CDbCriteria;
 		$criteria->select = 'id_news, header, date_publication, preview, text_description';
