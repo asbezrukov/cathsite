@@ -27,7 +27,6 @@
                                 <h2 class="event-title"><?php echo CHtml::encode($arResult['data']->name_event); ?></h2> 
                                 <span class="event-time"><?php echo CHtml::encode($arResult['data']->hold_date); ?></span>
                                 <p><?php echo CHtml::encode($arResult['data']->text_description); ?></p>
-                                <div class="google-map-canvas" id="map-canvas" style="height: 210px;"></div>
                             </div> <!-- /.right-event-content -->
                         </div> <!-- /.event-container -->
                     </div>
@@ -43,11 +42,10 @@
                     </div> <!-- /.widget-main-title -->
                      <div class="widget-inner">
                          <?php foreach ($arResult['recently'] as $node) { ?>
-                             <?php //$temp=$node->getAttributes(); ?>
 
                             <div class="event-small-list clearfix">
                                  <div class="calendar-small">
-                                     <span class="s-month"><?php echo date_format(new DateTime($node->hold_date),"F"); ?></span>
+                                     <span class="s-month"><?php echo date_format(new DateTime($node->hold_date),"M"); ?></span>
                                      <span class="s-date"><?php echo date_format(new DateTime($node->hold_date),"d"); ?></span>
                                  </div>
                                  <div class="event-small-details">

@@ -74,7 +74,7 @@ $this->pageTitle=Yii::app()->name;
                         
                         <div class="event-small-list clearfix">
                              <div class="calendar-small">
-                                 <span class="s-month"><?php echo date_format(new DateTime($node->hold_date),"F"); ?></span>
+                                 <span class="s-month"><?php echo date_format(new DateTime($node->hold_date),"M"); ?></span>
                                  <span class="s-date"><?php echo date_format(new DateTime($node->hold_date),"d"); ?></span>
                              </div>
                              <div class="event-small-details">
