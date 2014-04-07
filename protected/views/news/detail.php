@@ -1,12 +1,11 @@
-
-    <!-- Being Page Title -->
+ <!-- Being Page Title -->
     <div class="container">
         <div class="page-title clearfix">
             <div class="row">
                 <div class="col-md-12">
-                    <h6><a href="index.html">Home</a></h6>
-                    <h6><a href="blog.html">Blog</a></h6>
-                    <h6><span class="page-active">Theatre Production Selected for Regional Festival</span></h6>
+                    <h6><a href="/">Главная</a></h6>
+                    <h6><a href="/?r=news/list">Все новости</a></h6>
+                    <h6><span class="page-active"><?php echo $arResult['data']->header; ?></span></h6>
                 </div>
             </div>
         </div>
@@ -26,24 +25,21 @@
                                 <img src="http://placehold.it/750x390" alt="">
                                 <div class="blog-post-meta">
                                     <ul>
-                                        <li><i class="fa fa-calendar-o"></i>24/01/2014</li>
+                                        <li><i class="fa fa-calendar-o"></i><?php echo $arResult['data']->date_publication; ?></li>
                                         <li><a href="#blog-comments"><i class="fa fa-comments"></i>3 comments</a></li>
                                         <li><a href="#blog-author"><i class="fa fa-user"></i>Esmet Hajrizi</a></li>
                                     </ul>
                                 </div> <!-- /.blog-post-meta -->
                             </div> <!-- /.blog-post-image -->
                             <div class="blog-post-inner">
-                                <h3 class="blog-post-title">Theatre Production Selected for Regional Festival</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, quis, itaque culpa rem excepturi cum sunt quae obcaecati corrupti fugiat facere error eos necessitatibus iure ut voluptates dolor enim provident!</p>
-                                <p><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, perspiciatis, ad, pariatur placeat facere laborum aspernatur quidem sint illum eos mollitia repellendus consectetur obcaecati possimus cupiditate delectus dolores eaque blanditiis?</strong></p>
-                                <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, cum, quos ipsam eligendi accusantium quo amet quae commodi obcaecati nobis ratione soluta. Voluptates, obcaecati consectetur officia saepe rerum animi doloremque!</blockquote>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, magni, blanditiis, excepturi accusantium fugiat enim accusamus non libero doloribus doloremque illo error perferendis sequi dignissimos nesciunt voluptates nulla voluptatibus optio.</p>
-                                <div class="tag-items">
+                                <h3 class="blog-post-title"><?php echo $arResult['data']->header; ?></h3>
+                                <p><?php echo $arResult['data']->text_description; ?></p>
+                                <!--<div class="tag-items">
                                     <span class="small-text">Tags:</span>
                                     <a href="#" rel="tag">business</a>
                                     <a href="#" rel="tag">html</a>
                                     <a href="#" rel="tag">education</a>
-                                </div>
+                                </div>-->
                             </div>
                         </div> <!-- /.blog-post-container -->
                     </div> <!-- /.col-md-12 -->
@@ -53,26 +49,14 @@
                     <div class="col-md-12">
                         <div class="prev-next-post clearfix">
                             <span class="whiteBtn">
-                                <a href="" class="prev"><i class="fa fa-angle-left"></i>Older Post</a>
+                                <?  if (($arResult['data']['id_news']-1)!=null) { $prev = $arResult['data']['id_news']-1; } else {$prev = null;}
+                                    if (($arResult['data']['id_news']+1)!=null) { $next = $arResult['data']['id_news']+1; }?>
+                                <a href="?r=news/detail&id=<?=$prev?>" class="prev"><i class="fa fa-angle-left"></i>Предыдущая новость</a>
                             </span>
                             <span class="whiteBtn">
-                                <a href="" class="next">Newer Post<i class="fa fa-angle-right"></i></a>
+                                <a href="?r=news/detail&id=<?=$next?>" class="next">Следующая новость<i class="fa fa-angle-right"></i></a>
                             </span>
                         </div>
-                    </div> <!-- /.col-md-12 -->
-                </div> <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="blog-author" class="clearfix">
-                            <a href="#" class="blog-author-img">
-                                <img src="http://placehold.it/80x80" alt="">
-                            </a>
-                            <div class="blog-author-info">
-                                <h4 class="author-name"><a href="#">Esmet Hajrizi</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, quod, doloremque, quia cum maiores commodi consequatur dolore et dolores omnis officiis minus dolor ex quae incidunt veritatis.</p>
-                            </div>
-                        </div> <!-- /.blog-author -->
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
                 
@@ -177,25 +161,14 @@
 
                 <div class="widget-main">
                     <div class="widget-main-title">
-                        <h4 class="widget-title">Categories</h4>
+                        <h4 class="widget-title">Категории</h4>
                     </div>
                     <div class="widget-inner">
-                        <div class="blog-categories">
-                            <div class="row">
-                                <ul class="col-md-6">
-                                    <li><a href="#">Business</a></li>
-                                    <li><a href="#">Famliy</a></li>
-                                    <li><a href="#">Government</a></li>
-                                    <li><a href="#">Health</a></li>
-                                </ul>
-                                <ul class="col-md-6">
-                                    <li><a href="#">Science</a></li>
-                                    <li><a href="#">Student Achievements</a></li>
-                                    <li><a href="#">Tech & Engineering</a></li>
-                                </ul>
-                            </div>
-                        </div> <!-- /.blog-categories -->
-                    </div> <!-- /.widget-inner -->
+                     <?php     
+                        foreach ($arResult['category'] as $node) {?>
+                        <h5 class="event-small-title"><a href="?r=news/category$id="><?php echo $node->nc_name; ?></a></h5>                           
+                    <?}?>    
+                    </div> <!-- /.widget-inner --> 
                 </div> <!-- /.widget-main -->
 
                 

@@ -33,6 +33,6 @@ class NewsController extends Controller
 	{
         $arResult['data'] = NewsModel::model()->findByPk($id);
         $arResult['category'] = NewsCategoryModel::model()->findAll();
-		$this->render('Detail', array('arResult'=>$arResult));
+		$this->render('detail', array('arResult'=>$arResult));
 	}
 }
