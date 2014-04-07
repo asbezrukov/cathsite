@@ -424,7 +424,6 @@ blockquote h5 {
 .gallery-item,
 .blog-grid-item,
 .blog-post-container,
-.prev-next-post,
 #blog-author,
 .blog-post-comments,
 .contact-page-content,
@@ -1031,6 +1030,15 @@ input, select {
   padding: 0 8px;
 }
 
+.pag {
+  margin-left: -40px;
+}
+
+.prev-next-post {
+  margin-top: 15px; 
+  float: left;
+}
+
 .prev-next-post .whiteBtn {
   border-bottom: 2px solid;
   display: inline-block;
@@ -1042,9 +1050,25 @@ input, select {
 .prev-next-post a {
   display: block;
   padding: 10px 20px;
+  text-decoration: none; 
   float: left;
   font-weight: 700;
 }
+
+.prev-next-post a:visited {
+  text-decoration: none;
+}
+
+.prev-next-post a:focus {
+  text-decoration: none;
+  color: !important;
+}
+
+.prev-next-post a:hover {
+  text-decoration: none;
+  color: #282a2c;
+}
+
 .prev-next-post .prev i {
   margin-right: 10px;
 }
