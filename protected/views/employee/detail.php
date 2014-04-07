@@ -3,8 +3,8 @@
         <div class="page-title clearfix">
             <div class="row">
                 <div class="col-md-12">
-                    <h6><a href="?r=site/index">Главная</a></h6>
-                    <h6><a href="#">Преподаватели</a></h6>
+                    <h6><a href="/">Главная</a></h6>
+                    <h6><a href="/?r=employee/list">Преподаватели</a></h6>
                     <h6><span class="page-active">Преподаватель</span></h6>
 					<div class="grid-or-list">
                         <ul>
