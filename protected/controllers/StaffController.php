@@ -2,15 +2,6 @@
 
 class StaffController extends Controller
 {
-
-	public function actionIndex()
-	{
-		$model = new EmployeeModel();
-		$arResult['recently'] = $model->recently(3);
-	
-	
-		$this->render('index', array('arResult'=>$arResult));
-	}
 	
 	public function actionList()
 	{
@@ -30,11 +21,6 @@ class StaffController extends Controller
 		$arResult['dataProvider'] = $dataProvider;
         $this->render('list', array('arResult'=>$arResult));
 	}
-	
-	public function actionGrid()
-	{
-	 
-    }
 	
 	public function actionDetail($id)
 	{
