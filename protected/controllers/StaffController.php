@@ -2,6 +2,7 @@
 
 class StaffController extends Controller
 {
+
 	public function actionIndex()
 	{
 		$model = new EmployeeModel();
@@ -13,27 +14,35 @@ class StaffController extends Controller
 	
 	public function actionList()
 	{
-	$criteria = new CDbCriteria();
-	$count = EmployeeModel::model()->count($criteria);
+	    $criteria = new CDbCriteria();
+        $model = new EmployeeModel();
+
+	    $count = $model->count($criteria);
 		$pages = new CPagination($count); 
-		$pages->pageSize = 10;
+		$pages->pageSize = 20;
         $pages->applyLimit($criteria);
 
-        $arResult['pages'] = $pages;
-        $data = $model->recently();
+        $data = $model->findAll($criteria);
         $dataProvider = new CActiveDataProvider($model);
         $dataProvider->setData($data);
+
+        $arResult['pages'] = $pages;
 		$arResult['dataProvider'] = $dataProvider;
         $this->render('list', array('arResult'=>$arResult));
 	}
 	
-	    public function actionGrid() 
+	public function actionGrid()
 	{
 	 
     }
 	
-	public function actionDetail()
+	public function actionDetail($id)
 	{
+        $model = new EmployeeModel();
+
+        $data = $model->findByPk($id);
+
+        $arResult['data'] = $data;
 		$this->render('Detail');	
 	}
 }

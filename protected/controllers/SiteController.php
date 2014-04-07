@@ -4,13 +4,15 @@ class SiteController extends Controller
 {
 	public function actionIndex()
 	{
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+        $model = new EmployeeModel();
+
+        $arResult['random_employees'] = $model->getEmployees(3, true);
+
+		$this->render('index', array('arResult'=>$arResult));
 	}
         
-        public function actionContacts()
-        {
-            $this->render('contacts');
-        }
+    public function actionContacts()
+    {
+        $this->render('contacts');
+    }
 }
