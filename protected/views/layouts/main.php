@@ -90,7 +90,7 @@
                     <div class="logo left">
                         <!---logo-imkn-->
                         <a href="http://imkn.ru/" title="ИМиКН" rel="nofollow">
-                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_IMKN.png" alt="ИМиКН">
+                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_IMKNnew.png" alt="ИМиКН">
                         </a> 
                     </div><!-- /.logo.left -->
                 </div><!-- /.col-md-4 -->
