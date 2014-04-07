@@ -29,8 +29,10 @@ class NewsController extends Controller
         $this->render('list', array('arResult'=>$arResult));
     }
 	
-	public function actionDetail()
+	public function actionDetail($id)
 	{
-		$this->render('Detail');	
+        $arResult['data'] = NewsModel::model()->findByPk($id);
+        $arResult['category'] = NewsCategoryModel::model()->findAll();
+		$this->render('Detail', array('arResult'=>$arResult));
 	}
 }
