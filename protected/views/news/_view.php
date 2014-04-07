@@ -1,7 +1,7 @@
 <div class="col-md-6 col-sm-6">
     <div class="blog-grid-item">
         <div class="blog-grid-thumb">
-            <a href="?r=news/detail&id=<?=$data['id_news']?>" class="cat-blog"><?php echo CHtml::encode($data->header); ?></a>
+            <a href="?r=news/detail&id=<?=$data['id_news']?>" class="cat-blog"><?php echo CHtml::encode($data->category->nc_name); ?></a>
             <a href="?r=news/detail&id=<?=$data['id_news']?>">
                 <img src="http://placehold.it/360x220" alt="">
             </a>

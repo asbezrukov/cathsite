@@ -15,7 +15,7 @@ class NewsController extends Controller
 
         $data = $model->findAll($criteria);
         foreach ($data as $i=>$item) {
-            $data[$i]->category = $model->findByPk($item->id_news)->category;
+            $data[$i]->category = $model->findByPk($item->id_news)->news_category;
         }
 
         $dataProvider = new CActiveDataProvider($model);

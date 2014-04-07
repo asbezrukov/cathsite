@@ -20,7 +20,7 @@ class NewsModel extends CActiveRecord
 	public function relations()
 	{
 		return array(
-			'iscategory' =>array(self::BELONGS_TO, 'NewsCategoryModel', 'category')
+			'news_category' =>array(self::BELONGS_TO, 'NewsCategoryModel', 'category')
 		);
 	}
 	
