@@ -28,11 +28,20 @@ class NewsController extends Controller
 
         $this->render('list', array('arResult'=>$arResult));
     }
-	
-	public function actionDetail($id)
-	{
+
+    public function actionDetail($id)
+    {
+        $criteria = new CDbCriteria;
+        $model = new NewsModel;
+
+        $pages = new CPagination($model->count($criteria));
+        $pages->pageSize = 1;
+        $pages->setCurrentPage($id);
+        $pages->applyLimit($criteria);
+
+        $arResult['pages'] = $pages;
         $arResult['data'] = NewsModel::model()->findByPk($id);
         $arResult['category'] = NewsCategoryModel::model()->findAll();
-		$this->render('detail', array('arResult'=>$arResult));
-	}
+        $this->render('Detail', array('arResult'=>$arResult));
+    }
 }
