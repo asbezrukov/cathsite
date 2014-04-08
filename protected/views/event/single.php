@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                     <h6><a href="/">Главная</a></h6>
                     <h6><a href="/?r=event/list">Все события</a></h6>
-                    <h6><span class="page-active">Public and Patient Involvement in Health Research</span></h6>
+                    <h6><span class="page-active"><?php echo CHtml::encode($arResult['data']->name_event); ?></span></h6>
                 </div>
             </div>
         </div>

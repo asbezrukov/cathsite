@@ -112,7 +112,7 @@ $this->pageTitle=Yii::app()->name;
                                         <div class="informatory_list"> 
                                             <a href="?r=event/single&id=<?=$node->id_event?>"> 
                                                 <div class="col-md-2"> 
-                                                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
+                                                    <img src="" alt=""> 
                                                 </div> 
                                                 <div class="col-md-10"> 
                                                     <a href="?r=event/single&id=<?=$node->id_event?>">
