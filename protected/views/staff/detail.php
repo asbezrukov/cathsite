@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h6><a href="/">Главная</a></h6>
-                    <h6><a href="/?r=employee/list">Преподаватели</a></h6>
+                    <h6><a href="/?r=staff/list">Преподаватели</a></h6>
                     <h6><span class="page-active">Преподаватель</span></h6>
 					<div class="grid-or-list">
                         <ul>
@@ -27,24 +27,16 @@
                         <div class="event-container clearfix">
                             <div class="left-event-content">
                                 <img src="http://placehold.it/225x240" alt="">
-                                <div class="event-contact">
-                                    <h4>Контакты</h4>
-                                    <ul>
-                                        <li>Название Кафедры</li>
-                                        <li>№ кабинета</li>
-                                        <li>Телефон</li>
-                                    </ul>
-                                </div>
                             </div> <!-- /.left-event-content -->
                             <div class="right-event-content">
-                                <h2 class="event-title">Ф.И.О.</h2> 
-                                <p>Звание, степень, должность</p>
-                                <p>"немного о себе"</p>
-                                <p>время консультаций</p>
-                                </div>
+                                <h2 class="event-title"><?php echo CHtml::encode($arResult['data']->surname).' '.CHtml::encode($arResult['data']->name).' '.CHtml::encode($arResult['data']->patronymic); ?></h2> 
+                                <p><?php echo CHtml::encode($arResult['data']->rank).'  '.CHtml::encode($arResult['data']->degree).'  '.CHtml::encode($arResult['data']->position); ?></p>
+                                <p><?php echo CHtml::encode($arResult['data']->consult_time);?></p>
+                                 
                             </div> <!-- /.right-event-content -->
+                        </div>
                         </div> <!-- /.event-container -->
-                    </div>
+                     
                 </div> <!-- /.row -->
             </div> <!-- /.col-md-8 -->
 

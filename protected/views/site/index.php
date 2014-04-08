@@ -147,7 +147,7 @@ $this->pageTitle=Yii::app()->name;
                 </div>
                 <div class="col-md-4">
                     <div class="informatory-widget">
-                        <h4 class="informatory-widget-title"><a href="/?r=employee/list" class="none">Преподаватели</a></h4>
+                        <h4 class="informatory-widget-title"><a href="/?r=staff/list" class="none">Преподаватели</a></h4>
                         <u>
                             <ul class="list-links">
                                 <?php 
@@ -163,7 +163,7 @@ $this->pageTitle=Yii::app()->name;
                                                 </div> 
                                                 <div class="col-md-10"> 
                                                     <a href="?r=employee/detail&id=<?=$node->id?>">
-                                                        <?php echo $node->surname.' '.$node->name.' '.$node->patron; ?>
+                                                        <?php echo $node->surname.' '.$node->name.' '.$node->patronymic; ?>
                                                     </a> 
                                                     <br/> <time> <?php echo $node->rank.' '.$node->degree; ?> </time> 
                                                 </div> 

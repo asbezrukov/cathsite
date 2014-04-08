@@ -28,6 +28,6 @@ class StaffController extends Controller
         $data = $model->findByPk($id);
 
         $arResult['data'] = $data;
-        $this->render('Detail');
+        $this->render('detail', array('arResult' => $arResult));
     }
 }
