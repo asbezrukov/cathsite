@@ -147,47 +147,33 @@ $this->pageTitle=Yii::app()->name;
                 </div>
                 <div class="col-md-4">
                     <div class="informatory-widget">
-                        <h4 class="informatory-widget-title">Преподаватели</h4>
+                        <h4 class="informatory-widget-title"><a href="/?r=employee/list" class="none">Преподаватели</a></h4>
                         <u>
                             <ul class="list-links">
+                                <?php 
+                                for ($i = 0; $i < count($arResult['random_employees']); ++$i) { 
+                                    $node = $arResult['random_employees'][$i];
+                                    ?>
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="http://www.imkn.ru/KIB/shirokikh"> 
+                                            <a href="?r=employee/detail&id=<?=$node->id?>"> 
                                                 <div class="col-md-2"> 
                                                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
                                                 </div> 
-                                                <div class="col-md-10"> Широких А.В. </div> 
+                                                <div class="col-md-10"> 
+                                                    <a href="?r=employee/detail&id=<?=$node->id?>">
+                                                        <?php echo $node->surname.' '.$node->name.' '.$node->patron; ?>
+                                                    </a> 
+                                                    <br/> <time> <?php echo $node->rank.' '.$node->degree; ?> </time> 
+                                                </div> 
                                             </a>
                                         </div> 
-                                        <hr>
+                                        <? if ($i!=(count($arResult['random_employees'])-1)) {
+                                         echo '<hr>'; } else { }?>
                                     </div> 
                                 </li>
-                                <li> 
-                                    <div class="row"> 
-                                        <div class="informatory_list"> 
-                                            <a                      href="http://www.imkn.ru/KIB/Nissenbaum/SitePages/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%8F%D1%8F.aspx"> 
-                                                <div class="col-md-2"> 
-                                                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
-                                                </div> 
-                                                <div class="col-md-10"> Ниссенбаум О.В. </div> 
-                                            </a>
-                                        </div> 
-                                        <hr> 
-                                    </div> 
-                                </li>
-                                <li> 
-                                    <div class="row"> 
-                                        <div class="informatory_list"> 
-                                            <a href="http://www.imkn.ru/KIB/Olennikov/SitePages/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%8F%D1%8F.aspx"> 
-                                                <div class="col-md-2"> 
-                                                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
-                                                </div> 
-                                                <div class="col-md-10"> Оленников Е.А. </div> 
-                                            </a> 
-                                        </div>
-                                    </div> 
-                                </li>
+                                <?}?>
                             </ul>
                         </u>
                     </div>
