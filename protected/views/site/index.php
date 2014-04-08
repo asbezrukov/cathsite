@@ -157,12 +157,12 @@ $this->pageTitle=Yii::app()->name;
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="?r=employee/detail&id=<?=$node->id?>"> 
+                                            <a href="?r=staff/detail&id=<?=$node->id?>"> 
                                                 <div class="col-md-2"> 
-                                                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
+                                                    <img src="" alt=""> 
                                                 </div> 
                                                 <div class="col-md-10"> 
-                                                    <a href="?r=employee/detail&id=<?=$node->id?>">
+                                                    <a href="?r=staff/detail&id=<?=$node->id?>">
                                                         <?php echo $node->surname.' '.$node->name.' '.$node->patronymic; ?>
                                                     </a> 
                                                     <br/> <time> <?php echo $node->rank.' '.$node->degree; ?> </time> 
