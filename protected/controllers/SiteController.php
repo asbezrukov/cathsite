@@ -10,7 +10,7 @@ class SiteController extends Controller
 
 		$this->render('index', array('arResult'=>$arResult));
 	}
-        
+
     public function actionContacts()
     {
         $this->render('contacts');

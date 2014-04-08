@@ -8,11 +8,11 @@ class EmployeeModel extends CActiveRecord
 	public function getEmployees($limit=null, $random=false)
 	{
 		$criteria=new CDbCriteria;
-		$criteria->select='id, surname, name, patron, photo, rank, degree, position, consult_time';
+		$criteria->select='id, surname, name, patronymic, photo, rank, degree, position, consult_time';
 		if($random)
 		{
 			$criteria->condition='photo is not null';
-			$criteria->order='id rand()';
+			$criteria->order='rand()';
 		}
 		else
 		{
