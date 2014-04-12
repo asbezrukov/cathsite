@@ -2,6 +2,16 @@
 
 class StaffController extends Controller
 {
+
+    public function actions() {
+        return array(
+            'create' => 'application.controllers.crud.ActionCreate',
+            'read'   => 'application.controllers.crud.ActionRead',
+            'update' => 'application.controllers.crud.ActionUpdate',
+            'delete' => 'application.controllers.crud.ActionDelete'
+        );
+    }
+
     public function actionList()
     {
         $criteria = new CDbCriteria();
