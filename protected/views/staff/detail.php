@@ -5,10 +5,10 @@
                 <div class="col-md-12">
                     <h6><a href="/">Главная</a></h6>
                     <h6><a href="/?r=staff/list">Преподаватели</a></h6>
-                    <h6><span class="page-active">Преподаватель</span></h6>
+                    <h6><span class="page-active"><?php echo CHtml::encode($arResult['data']->surname).' '.CHtml::encode($arResult['data']->name).' '.CHtml::encode($arResult['data']->patronymic); ?></span></h6>
 					<div class="grid-or-list">
                         <ul>
-                            <li><a href="#" title="Редактировать"><img src="/images/edit.png"></a></li>
+                            <li><a href="?r=staff/update&mid=employee&id=<?=$arResult['data']['id']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
                             <li><a href="#" title="Удалить"><img src="/images/delete.png"></a></li>
                         </ul>
                     </div>
