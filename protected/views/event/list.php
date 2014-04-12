@@ -16,8 +16,7 @@ $this->pageTitle=Yii::app()->name;
                     <h6><span class="?r=event/list">Все события</span></h6>
                     <div class="grid-or-list">
                         <ul>
-                            <li><a href="events-grid.html"><i class="fa fa-th"></i></a></li>
-                            <li><a href="events-list.html"><i class="fa fa-list"></i></a></li>
+                            <li><a href="?r=event/create&mid=event" title="Добавить"><img src="/images/add.png"></a></li>
                         </ul>
                     </div>
                 </div>
