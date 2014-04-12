@@ -42,7 +42,7 @@
 		<?php echo $form->textArea($model,'photo',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'photo'); ?>
 	</div>
-	
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'prof_interest'); ?>
 		<?php echo $form->textArea($model,'prof_interest',array('rows'=>6, 'cols'=>50)); ?>
@@ -63,10 +63,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'begin_date'); ?>
-		<?php echo $form->textField($model,'begin_date'); ,array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->textField($model,'begin_date'); ?>
 		<?php echo $form->error($model,'begin_date'); ?>
 	</div>
-	
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->textField($model,'email',array('rows'=>6, 'cols'=>50)); ?>
@@ -87,10 +87,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'lecturer'); ?>
-		<?php echo $form->textField($model,'lecturer'); ,array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->textField($model,'lecturer'); ?>
 		<?php echo $form->error($model,'lecturer'); ?>
 	</div>
-	
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'position'); ?>
 		<?php echo $form->textArea($model,'position',array('rows'=>6, 'cols'=>50)); ?>
@@ -111,7 +111,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'rank'); ?>
-		<?php echo $form->textArea($model,'rank'); ,array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->textArea($model,'rank'); ?>
 		<?php echo $form->error($model,'rank'); ?>
 	</div>
 

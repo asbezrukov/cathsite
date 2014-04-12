@@ -28,7 +28,7 @@ class ActionCreate extends CrudAction
                 $this->redirect(array('admin', 'mid'=>$mid));
         }
 
-        $this->render($mid.'/create',array(
+        $this->controller->render('crud/_form',array(
             'model'=>$model,
         ));
     }

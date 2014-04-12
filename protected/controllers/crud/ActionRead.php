@@ -18,8 +18,12 @@ class ActionRead extends CrudAction
 {
     public function run($mid, $id)
     {
-        $this->render($mid.'/view',array(
-            'model'=>$this->loadModel($mid, $id),
+        $model = $this->loadModel($mid, $id);
+
+        $arResult['data'] = $model;
+
+        $this->controller->render('detail', array(
+            'arResult'=>$arResult,
         ));
     }
 }

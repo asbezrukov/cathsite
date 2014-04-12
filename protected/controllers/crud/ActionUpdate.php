@@ -29,8 +29,8 @@ class ActionUpdate extends CrudAction
                 $this->redirect(array('view', 'mid'=>$mid, 'id'=>$id));
         }
 
-        $this->render($mid.'/update',array(
-        'model'=>$model,
+        $this->controller->render('crud/_form',array(
+            'model'=>$model,
         ));
     }
 }
