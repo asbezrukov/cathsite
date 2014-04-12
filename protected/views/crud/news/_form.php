@@ -20,27 +20,51 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'news_title'); ?>
-		<?php echo $form->textArea($model,'news_title',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'news_title'); ?>
+		<?php echo $form->labelEx($model,'id_news'); ?>
+		<?php echo $form->textField($model,'id_news',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'id_news'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'news_announcement'); ?>
-		<?php echo $form->textArea($model,'news_announcement',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'news_announcement'); ?>
+		<?php echo $form->labelEx($model,'category'); ?>
+		<?php echo $form->textField($model,'category',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'category'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'news_body'); ?>
-		<?php echo $form->textArea($model,'news_body',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'news_body'); ?>
+		<?php echo $form->labelEx($model,'date_publication'); ?>
+		<?php echo $form->textField($model,'date_publication',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'date_publication'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'news_create'); ?>
-		<?php echo $form->textField($model,'news_create'); ?>
-		<?php echo $form->error($model,'news_create'); ?>
+		<?php echo $form->labelEx($model,'news_pictures'); ?>
+		<?php echo $form->textArea($model,'news_pictures',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'news_pictures'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'publication_name'); ?>
+		<?php echo $form->textField($model,'publication_name',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'publication_name'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'header'); ?>
+		<?php echo $form->textArea($model,'header',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'header'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'prewiew'); ?>
+		<?php echo $form->textArea($model,'prewiew',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'prewiew'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'text_description'); ?>
+		<?php echo $form->textArea($model,'text_description',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'text_description'); ?>
 	</div>
 
 	<div class="row buttons">
