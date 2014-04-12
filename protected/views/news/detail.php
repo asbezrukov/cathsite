@@ -6,6 +6,12 @@
                     <h6><a href="/">Главная</a></h6>
                     <h6><a href="/?r=news/list">Все новости</a></h6>
                     <h6><span class="page-active"><?php echo $arResult['data']->header; ?></span></h6>
+                    <div class="grid-or-list">
+                        <ul>
+                            <li><a href="?r=news/update&mid=news&id=<?=$arResult['data']['id_news']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
+                            <li><a href="?r=news/delete&mid=news&id=<?=$arResult['data']['id_news']?>" title="Удалить"><img src="/images/delete.png"></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
