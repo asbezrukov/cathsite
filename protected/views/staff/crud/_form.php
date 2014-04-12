@@ -15,110 +15,188 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'surname'); ?>
-		<?php echo $form->textArea($model,'surname',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'surname'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textArea($model,'name',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'patronymic'); ?>
-		<?php echo $form->textArea($model,'patronymic',array('rows'=>6, 'cols'=>50)); ?>
+	<div class="container">
+        <div class="page-title clearfix">
+            <div class="row">
+                <div class="col-md-12">
+                    <h6><a href="/">Главная</a></h6>
+                    <h6><span class="page-active">Форма</span></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="tableForm"> 
+<table> 
+	<tr> <td><p class="note">Поля со <span class="required">*</span> обязательны.</p> </td> <td> </td></tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'surname'); ?>
+		</td>
+		<td>
+			<?php echo $form->textField($model,'surname'); ?>
+			<?php echo $form->error($model,'surname'); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'name'); ?> 
+		</td>
+		<td>
+			<?php echo $form->textField($model,'name'); ?>
+			<?php echo $form->error($model,'name'); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'patronymic'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textField($model,'patronymic'); ?>
 		<?php echo $form->error($model,'patronymic'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'photo'); ?>
-		<?php echo $form->textArea($model,'photo',array('rows'=>6, 'cols'=>50)); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>	
+			<?php echo $form->labelEx($model,'photo'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textField($model,'photo'); ?>
 		<?php echo $form->error($model,'photo'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'prof_interest'); ?>
-		<?php echo $form->textArea($model,'prof_interest',array('rows'=>6, 'cols'=>50)); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'prof_interest'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textArea($model,'prof_interest',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'prof_interest'); ?>
-	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'projects'); ?>
-		<?php echo $form->textArea($model,'projects',array('rows'=>6, 'cols'=>50)); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'projects'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textArea($model,'projects',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'projects'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'languages'); ?>
-		<?php echo $form->textArea($model,'languages',array('rows'=>6, 'cols'=>50)); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'languages'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textArea($model,'languages',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'languages'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'begin_date'); ?>
-		<?php echo $form->textField($model,'begin_date'); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'begin_date'); ?>
+	
+		</td>
+		<td>
+				<?php echo $form->textField($model,'begin_date'); ?>
 		<?php echo $form->error($model,'begin_date'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('rows'=>6, 'cols'=>50)); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'email'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textField($model,'email'); ?>
 		<?php echo $form->error($model,'email'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'phone'); ?>
-		<?php echo $form->textField($model,'phone',array('rows'=>6, 'cols'=>50)); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'phone'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textField($model,'phone'); ?>
 		<?php echo $form->error($model,'phone'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'degree'); ?>
-		<?php echo $form->textField($model,'degree',array('rows'=>6, 'cols'=>50)); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'degree'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textField($model,'degree'); ?>
 		<?php echo $form->error($model,'degree'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'lecturer'); ?>
-		<?php echo $form->textField($model,'lecturer'); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'lecturer'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textField($model,'lecturer'); ?>
 		<?php echo $form->error($model,'lecturer'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'position'); ?>
-		<?php echo $form->textArea($model,'position',array('rows'=>6, 'cols'=>50)); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'position'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textField($model,'position'); ?>
 		<?php echo $form->error($model,'position'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'training'); ?>
-		<?php echo $form->textArea($model,'training',array('rows'=>6, 'cols'=>50)); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>	
+			<?php echo $form->labelEx($model,'training'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textArea($model,'training',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'training'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'consult_time'); ?>
-		<?php echo $form->textArea($model,'consult_time',array('rows'=>6, 'cols'=>50)); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'consult_time'); ?>
+		
+		</td>
+		<td>
+			<?php echo $form->textField($model,'consult_time'); ?>
 		<?php echo $form->error($model,'consult_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'rank'); ?>
-		<?php echo $form->textArea($model,'rank'); ?>
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo $form->labelEx($model,'rank'); ?>
+	
+		</td>
+		<td>
+				<?php echo $form->textField($model,'rank'); ?>
 		<?php echo $form->error($model,'rank'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
-
+		</td>
+	</tr>
+	<tr> 
+		<td>
+			<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
+		</td>
+		
+	</tr>
 <?php $this->endWidget(); ?>
-<a href=<?=Yii::app()->createUrl('crud/admin', array('mid'=>'news')); ?>>Показать таблицу</a>
+
+</table>
+</div>
 </div><!-- form -->
