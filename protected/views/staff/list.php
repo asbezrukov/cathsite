@@ -9,7 +9,11 @@
                     <h6><a href="/">Главная</a></h6>
                     <h6><span class="page-active">Преподаватели</span></h6>
                 </div>
-				<a href="#" title="добавить"><img src="/images/add.png"></a>
+				<div class="grid-or-list">
+                    <ul>
+                        <li><a href="#" title="добавить"><img src="/images/add.png"></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
