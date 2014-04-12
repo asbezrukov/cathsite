@@ -32,16 +32,20 @@ class EmployeeModel extends CActiveRecord
     public function rules() {
         
         return array(
-			array('image', 'file', 'types'=>'jpg, gif, png'),
+
+			//array('image', 'file', 'types'=>'jpg, gif, png'),
         );
     }   
 
-    public function beforeSave() {
+    public function beforeSave()
+    {
+        $this->setAttributes($this->tempData, false);
 
-        if ($this->validate())
+        if ($this->validate()) {
             return true;
-        else
+        } else {
             return false;
+        }
     }
 
     public function afterSave() {

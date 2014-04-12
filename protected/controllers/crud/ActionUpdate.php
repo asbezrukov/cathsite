@@ -25,8 +25,9 @@ class ActionUpdate extends CrudAction
             //Метод save автоматически вызывает метод beforeSave модели, в котором записываются данные из переменной '$model->tempData' в модель, проходят валидацию и сохраняются.
             //Метод beforeSave у каждой модели свой.
             $model->tempData = $data;
+
             if($model->save())
-                $this->redirect(array('view', 'mid'=>$mid, 'id'=>$id));
+                $this->controller->redirect(array('detail', 'id'=>$id));
         }
 
         $this->controller->render('crud/_form',array(

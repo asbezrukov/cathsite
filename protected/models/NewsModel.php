@@ -25,7 +25,7 @@ class NewsModel extends CActiveRecord
     {
         return array();
     }
-		
+
     public function search()
     {
 

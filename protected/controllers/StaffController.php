@@ -12,6 +12,14 @@ class StaffController extends Controller
         );
     }
 
+    public function actionTest() {
+        $model = new EmployeeModel();
+        $data = $model->findByPk(9);
+        $data->surname = "123";
+        $data->name = "56123";
+        $data->save();
+    }
+
     public function actionList()
     {
         $criteria = new CDbCriteria();
