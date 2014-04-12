@@ -9,7 +9,7 @@
 					<div class="grid-or-list">
                         <ul>
                             <li><a href="?r=staff/update&mid=employee&id=<?=$arResult['data']['id']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
-                            <li><a href="#" title="Удалить"><img src="/images/delete.png"></a></li>
+                            <li><a href="?r=staff/delete&mid=employee&id=<?=$arResult['data']['id']?>" title="Удалить"><img src="/images/delete.png"></a></li>
                         </ul>
                     </div>
                 </div>
