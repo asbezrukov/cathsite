@@ -7,7 +7,7 @@ class CrudAction extends CAction
      *  Метод создает и возвращает экземпляр класса модели, если введен $id записи то возвращается модель с этой записью.
      *
      *  Входные параметры:
-     *      $mid - название модели для которой нужно создать экзэмп. класса;
+     *      $mid - название модели (без окончания Model) для которой нужно создать экзэмп. класса;
      *      $id - идентификтор записи по которому нужно получить ее после создания экземп. класса (по ум. null).
      *
      **/
@@ -17,11 +17,11 @@ class CrudAction extends CAction
         $className = $this->modelClassFormatter($mid);
         //Создаем класс модели.
         $object = new $className();
-        if ($object===null)
+        if (!isset($object))
             throw new CHttpException(404,'Класс "'.$className.'" не найден');
 
         //Если указан id получаем по нему строку модели.
-        if (!empty($id) || $id !== null) {
+        if (isset($id) && !empty($id)) {
             return $this->getModel($object, $id);
         }
 
