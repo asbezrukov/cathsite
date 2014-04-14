@@ -20,7 +20,7 @@ class EventModel extends CActiveRecord
 		}
 		return $this->findAll($criteria);
 	}
-	
+
 	public function relations()
 	{
 		return array(
@@ -46,17 +46,32 @@ class EventModel extends CActiveRecord
     public function tableName() {
         return 'Event';
     }
-    
+
+    public function imageFieldName() {
+        return 'url_pictures';
+    }
+
+    public function getImageUrl() {
+        if (empty($this->url_pictures))
+            return false;
+        return Yii::app()->baseUrl."/protected/upload/".$this->url_pictures;
+    }
+
     public function rules() {
         
         return array(
-			//array('image', 'file', 'types'=>'jpg, gif, png'),
+			array('url_pictures', 'file', 'types'=>'jpg, gif, png'),
         );
     }
 
     public function beforeSave()
     {
         $this->setAttributes($this->tempData, false);
+
+        if (isset($this->image)) {
+            $this->image->saveAs(Yii::app()->basePath.'/upload/'.$this->image->name);
+            $this->url_pictures = $this->image->name;
+        }
 
         if ($this->validate()) {
             return true;
