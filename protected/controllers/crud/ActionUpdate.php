@@ -4,7 +4,7 @@
  *  Действие обновляет запись в модели
  *
  *  Входные параметры:
- *      $mid - название модели (без окончания Model)
+ *      $mid - название модели
  *      $id - идентификатор записи
  *
  *  Пример вызова: ?r=<controllerid>/update&mid=news&id=102
@@ -27,7 +27,7 @@ class ActionUpdate extends CrudAction
             $model->tempData = $data;
 
             if($model->save())
-                $this->controller->redirect(array('detail', 'id'=>$id));
+                $this->controller->redirect(array($this->controller->detailAction, 'id'=>$id));
         }
 
         $this->controller->render('crud/_form',array(
@@ -35,4 +35,3 @@ class ActionUpdate extends CrudAction
         ));
     }
 }
-?>

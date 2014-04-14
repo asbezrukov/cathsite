@@ -2,6 +2,8 @@
 
 class StaffController extends Controller
 {
+    public $detailAction = 'detail';
+    public $listAction = 'list';
 
     public function actions() {
         return array(
