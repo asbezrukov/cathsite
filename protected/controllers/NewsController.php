@@ -2,6 +2,13 @@
 
 class NewsController extends Controller
 {
+    public function actions() {
+        return array(
+            'create' => 'application.controllers.crud.ActionCreate',
+            'update' => 'application.controllers.crud.ActionUpdate',
+            'delete' => 'application.controllers.crud.ActionDelete'
+        );
+    }
 	public function actionList()
 	{
         $criteria = new CDbCriteria;
