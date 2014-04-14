@@ -64,7 +64,7 @@
 		
 		</td>
 		<td>
-			<?php echo $form->textField($model,'photo'); ?>
+			<?php echo $form->fileField($model,'photo'); ?>
 		<?php echo $form->error($model,'photo'); ?>
 		</td>
 	</tr>
@@ -105,7 +105,7 @@
 	
 		</td>
 		<td>
-				<?php echo $form->textField($model,'begin_date'); ?>
+				<?php echo $form-dateField($model,'begin_date'); ?>
 		<?php echo $form->error($model,'begin_date'); ?>
 		</td>
 	</tr>
