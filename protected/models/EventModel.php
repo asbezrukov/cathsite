@@ -29,16 +29,18 @@ class EventModel extends CActiveRecord
 			);
 	}
 
-    public function getAllCategories() {
-        $data = EventCategoryModel::model()->findAll();
-
+    public function getKeyValueCategories() {
+        $data = $this->getAllCategories();
         $result = array();
 
         foreach($data as $item) {
             $result[$item->id] = $item->ec_name;
         }
-
         return $result;
+    }
+
+    public function getAllCategories() {
+        return EventCategoryModel::model()->findAll();
     }
 
     public function tableName() {

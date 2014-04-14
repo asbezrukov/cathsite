@@ -2,6 +2,9 @@
 
 class EventController extends Controller
 {
+    public $listAction   = 'list';
+    public $detailAction = 'single';
+
     public function actions() {
         return array(
             'create' => 'application.controllers.crud.ActionCreate',
@@ -38,7 +41,7 @@ class EventController extends Controller
         $dataProvider = new CActiveDataProvider($model);
         $dataProvider->setData($data);
 
-        $arResult['category'] = EventCategoryModel::model()->findAll();
+        $arResult['category'] = $model->getAllCategories();
         $arResult['pages'] = $pages;
         $arResult['recently'] = $dataRecently;
         $arResult['dataProvider'] = $dataProvider;
@@ -46,22 +49,15 @@ class EventController extends Controller
         $this->render('list', array('arResult'=>$arResult));
     }
 
-    public function actionGrid()
-    {
-    }
-
     public function actionSingle($id)
     {
         $model = new EventModel();
         $data = $model->findByPk($id);
         $data['category'] = $data->category;
-        $category = EventCategoryModel::model()->findAll();
-        $dataRecently = $model->recently(6, true);
 
         $arResult['data'] = $data;
-        $arResult['category'] = $category;
-        $arResult['recently'] = $dataRecently;
+        $arResult['category'] = $model->getAllCategories();
+        $arResult['recently'] = $model->recently(6, true);
         $this->render('single', array('arResult'=>$arResult));
     }
-
 }

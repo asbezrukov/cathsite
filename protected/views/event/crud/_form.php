@@ -44,7 +44,7 @@
 			<?php echo $form->labelEx($model,'id_category'); ?> 
 		</td>
 		<td>
-			<?php echo $form->dropdownlist($model,'id_category', $model->getAllCategories()); ?>
+			<?php echo $form->dropdownlist($model,'id_category', $model->getKeyValueCategories()); ?>
 			<?php echo $form->error($model,'id_category'); ?>
 		</td>
 	</tr>

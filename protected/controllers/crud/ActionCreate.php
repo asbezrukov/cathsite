@@ -25,7 +25,7 @@ class ActionCreate extends CrudAction
             //Метод save автоматически вызывает метод beforeSave модели, в котором записываются данные из переменной '$model->tempData' в модель, проходят валидацию и сохраняются.
             //Метод beforeSave у каждой модели свой.
             if($model->save())
-                $this->controller->redirect(array('list'));
+                $this->controller->redirect(array($this->controller->listAction));
         }
 
         $this->controller->render('crud/_form',array(
@@ -33,4 +33,3 @@ class ActionCreate extends CrudAction
         ));
     }
 }
-?>
