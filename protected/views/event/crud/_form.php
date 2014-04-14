@@ -13,6 +13,7 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+    'htmlOptions' => array('enctype' => 'multipart/form-data')
 )); ?>
 
 	<?php echo $form->errorSummary($model); ?>
@@ -54,29 +55,26 @@
 		
 		</td>
 		<td>
-			<?php echo $form->textField($model,'date_publication'); ?>
-		<?php echo $form->error($model,'date_publication'); ?>
+			<?php echo $form->dateField($model,'date_publication'); ?>
+		    <?php echo $form->error($model,'date_publication'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>	
 			<?php echo $form->labelEx($model,'hold_date'); ?>
-		
 		</td>
 		<td>
-			<?php echo $form->textField($model,'hold_date'); ?>
-		<?php echo $form->error($model,'hold_date'); ?>
+			<?php echo $form->dateField($model,'hold_date'); ?>
+		    <?php echo $form->error($model,'hold_date'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>
 			<?php echo $form->labelEx($model,'text_description'); ?>
-		
 		</td>
 		<td>
 			<?php echo $form->textArea($model,'text_description',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'text_description'); ?>
-
+		    <?php echo $form->error($model,'text_description'); ?>
 		</td>
 	</tr>
 	<tr> 
@@ -85,15 +83,14 @@
 		
 		</td>
 		<td>
-			<?php echo $form->textField($model,'url_pictures'); ?>
-		<?php echo $form->error($model,'url_pictures'); ?>
+			<?php echo $form->fileField($model,'url_pictures', array('allowEmpty'=>true)); ?>
+		    <?php echo $form->error($model,'url_pictures'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>
 			<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
 		</td>
-		
 	</tr>
 <?php $this->endWidget(); ?>
 
