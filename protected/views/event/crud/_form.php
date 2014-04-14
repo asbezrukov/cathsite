@@ -54,7 +54,7 @@
 		
 		</td>
 		<td>
-			<?php echo $form->textField($model,'date_publication'); ?>
+			<?php echo $form->dateField($model,'date_publication'); ?>
 		<?php echo $form->error($model,'date_publication'); ?>
 		</td>
 	</tr>
@@ -64,7 +64,7 @@
 		
 		</td>
 		<td>
-			<?php echo $form->textField($model,'hold_date'); ?>
+			<?php echo $form->dateField($model,'hold_date'); ?>
 		<?php echo $form->error($model,'hold_date'); ?>
 		</td>
 	</tr>
@@ -85,7 +85,7 @@
 		
 		</td>
 		<td>
-			<?php echo $form->textField($model,'url_pictures'); ?>
+			<?php echo $form->fileField($model,'url_pictures'); ?>
 		<?php echo $form->error($model,'url_pictures'); ?>
 		</td>
 	</tr>

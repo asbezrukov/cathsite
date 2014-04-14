@@ -2,7 +2,7 @@
     <div class="box-content-inner clearfix">
         <div class="list-event-thumb">
             <a href="?r=event/single&id=<?=$data['id_event']?>">
-                <img src="http://placehold.it/170x150" alt="">
+               <? $data->getImageUrl(); ?>
             </a>
         </div>
         <div class="list-event-header">

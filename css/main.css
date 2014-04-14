@@ -15,7 +15,10 @@ a {
   -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-
+.event-container img {
+    max-width: 225px;
+    max-height: 240px;
+}
 input::-moz-focus-inner {
   border: 0;
 }
