@@ -44,7 +44,7 @@
 			<?php echo $form->labelEx($model,'id_category'); ?> 
 		</td>
 		<td>
-			<?php echo $form->dropdownlist($model,'id_category'); ?>
+			<?php echo $form->dropdownlist($model,'id_category', array("Кат1","Кат2")); ?>
 			<?php echo $form->error($model,'id_category'); ?>
 		</td>
 	</tr>
