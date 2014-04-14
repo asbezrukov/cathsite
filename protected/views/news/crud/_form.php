@@ -41,10 +41,19 @@
             </tr>
             <tr>
                 <td>
+                    <?php echo $form->labelEx($model,'data_publiction'); ?>
+                </td>
+                <td>
+                    <?php echo $form->dateField($model,'data_publiction'); ?>
+                    <?php echo $form->error($model,'data_publiction'); ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <?php echo $form->labelEx($model,'news_pictures'); ?>
                 </td>
                 <td>
-                    <?php echo $form->textField($model,'news_pictures'); ?>
+                    <?php echo $form->fileField($model,'news_pictures'); ?>
                     <?php echo $form->error($model,'news_pictures'); ?>
                 </td>
             </tr>

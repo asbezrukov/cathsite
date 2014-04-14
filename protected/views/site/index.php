@@ -65,7 +65,7 @@ $this->pageTitle=Yii::app()->name;
                                         <div class="informatory_list"> 
                                             <a href="?r=news/detail&id=<?=$node->id_news?>"> 
                                                 <div class="col-md-2"> 
-                                                    <img src="" alt=""> 
+                                                   <img src="<? $node->getImageUrl(); ?>">
                                                 </div> 
                                                 <div class="col-md-10"> 
                                                     <a href="?r=news/detail&id=<?=$node->id_news?>">
