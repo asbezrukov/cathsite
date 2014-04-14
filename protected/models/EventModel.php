@@ -28,7 +28,19 @@ class EventModel extends CActiveRecord
 				self::BELONGS_TO, 'EventCategoryModel', 'id_category')
 			);
 	}
-	
+
+    public function getAllCategories() {
+        $data = EventCategoryModel::model()->findAll();
+
+        $result = array();
+
+        foreach($data as $item) {
+            $result[$item->id] = $item->ec_name;
+        }
+
+        return $result;
+    }
+
     public function tableName() {
         return 'Event';
     }
