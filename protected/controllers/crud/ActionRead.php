@@ -8,10 +8,7 @@
  *      $mid - название модели для которой нужно получить запись
  *      $id - идентификатор записи
  *
- *  Пример вызова: ?r=<controllerid>/view&mid=news&id=8
- *      crud/view  - контроллер/действие
- *      mid=news  - таблица
- *      id=8  - 8 запись в таблице news
+ *  Пример вызова: ?r=<controllerid>/read&mid=news&id=8
  *
  **/
 class ActionRead extends CrudAction
@@ -27,4 +24,3 @@ class ActionRead extends CrudAction
         ));
     }
 }
-?>

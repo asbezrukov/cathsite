@@ -2,6 +2,9 @@
 
 class NewsController extends Controller
 {
+    public $detailAction = 'detail';
+    public $listAction   = 'list';
+
     public function actions() {
         return array(
             'create' => 'application.controllers.crud.ActionCreate',
@@ -28,7 +31,7 @@ class NewsController extends Controller
         $dataProvider = new CActiveDataProvider($model);
         $dataProvider->setData($data);
 
-        $arResult['category'] = NewsCategoryModel::model()->findAll();
+        $arResult['category'] = $model->getAllCategories();
         $arResult['pages'] = $pages;
         $arResult['recently'] = $dataRecently;
         $arResult['dataProvider'] = $dataProvider;
@@ -48,7 +51,7 @@ class NewsController extends Controller
 
         $arResult['pages'] = $pages;
         $arResult['data'] = NewsModel::model()->findByPk($id);
-        $arResult['category'] = NewsCategoryModel::model()->findAll();
+        $arResult['category'] = $model->getAllCategories();
         $this->render('detail', array('arResult'=>$arResult));
     }
 }

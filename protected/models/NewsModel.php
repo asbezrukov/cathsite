@@ -23,7 +23,21 @@ class NewsModel extends CActiveRecord
 			'news_category' =>array(self::BELONGS_TO, 'NewsCategoryModel', 'category')
 		);
 	}
-	
+
+    public function getKeyValueCategories() {
+        $data = $this->getAllCategories();
+        $result = array();
+
+        foreach($data as $item) {
+            $result[$item->id_newsCategory] = $item->nc_name;
+        }
+        return $result;
+    }
+
+    public function getAllCategories() {
+        return NewsCategoryModel::model()->findAll();
+    }
+
     public function tableName() {
         return 'News';
     }
