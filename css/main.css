@@ -898,7 +898,10 @@ input, select {
   display: block;
   margin: 20px 0;
 }
-
+.event-container img {
+    max-width: 225px;
+    max-height: 240px;
+}
 .left-event-content {
   float: left;
   position: relative;
