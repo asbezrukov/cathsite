@@ -41,11 +41,11 @@
             </tr>
             <tr>
                 <td>
-                    <?php echo $form->labelEx($model,'data_publiction'); ?>
+                    <?php echo $form->labelEx($model,'date_publication'); ?>
                 </td>
                 <td>
-                    <?php echo $form->dateField($model,'data_publiction'); ?>
-                    <?php echo $form->error($model,'data_publiction'); ?>
+                    <?php echo $form->dateField($model,'date_publication'); ?>
+                    <?php echo $form->error($model,'date_publication'); ?>
                 </td>
             </tr>
             <tr>
