@@ -87,7 +87,7 @@
 		    <?php echo $form->error($model,'url_pictures'); ?>
 		</td>
 	</tr>
-	<tr> 
+	<tr>
 		<td>
 			<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
 		</td>

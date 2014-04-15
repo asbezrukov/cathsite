@@ -8,7 +8,7 @@ class EventModel extends CActiveRecord
 	public function recently($limit=null, $past=null)
 	{
 		$criteria=new CDbCriteria;
-		$criteria->select='id_event, name_event, hold_date, text_description';
+		$criteria->select='id_event, name_event, hold_date, text_description, url_pictures';
 		$criteria->order='hold_date DESC';
 		if(isset($limit))
 		{

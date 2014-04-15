@@ -540,7 +540,9 @@ blockquote h5 {
 .informatory_list {
   margin-bottom: 45px;  
 }
-
+.informatory_list img {
+    width: 100%;
+}
 .informatory-widget .list-links {
   padding: 0 0 0 15px;
   margin: 0;
