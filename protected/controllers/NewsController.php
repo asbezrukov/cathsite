@@ -51,6 +51,7 @@ class NewsController extends Controller
 
         $arResult['pages'] = $pages;
         $arResult['data'] = NewsModel::model()->findByPk($id);
+
         $arResult['category'] = $model->getAllCategories();
         $this->render('detail', array('arResult'=>$arResult));
     }

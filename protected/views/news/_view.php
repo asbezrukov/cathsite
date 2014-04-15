@@ -3,7 +3,7 @@
         <div class="blog-grid-thumb">
             <a href="??r=news/category$id=" class="cat-blog"><?php echo CHtml::encode($data->category->nc_name); ?></a>
             <a href="?r=news/detail&id=<?=$data['id_news']?>">
-                <img src="<? $data->getImageUrl(); ?>">
+                <img src="<?php echo $data->getImageUrl(); ?>">
             </a>
         </div>
         <div class="box-content-inner">
