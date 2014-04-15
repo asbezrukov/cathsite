@@ -889,6 +889,9 @@ input, select {
   font-size: 24px;
   line-height: 32px;
 }
+.event-container img {
+    max-width: 710px;
+}
 .event-container .event-time {
   font-size: 15px;
   font-weight: 700;

@@ -13,6 +13,7 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+    'htmlOptions' => array('enctype'=>'multipart/form-data')
 )); ?>
 
 	<?php echo $form->errorSummary($model); ?>
@@ -55,7 +56,7 @@
 		</td>
 		<td>
 			<?php echo $form->textField($model,'patronymic'); ?>
-		<?php echo $form->error($model,'patronymic'); ?>
+		    <?php echo $form->error($model,'patronymic'); ?>
 		</td>
 	</tr>
 	<tr> 
@@ -65,7 +66,7 @@
 		</td>
 		<td>
 			<?php echo $form->fileField($model,'photo'); ?>
-		<?php echo $form->error($model,'photo'); ?>
+		    <?php echo $form->error($model,'photo'); ?>
 		</td>
 	</tr>
 	<tr> 
@@ -75,38 +76,34 @@
 		</td>
 		<td>
 			<?php echo $form->textArea($model,'prof_interest',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'prof_interest'); ?>
-
+		    <?php echo $form->error($model,'prof_interest'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>
 			<?php echo $form->labelEx($model,'projects'); ?>
-		
 		</td>
 		<td>
 			<?php echo $form->textArea($model,'projects',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'projects'); ?>
+		    <?php echo $form->error($model,'projects'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>
 			<?php echo $form->labelEx($model,'languages'); ?>
-		
 		</td>
 		<td>
 			<?php echo $form->textArea($model,'languages',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'languages'); ?>
+		    <?php echo $form->error($model,'languages'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>
 			<?php echo $form->labelEx($model,'begin_date'); ?>
-	
 		</td>
 		<td>
-				<?php echo $form-dateField($model,'begin_date'); ?>
-		<?php echo $form->error($model,'begin_date'); ?>
+		    <?php echo $form->dateField($model,'begin_date'); ?>
+		    <?php echo $form->error($model,'begin_date'); ?>
 		</td>
 	</tr>
 	<tr> 
@@ -116,77 +113,70 @@
 		</td>
 		<td>
 			<?php echo $form->textField($model,'email'); ?>
-		<?php echo $form->error($model,'email'); ?>
+		    <?php echo $form->error($model,'email'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>
 			<?php echo $form->labelEx($model,'phone'); ?>
-		
 		</td>
 		<td>
 			<?php echo $form->textField($model,'phone'); ?>
-		<?php echo $form->error($model,'phone'); ?>
+		    <?php echo $form->error($model,'phone'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>
 			<?php echo $form->labelEx($model,'degree'); ?>
-		
 		</td>
 		<td>
 			<?php echo $form->textField($model,'degree'); ?>
-		<?php echo $form->error($model,'degree'); ?>
+		    <?php echo $form->error($model,'degree'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>
 			<?php echo $form->labelEx($model,'lecturer'); ?>
-		
 		</td>
 		<td>
 			<?php echo $form->textField($model,'lecturer'); ?>
-		<?php echo $form->error($model,'lecturer'); ?>
+		    <?php echo $form->error($model,'lecturer'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>
 			<?php echo $form->labelEx($model,'position'); ?>
-		
 		</td>
 		<td>
 			<?php echo $form->textField($model,'position'); ?>
-		<?php echo $form->error($model,'position'); ?>
+		    <?php echo $form->error($model,'position'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>	
 			<?php echo $form->labelEx($model,'training'); ?>
-		
 		</td>
 		<td>
 			<?php echo $form->textArea($model,'training',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'training'); ?>
+		    <?php echo $form->error($model,'training'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>
 			<?php echo $form->labelEx($model,'consult_time'); ?>
-		
 		</td>
 		<td>
 			<?php echo $form->textField($model,'consult_time'); ?>
-		<?php echo $form->error($model,'consult_time'); ?>
+		    <?php echo $form->error($model,'consult_time'); ?>
 		</td>
 	</tr>
 	<tr> 
 		<td>
 			<?php echo $form->labelEx($model,'rank'); ?>
-	
 		</td>
 		<td>
-				<?php echo $form->textField($model,'rank'); ?>
-		<?php echo $form->error($model,'rank'); ?>
+			<?php echo $form->textField($model,'rank'); ?>
+		    <?php echo $form->error($model,'rank'); ?>
 		</td>
 	</tr>
 	<tr> 

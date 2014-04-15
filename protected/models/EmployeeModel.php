@@ -28,18 +28,33 @@ class EmployeeModel extends CActiveRecord
     public function tableName() {
         return 'Employee';
     }
-    
+
+    public function imageFieldName()
+    {
+        return 'photo';
+    }
+
+    public function getImageUrl() {
+        if (empty($this->photo))
+            return false;
+        return Yii::app()->baseUrl."/protected/upload/".$this->photo;
+    }
+
     public function rules() {
         
         return array(
 
-			//array('image', 'file', 'types'=>'jpg, gif, png'),
+			array('photo', 'file', 'types'=>'jpg, gif, png'),
         );
     }   
 
     public function beforeSave()
     {
         $this->setAttributes($this->tempData, false);
+        if (isset($this->image)) {
+            $this->image->saveAs(Yii::app()->basePath.'/upload/'.$this->image->name);
+            $this->photo = $this->image->name;
+        }
 
         if ($this->validate()) {
             return true;

@@ -2,7 +2,7 @@
     <div class="box-content-inner clearfix">
         <div class="list-event-thumb">
             <a href="?r=staff/detail&id=<?=$data['id']?>">
-                <img src="<? $data['data']->getImageUrl(); ?>" alt="">
+                <img src="<?php echo $data->getImageUrl(); ?>" alt="">
             </a>
         </div>
         <h5 class="event-title"><a href="?r=staff/detail&id=<?=$data['id']?>"><?php echo CHtml::encode($data->surname).' '.CHtml::encode($data->name).' '.CHtml::encode($data->patronymic); ?></a></h5>
