@@ -52,6 +52,10 @@ class NewsModel extends CActiveRecord
     public function beforeSave()
     {
         $this->setAttributes($this->tempData, false);
+        if (isset($this->image)) {
+            $this->image->saveAs(Yii::app()->basePath.'/upload/'.$this->image->name);
+            $this->url_pictures = $this->image->name;
+        }
 
         if ($this->validate()) {
             return true;
@@ -60,8 +64,18 @@ class NewsModel extends CActiveRecord
         }
     }
 
+	public function imageFieldName() 
+	{
+        return 'url_pictures';
+    }
     public function afterSave() {
         unset($this->tempData);
+    }
+
+    public function getImageUrl() {
+        if (empty($this->url_pictures))
+            return false;
+        return Yii::app()->baseUrl."/protected/upload/".$this->url_pictures;
     }
 
     public static function model($className=__CLASS__) {
