@@ -28,7 +28,7 @@ class EventController extends Controller
         $model = new EventModel;
 
         $pages = new CPagination($model->count($criteria));
-        $pages->pageSize = 3;
+        $pages->pageSize = 10;
         $pages->applyLimit($criteria);
 
         $dataRecently = $model->recently(6, true);
