@@ -19,7 +19,7 @@ $this->pageTitle=Yii::app()->name;
                             <li>
                                 <img src="http://placehold.it/770x400" alt="Slide 1"/>
                                 <div class="slider-caption">
-                                    <h2><a href="blog-single.html">Предстоящие события</a></h2>
+                                    <h2><a href="/?r=event/list">Предстоящие события</a></h2>
                                     <p>защита работ...</p>
                                 </div>
                             </li>
@@ -86,47 +86,33 @@ $this->pageTitle=Yii::app()->name;
                 </div>
                 <div class="col-md-4">
                     <div class="informatory-widget">
-                        <h4 class="informatory-widget-title">События</h4>
+                        <h4 class="informatory-widget-title"> <a href="/?r=event/list" class="none"> События </a> </h4>
                         <u>
                             <ul class="list-links">
+                                <?php 
+                                for ($i = 0; $i < count($arResult['events']['recently']); ++$i) { 
+                                    $node = $arResult['events']['recently'][$i];
+                                    ?>
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="#"> 
+                                            <a href="?r=event/single&id=<?=$node->id_event?>"> 
                                                 <div class="col-md-2"> 
-                                                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
+                                                    <img src="<? echo $node->getImageUrl(); ?>">
                                                 </div> 
-                                                <div class="col-md-10"> Олимпиада по информатике <br/> <time> 23.03.2014 </time> </div> 
+                                                <div class="col-md-10"> 
+                                                    <a href="?r=event/single&id=<?=$node->id_event?>">
+                                                        <?php echo $node->name_event; ?>
+                                                    </a> 
+                                                    <br/> <time> <?php echo date_format(new DateTime($node->hold_date),"d-m-Y"); ?> </time> 
+                                                </div> 
                                             </a>
                                         </div> 
-                                        <hr>
+                                        <? if ($i!=(count($arResult['events']['recently'])-1)) {
+                                         echo '<hr>'; } else { }?>
                                     </div> 
                                 </li>
-                                <li> 
-                                    <div class="row"> 
-                                        <div class="informatory_list"> 
-                                            <a href="#"> 
-                                                <div class="col-md-2"> 
-                                                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
-                                                </div> 
-                                                <div class="col-md-10">1 апреля - выходной)))  </div> 
-                                            </a>
-                                        </div> 
-                                        <hr> 
-                                    </div> 
-                                </li>
-                                <li> 
-                                    <div class="row"> 
-                                        <div class="informatory_list"> 
-                                            <a href="http://www.utmn.ru/news/9924"> 
-                                                <div class="col-md-2"> 
-                                                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
-                                                </div> 
-                                                <div class="col-md-10"> ИННОВАЦИОННЫЕ ТЕХНОЛОГИИ В ОБРАЗОВАНИИ </div> 
-                                            </a> 
-                                        </div>
-                                    </div> 
-                                </li>
+                                <?}?>
                             </ul>
                         </u>
                     </div>

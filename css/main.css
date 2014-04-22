@@ -15,7 +15,10 @@ a {
   -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-
+.event-container img {
+    max-width: 225px;
+    max-height: 240px;
+}
 input::-moz-focus-inner {
   border: 0;
 }
@@ -450,11 +453,20 @@ blockquote h5 {
 .widget-item,
 .widget-main-title,
 .widget-inner,
-.box-content-inner,
 .slider-caption {
   padding: 20px;
+} 
+
+.box-content-inner {
+  padding: 20px;
+  height: 190px;
+  overflow: hidden;
 }
 
+.event-body { 
+  height: 75px;
+  overflow: hidden;
+}
 
 .block-head {
   font-family: 'Roboto Slab bold';
@@ -525,9 +537,11 @@ blockquote h5 {
 }
 
 .informatory_list {
-  margin-bottom: 45px; 
+  margin-bottom: 45px;  
 }
-
+.informatory_list img {
+    width: 100%;
+}
 .informatory-widget .list-links {
   padding: 0 0 0 15px;
   margin: 0;
@@ -551,6 +565,10 @@ time {
 /*-----------------------------------------------------------------------------------*/
 /*  end  INFORMATORY_BLOCK
 /*-----------------------------------------------------------------------------------*/
+
+#content {
+  margin-bottom: 30px;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /*	MAIN STYLING
@@ -663,6 +681,12 @@ input, select {
 .gallery-title {
   margin: 2px 0 0 0;
 }
+
+.event-small-body { 
+  height: 40px;
+  overflow: hidden;
+}
+
 .blog-list-title a,
 .blog-grid-title a,
 .event-small-title a,
@@ -812,7 +836,7 @@ input, select {
 .load-more-btn a {
   padding: 12px 20px;
   font-weight: 700;
-  display: block;
+  display: inline-block;
 }
 .load-more-btn:active {
   border-bottom: 0;
@@ -875,7 +899,10 @@ input, select {
   display: block;
   margin: 20px 0;
 }
-
+.event-container img {
+    max-width: 225px;
+    max-height: 240px;
+}
 .left-event-content {
   float: left;
   position: relative;

@@ -345,7 +345,10 @@ a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-
+a.none:hover, a.none:focus {
+  color: #2a6496;
+  text-decoration: none;
+}
 img {
   vertical-align: middle;
 }
@@ -710,7 +713,7 @@ pre code {
 
 .row {
   margin-left: -15px;
-  margin-right: -15px;
+  margin-right: -15px; 
 }
 .row:before, .row:after {
   content: " ";
