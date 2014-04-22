@@ -70,4 +70,26 @@ class EmployeeModel extends CActiveRecord
     public static function model($className=__CLASS__) {
         return parent::model($className);
     }
+	
+	public function attributeLabels()
+	{
+	return array(
+	'surname' => 'Фамилия',
+	'name' => 'Имя',
+	'patronymic' => 'Отчество',
+	'photo' => 'Фото',
+	'prof_interest' => 'Профессиональные интересы',
+	'projects' => 'Исследовательские проекты',
+	'languages' => 'Знание иностранных языков',
+	'begin_date' => 'Начало работы на кафедре',
+	'phone' => 'Телефон',
+	'degree' => 'Звание',
+	'lecturer' => 'Преподователь?',
+	'position' => 'Должность',
+	'training' => 'Повышение квалификации',
+	'consult_time' => 'Время консультаций',
+	'rank' => 'Образование, ученые степени'
+	);
+	}
+
 }
