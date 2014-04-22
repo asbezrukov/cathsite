@@ -26,6 +26,11 @@ class ActionUpdate extends CrudAction
             //Метод beforeSave у каждой модели свой.
             $model->tempData = $data;
 
+<<<<<<< HEAD
+=======
+            $model->setAttributes($data, false);
+
+>>>>>>> issue_employee
             $model->image = CUploadedFile::getInstance($model, $model->imageFieldName());
 
             if($model->save())

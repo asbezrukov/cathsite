@@ -8,6 +8,25 @@ body {
   border-top: 4px solid;
 }
 
+.tableForm {
+  max-width: 1170px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.tableForm:before, .tableForm:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.tableForm:after {
+  clear: both;
+}
+
 a {
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
@@ -892,6 +911,9 @@ input, select {
   font-weight: 500;
   font-size: 24px;
   line-height: 32px;
+}
+.event-container img {
+    max-width: 710px;
 }
 .event-container .event-time {
   font-size: 15px;

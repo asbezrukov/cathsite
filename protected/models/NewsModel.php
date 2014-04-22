@@ -3,26 +3,26 @@
 class NewsModel extends CActiveRecord
 {
     public $tempData = array();
-	public $image;
+    public $image;
 
-	public function recently($limit=null)
-	{
-		$criteria = new CDbCriteria;
-		$criteria->select = 'id_news, header, date_publication, preview, text_description, news_pictures';
-		$criteria->order = 'date_publication DESC';
+    public function recently($limit=null)
+    {
+        $criteria = new CDbCriteria;
+        $criteria->select = 'id_news, header, date_publication, preview, text_description, news_pictures';
+        $criteria->order = 'date_publication DESC';
         if(isset($limit))
         {
-	       $criteria->limit = $limit;
+            $criteria->limit = $limit;
         }
-		return $this->findAll($criteria);
-	}
-	
-	public function relations()
-	{
-		return array(
-			'news_category' =>array(self::BELONGS_TO, 'NewsCategoryModel', 'category')
-		);
-	}
+        return $this->findAll($criteria);
+    }
+
+    public function relations()
+    {
+        return array(
+            'news_category' =>array(self::BELONGS_TO, 'NewsCategoryModel', 'category')
+        );
+    }
 
     public function getKeyValueCategories() {
         $data = $this->getAllCategories();
@@ -41,11 +41,11 @@ class NewsModel extends CActiveRecord
     public function tableName() {
         return 'News';
     }
-    
+
     public function rules() {
-        
+
         return array(
-			array('news_pictures', 'file', 'types'=>'jpg, gif, png'),
+            array('news_pictures', 'file', 'types'=>'jpg, gif, png'),
         );
     }
 
@@ -65,8 +65,8 @@ class NewsModel extends CActiveRecord
         }
     }
 
-	public function imageFieldName() 
-	{
+    public function imageFieldName()
+    {
         return 'news_pictures';
     }
     public function afterSave() {
@@ -82,5 +82,5 @@ class NewsModel extends CActiveRecord
     public static function model($className=__CLASS__) {
         return parent::model($className);
     }
-    
+
 }
