@@ -87,5 +87,18 @@ class EventModel extends CActiveRecord
     public static function model($className=__CLASS__) {
         return parent::model($className);
     }
+	
+	public function attributeLabels()
+	{
+	return array(
+		'name_event' => 'Название события',
+		'id_category' => 'Категория',
+		'date_publication' => 'Дата публикации',
+		'hold_date' => 'Дата проведения',
+		'text_description' => 'Текст-описание',
+		'url_pictures' => 'Изображение' 
+		
+		);
+	}
     
 }
