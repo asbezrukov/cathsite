@@ -12,7 +12,7 @@ $this->pageTitle=Yii::app()->name;
                             <li>
                                 <img src="http://placehold.it/770x400" alt="Slide 1"/>
                                 <div class="slider-caption">
-                                    <h2><a href="blog-single.html">Последние новости</a></h2>
+                                    <h2><a href="?r=news/list" class="none">Последние новости</a></h2>
                                     <p>Самая актуальная новость...</p>
                                 </div>
                             </li>
@@ -53,47 +53,33 @@ $this->pageTitle=Yii::app()->name;
             <div class="row">
                 <div class="col-md-4">
                     <div class="informatory-widget">
-                        <h4 class="informatory-widget-title">НОВОСТИ</h4>
+                        <h4 class="informatory-widget-title"><a href="?r=news/list" class="none">НОВОСТИ</a></h4>
                         <u>
                             <ul class="list-links">
+                                <?php 
+                                for ($i = 0; $i < count($arResult['news']['recently']); ++$i) { 
+                                    $node = $arResult['news']['recently'][$i];
+                                    ?>
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="#"> 
+                                            <a href="?r=news/detail&id=<?=$node->id_news?>"> 
                                                 <div class="col-md-2"> 
-                                                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
+                                                   <img src="<? echo $node->getImageUrl(); ?>">
                                                 </div> 
-                                                <div class="col-md-10"> В Тюмени эпидемия!!!  <br/> <time> 23.03.2014 </time> </div> 
+                                                <div class="col-md-10"> 
+                                                    <a href="?r=news/detail&id=<?=$node->id_news?>">
+                                                        <?php echo $node->header; ?>
+                                                    </a> 
+                                                    <br/> <time> <?php echo date_format(new DateTime($node->date_publication),"d-m-Y"); ?> </time> 
+                                                </div> 
                                             </a>
                                         </div> 
-                                        <hr>
+                                        <? if ($i!=(count($arResult['news']['recently'])-1)) {
+                                         echo '<hr>'; } else { }?>
                                     </div> 
                                 </li>
-                                <li> 
-                                    <div class="row"> 
-                                        <div class="informatory_list"> 
-                                            <a href="#"> 
-                                                <div class="col-md-2"> 
-                                                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
-                                                </div> 
-                                                <div class="col-md-10"> Студ весна<br/> <time>23.03.2014</time> </div> 
-                                            </a>
-                                        </div> 
-                                        <hr> 
-                                    </div> 
-                                </li>
-                                <li> 
-                                    <div class="row"> 
-                                        <div class="informatory_list"> 
-                                            <a href="#"> 
-                                                <div class="col-md-2"> 
-                                                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fancybox_loading.gif" alt="Пример"> 
-                                                </div> 
-                                                <div class="col-md-10"> Прощаем студентам долги <br/> <time>23.03.2014</time> </div> 
-                                            </a> 
-                                        </div>
-                                    </div> 
-                                </li>
+                                <?}?>
                             </ul>
                         </u>
                     </div>
