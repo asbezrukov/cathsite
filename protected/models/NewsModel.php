@@ -85,13 +85,13 @@ class NewsModel extends CActiveRecord
 	
 	public function attributeLabels(){
 		return array(
-			'category' => 'Категория',
-			'date_publication' => 'Дата публикации',
-			'news_pictures' => 'Изображение',
-			'publication_main' => 'Публиковать на главной',
-			'header' => 'Заголовок',
-			'preview' => 'Анонс',
-			'text_description' => 'Текст-описание'
+			'category' => 'РљР°С‚РµРіРѕСЂРёСЏ',
+			'date_publication' => 'Р”Р°С‚Р° РїСѓР±Р»РёРєР°С†РёРё',
+			'news_pictures' => 'РР·РѕР±СЂР°Р¶РµРЅРёРµ',
+			'publication_main' => 'РџСѓР±Р»РёРєРѕРІР°С‚СЊ РЅР° РіР»Р°РІРЅРѕР№',
+			'header' => 'Р—Р°РіРѕР»РѕРІРѕРє',
+			'preview' => 'РђРЅРѕРЅСЃ',
+			'text_description' => 'РўРµРєСЃС‚-РѕРїРёСЃР°РЅРёРµ'
 		);
 	}
 
