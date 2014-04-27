@@ -21,6 +21,18 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
+
+        'authManager' => array(
+            'class' => 'PhpAuthManager',
+            // Роль по умолчанию.
+            'defaultRoles' => array('guest'),
+        ),
+
+        'user'=>array(
+            'class' => 'WebUser',
+            // enable cookie-based authentication
+            'allowAutoLogin'=>true,
+        ),
 		/*
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
