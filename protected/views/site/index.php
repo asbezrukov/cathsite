@@ -42,6 +42,21 @@ $this->pageTitle=Yii::app()->name;
                               <p >Объявляется конкурс на самый необычный код этой страницы</p>
                               <p>Что бы еще тут сделать?</p>
                         </div>
+                        <?php /*$this->widget('ext.carouFredSel.ECarouFredSel', array(
+                            'id' => 'carousel',
+                            'target' => '#foo',
+                            'config' => array(
+                                'items' => 6,
+                                'scroll' => array(
+                                    'items' => 1,
+                                    'easing' => 'swing',
+                                    'duration' => 800,                      
+                                    'pauseDuration' => 1500,    
+                                    'pauseOnHover' => false,
+                                    'fx' => 'crossfade',
+                                ),
+                            ),
+                        ));*/?>
                 </div> <!-- /.widget-item -->
             </div> <!-- /.col-md-4 -->
         </div>
