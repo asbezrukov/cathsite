@@ -36,4 +36,14 @@ class ClassifiedsModel extends CActiveRecord
         return parent::model($className);
     }
     
+	public function attributeLabels()
+	{
+	return array(
+	'date_publication' => 'Дата публикации',
+	'header' => 'Заголовок',
+	'text' => 'Текст',
+	'important' => 'Важное?'
+	);
+	}
+	
 }
