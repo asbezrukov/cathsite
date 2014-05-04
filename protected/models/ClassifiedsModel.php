@@ -10,7 +10,9 @@ class ClassifiedsModel extends CActiveRecord
     }
     
     public function rules() {
-        
+
+        $this->setAttributes($this->tempData, false);
+
         return array(
 
         );
@@ -38,12 +40,12 @@ class ClassifiedsModel extends CActiveRecord
     
 	public function attributeLabels()
 	{
-	return array(
-	'date_publication' => 'Дата публикации',
-	'header' => 'Заголовок',
-	'text' => 'Текст',
-	'important' => 'Важное?'
-	);
+        return array(
+            'date_publication' => 'Дата публикации',
+            'header' => 'Заголовок',
+            'text' => 'Текст',
+            'important' => 'Важное?'
+        );
 	}
 	
 }
