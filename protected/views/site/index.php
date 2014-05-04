@@ -40,27 +40,31 @@ $this->pageTitle=Yii::app()->name;
                     <div class="main-slideshow">
                         <div class="flexslider">
                             <ul class="slides">
-                                <li>
-                                    <img src="http://placehold.it/350x390" alt="Slide 1"/>
-                                    <div class="slider-caption">
-                                        <h2><a href="?r=news/list" class="none">Последние новости</a></h2>
-                                        <p>Самая актуальная новость...</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="http://placehold.it/350x390" alt="Slide 1"/>
-                                    <div class="slider-caption">
-                                        <h2><a href="/?r=event/list">Предстоящие события</a></h2>
-                                        <p>защита работ...</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="http://placehold.it/350x390" alt="Slide 1"/>
-                                    <div class="slider-caption">
-                                        <h2><a href="blog-single.html">Преподаватели кафедры</a></h2>
-                                        <p>заведующий кафедры...</p>
-                                    </div>
-                                </li>
+                                <?php 
+                                if (count($arResult['classifieds']) != 0) {
+                                for ($i = 0; $i < count($arResult['classifieds']); ++$i) { 
+                                    $node = $arResult['classifieds'][$i];
+                                    ?>
+                                    
+                                    <li>
+                                        <a href="?r=classifieds/detail&id=<?=$node->id_classifieds?>" class="none">
+                                            <img src="http://placehold.it/350x390" alt="Slide 1"/>
+                                        </a>
+                                        <div class="slider-caption">
+                                            <h2><a href="?r=classifieds/detail&id=<?=$node->id_classifieds?>" class="none"><?php echo $node->header; ?></a></h2>
+                                            <!--<p><?php //echo $node->text; ?></p>-->
+                                        </div>
+                                    </li>
+                                    
+                                <?}} else {?>
+                                    <li>
+                                        <img src="http://placehold.it/350x390" alt="Slide 1"/>
+                                        <div class="slider-caption">
+                                            <h2><a href="#" class="none">Актуальных объявлений пока что нет</a></h2>
+                                            <!--<p>Следите за новостями</p>-->
+                                        </div>
+                                    </li>
+                                <?}?>
                             </ul> <!-- /.slides -->
                         </div>
                     <?php /*$this->widget('ext.carouFredSel.ECarouFredSel', array(
@@ -83,7 +87,6 @@ $this->pageTitle=Yii::app()->name;
             </div> <!-- /.col-md-4 -->
         </div>
     </div>
-
 
     <div class="container">
         <div class="informatory_container"> 
