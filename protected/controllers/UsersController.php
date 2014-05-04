@@ -2,6 +2,27 @@
 
 class UsersController extends Controller
 {
+    public function accessRules()
+    {
+        return array(
+            array('deny',
+                'actions'=>array('list','detail'),
+                'roles'=>array('guest'),
+            ),
+            array('allow',
+                'actions'=>array('add','edit'),
+                'roles'=>array('moderator'),
+            ),
+            array('allow',
+                'actions'=>array('delete'),
+                'roles'=>array('admin'),
+            ),
+            array('deny',
+                'users'=>array('*')
+            ),
+        );
+    }
+
     public function actions() {
         return array(
             'create' => 'application.controllers.crud.ActionCreate',

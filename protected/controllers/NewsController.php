@@ -5,6 +5,32 @@ class NewsController extends Controller
     public $detailAction = 'detail';
     public $listAction   = 'list';
 
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
+
+    public function accessRules()
+    {
+        return array(
+            array('allow',
+                'actions'=>array('list', 'detail'),
+                'roles'=>array('guest')
+            ),
+            array('allow',
+                'actions'=>array('create', 'update'),
+                'roles'=>array('staff')
+            ),
+            array('allow',
+                'actions'=>array('delete'),
+                'roles'=>array('chiefStaff')
+            ),
+            //array('deny')
+        );
+    }
+
     public function actions() {
         return array(
             'create' => 'application.controllers.crud.ActionCreate',
@@ -12,8 +38,9 @@ class NewsController extends Controller
             'delete' => 'application.controllers.crud.ActionDelete'
         );
     }
+
 	public function actionList()
-	{
+    {
         $criteria = new CDbCriteria;
         $model = new NewsModel;
 

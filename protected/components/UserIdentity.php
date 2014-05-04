@@ -6,14 +6,20 @@ class UserIdentity extends CUserIdentity {
 
     public function authenticate() {
 
-        $user = UsersModel::model()->find('LOWER(user_login)=?', array(strtolower($this->username)));
+        $user = UsersModel::model()->find('LOWER(username)=?', array(strtolower($this->username)));
 
-        if(($user===null) || (md5($this->password)!==$user->password)) {
+        if(($user===null) || ($this->password!==$user->password)) {
+
             $this->errorCode = self::ERROR_USERNAME_INVALID;
+
         } else {
+
             $this->_id = $user->idUsers;
             $this->username = $user->username;
             $this->errorCode = self::ERROR_NONE;
+            // Запоминаем роль пользователя в сессии
+            $this->setState('role', $user->role);
+
         }
         return !$this->errorCode;
     }
