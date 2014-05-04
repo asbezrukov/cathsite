@@ -65,7 +65,7 @@
 		
 		</td>
 		<td>
-			<?php echo $form->password($model,'password'); ?>
+			<?php echo $form->passwordField($model,'password'); ?>
 		    <?php echo $form->error($model,'password'); ?>
 		</td>
 	</tr>

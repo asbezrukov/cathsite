@@ -2,6 +2,9 @@
 
 class UsersController extends Controller
 {
+    public $detailAction = 'detail';
+    public $listAction   = 'list';
+
     public function accessRules()
     {
         return array(
@@ -33,9 +36,22 @@ class UsersController extends Controller
     }
 
     public function actionList() {
-        $arResult['list'] = UsersModel::model()->findAll();
+        $criteria = new CDbCriteria;
+        $model = new UsersModel();
 
-        $this->render('list', array('arResult' => $arResult));
+        $pages = new CPagination($model->count($criteria));
+        $pages->pageSize = 20;
+        $pages->applyLimit($criteria);
+
+        $data = $model->findAll($criteria);
+
+        $dataProvider = new CActiveDataProvider($model);
+        $dataProvider->setData($data);
+
+        $arResult['pages'] = $pages;
+        $arResult['dataProvider'] = $dataProvider;
+
+        $this->render('list', array('arResult'=>$arResult));
     }
 
     public function actionDetail($id) {

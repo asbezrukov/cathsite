@@ -8,8 +8,8 @@
                     <h6><span class="page-active"><?php echo CHtml::encode($arResult['data']->username); ?></span></h6>
 					<div class="grid-or-list">
                         <ul>
-                            <li><a href="?r=users/update&mid=users&id=<?=$arResult['data']['id']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
-                            <li><a href="?r=users/delete&mid=users&id=<?=$arResult['data']['id']?>" title="Удалить"><img src="/images/delete.png"></a></li>
+                            <li><a href="?r=users/update&mid=users&id=<?=$arResult['data']['idUsers']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
+                            <li><a href="?r=users/delete&mid=users&id=<?=$arResult['data']['idUsers']?>" title="Удалить"><img src="/images/delete.png"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -26,8 +26,8 @@
                     <div class="col-md-12">
                         <div class="event-container clearfix">
                             <div class="right-event-content">
-                                <h2 class="event-title"><?php echo CHtml::encode($arResult['data']->username)); ?></h2> 
-                                <p><?php echo CHtml::encode($arResult['data']->employee).'  '.CHtml::encode($arResult['data']->student)); ?></p>                                 
+                                <h2 class="event-title"><?php echo CHtml::encode($arResult['data']->username); ?></h2>
+                                <p><?php echo CHtml::encode($arResult['data']->employee).'  '.CHtml::encode($arResult['data']->student); ?></p>
                             </div> <!-- /.right-event-content -->
                         </div>
                         </div> <!-- /.event-container -->

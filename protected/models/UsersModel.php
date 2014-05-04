@@ -22,6 +22,8 @@ class UsersModel extends CActiveRecord
      */
     public function beforeSave() {
 
+        $this->setAttributes($this->tempData, false);
+
         if ($this->validate())
             return true;
         else

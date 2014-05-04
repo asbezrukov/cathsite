@@ -36,13 +36,34 @@ $this->pageTitle=Yii::app()->name;
             </div> <!-- /.col-md-12 -->
             
             <div class="col-md-4">
-                <div class="ads">
-                        <div class="ads-title"> Объявление </div>
-                        <div class="ads-body">
-                              <p >Объявляется конкурс на самый необычный код этой страницы</p>
-                              <p>Что бы еще тут сделать?</p>
+                <div>
+                    <div class="main-slideshow">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li>
+                                    <img src="http://placehold.it/350x390" alt="Slide 1"/>
+                                    <div class="slider-caption">
+                                        <h2><a href="?r=news/list" class="none">Последние новости</a></h2>
+                                        <p>Самая актуальная новость...</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="http://placehold.it/350x390" alt="Slide 1"/>
+                                    <div class="slider-caption">
+                                        <h2><a href="/?r=event/list">Предстоящие события</a></h2>
+                                        <p>защита работ...</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="http://placehold.it/350x390" alt="Slide 1"/>
+                                    <div class="slider-caption">
+                                        <h2><a href="blog-single.html">Преподаватели кафедры</a></h2>
+                                        <p>заведующий кафедры...</p>
+                                    </div>
+                                </li>
+                            </ul> <!-- /.slides -->
                         </div>
-                        <?php /*$this->widget('ext.carouFredSel.ECarouFredSel', array(
+                    <?php /*$this->widget('ext.carouFredSel.ECarouFredSel', array(
                             'id' => 'carousel',
                             'target' => '#foo',
                             'config' => array(
@@ -57,6 +78,7 @@ $this->pageTitle=Yii::app()->name;
                                 ),
                             ),
                         ));*/?>
+                    </div>
                 </div> <!-- /.widget-item -->
             </div> <!-- /.col-md-4 -->
         </div>
