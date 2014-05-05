@@ -33,7 +33,8 @@ Yii::app()->getClientScript()->registerScriptFile( Yii::app()->baseUrl.'/protect
 	</head>
 	<body>
 		<form method="post" action="?r=page/create">
-			<textarea name="newpage" style="width:100%"></textarea>
+			<input name="title" type="text"/>
+			<textarea name="content" style="width:100%"></textarea>
 			<input value="Сохранить" type="submit"/>
 		</form>
 	</body>

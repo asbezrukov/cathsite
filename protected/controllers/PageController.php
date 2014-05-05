@@ -17,6 +17,13 @@ class PageController extends Controller
 	
 	public function actionCreate()
     {
+		$page=new PagesModel;
+		$page->title=$_POST["title"];
+		$page->content=$_POST["content"];
+		$page->save();
+		echo '<pre>';
+		print_r($_POST);
+		die;
         $this->render('create', array('data'=>$_POST));
     }
 }
