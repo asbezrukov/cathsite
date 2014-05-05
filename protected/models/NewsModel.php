@@ -51,12 +51,12 @@ class NewsModel extends CActiveRecord
 
     public function beforeSave()
     {
-
         $this->setAttributes($this->tempData, false);
-        if (isset($this->image)) {
-            $this->image->saveAs(Yii::app()->basePath.'/upload/'.$this->image->name);
-            $this->news_pictures = $this->image->name;
-        }
+
+        //if (isset($this->image)) {
+        //    $this->image->saveAs(Yii::app()->basePath.'/upload/'.$this->image->name);
+        //    $this->news_pictures = $this->image->name;
+        //}
 
         if ($this->validate()) {
             return true;

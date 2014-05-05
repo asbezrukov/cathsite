@@ -54,7 +54,12 @@
                     <?php echo $form->labelEx($model,'news_pictures'); ?>
                 </td>
                 <td>
-                    <?php echo $form->fileField($model,'news_pictures'); ?>
+                    <?php if (!empty($model->news_pictures)) { ?>
+                        <?php echo $form->textField($model,'news_pictures'); ?>
+                        <?php echo $form->fileField($model,'news_pictures'); ?>
+                    <?php } else { ?>
+                        <?php echo $form->fileField($model,'news_pictures'); ?>
+                    <?php } ?>
                     <?php echo $form->error($model,'news_pictures'); ?>
                 </td>
             </tr>
