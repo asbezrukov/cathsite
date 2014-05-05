@@ -74,7 +74,69 @@ return array(
         ),
         'data' => null
     ),
-
+	
+	'LabsAuthor' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'subjectFullReader' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'GroupPersAuthor' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'GroupPasswordChanger' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	
+	'Student' => array(
+        'type' => CAuthItem::TYPE_ROLE,
+        'description' => 'Guest',
+        'bizRule' => null,
+        'children' => array(
+            'newsReader',
+            'eventReader',
+            'staffReader',
+            'contentReader',
+            'LabsAuthor',
+            'subjectFullReader',
+            'notesReader',
+            'subscribeJoiner',
+            'studentUnPersReader'
+        ),
+        'data' => null
+    ),
+	
+	'ChiefStudent' => array(
+        'type' => CAuthItem::TYPE_ROLE,
+        'description' => 'Guest',
+        'bizRule' => null,
+        'children' => array(
+            'newsReader',
+            'eventReader',
+            'staffReader',
+            'contentReader',
+            'LabsAuthor',
+            'subjectFullReader',
+            'notesReader',
+            'subscribeJoiner',
+            'studentUnPersReader'
+			'GroupPersAuthor'
+			'GroupPasswordChanger'
+        ),
+        'data' => null
+    ),
 
 
     'staff' => array(
