@@ -75,7 +75,7 @@ return array(
         'data' => null
     ),
 	
-	'LabsAuthor' => array(
+	'labsAuthor' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
@@ -87,20 +87,20 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
-	'GroupPersAuthor' => array(
+	'groupPersAuthor' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'GroupPasswordChanger' => array(
+	'groupPasswordChanger' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
 	
-	'Student' => array(
+	'student' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Guest',
         'bizRule' => null,
@@ -118,7 +118,7 @@ return array(
         'data' => null
     ),
 	
-	'ChiefStudent' => array(
+	'chiefStudent' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Guest',
         'bizRule' => null,
@@ -131,9 +131,9 @@ return array(
             'subjectFullReader',
             'notesReader',
             'subscribeJoiner',
-            'studentUnPersReader'
-			'GroupPersAuthor'
-			'GroupPasswordChanger'
+            'studentUnPersReader',
+			'GroupPersAuthor',
+			'GroupPasswordChanger',
         ),
         'data' => null
     ),
