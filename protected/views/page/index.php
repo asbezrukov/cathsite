@@ -32,10 +32,18 @@ Yii::app()->getClientScript()->registerScriptFile( Yii::app()->baseUrl.'/protect
 		
 	</head>
 	<body>
-		<form method="post" action="?r=page/create">
-			<input name="title" type="text"/>
-			<textarea name="content" style="width:100%"></textarea>
-			<input value="Сохранить" type="submit"/>
-		</form>
+		<div class="container">
+	        <div class="row">
+	            <div class="col-md-12">
+	            	<div class="pluginForm"> 
+						<form method="post" action="?r=page/create">
+							<div class="pluginBody">  Заголовок <input name="title" type="text"/></div>
+							<div class="pluginBody"><textarea name="content" style="width:70%"></textarea></div>
+							<div class="pluginBody"><input value="Сохранить" type="submit"/></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
