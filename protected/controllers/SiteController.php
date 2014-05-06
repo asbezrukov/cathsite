@@ -30,26 +30,24 @@ class SiteController extends Controller
         $this->actionLogin(null, null);
     }
 
-    public function actionLogin($u, $p) {
+    public function actionLogin() {
 
-        if ($u==null && $p==null) {
-            echo "Текущий пользователь: " . Yii::app()->user->name . '<br>';
-            echo 'Форма авторизации...';
-            return;
-        }
-        $identity = new UserIdentity($u, $p);
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+            $identity = new UserIdentity($_POST['username'], $_POST['password']);
 
-        if ($identity->authenticate()) {
-            Yii::app()->user->login($identity);
-        } else {
-            echo $identity->errorMessage;
+            if ($identity->authenticate()) {
+                Yii::app()->user->login($identity);
+                $this->redirect('/');
+            } else {
+                echo $identity->errorMessage;
+            }
         }
 
-        echo "Пользователь " . Yii::app()->user->name . " авторизован. Роль: " . Yii::app()->user->role;
+        $this->render('login');
     }
 
     public function actionLogout() {
         Yii::app()->user->logout();
-        echo "Выход...";
+        $this->redirect('/');
     }
 }
