@@ -99,6 +99,24 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
+	'SubjectAuthor' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'NotesAuthor' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
 	
 	'student' => array(
         'type' => CAuthItem::TYPE_ROLE,
@@ -144,6 +162,13 @@ return array(
         'description' => 'Преподаватель',
         'children' => array(
             'guest',
+			'LabsReader',
+            'staffReader',
+			'LabsAuthor',
+			'SubjectAuthor',
+			'NotesAuthor',
+			'StudentPersReader',
+			'SubscribeJoiner',
         ),
         'bizRule' => null,
         'data' => null
