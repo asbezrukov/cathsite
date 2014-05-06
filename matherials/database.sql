@@ -571,9 +571,11 @@ CREATE TABLE `Pages` (
   `idPage` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `content` text NOT NULL,
+  `p_name` varchar(100) NOT NULL,
+  `category` varchar(100) NOT NULL,
   PRIMARY KEY (`idPage`),
   UNIQUE KEY `idPage_UNIQUE` (`idPage`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -582,7 +584,6 @@ CREATE TABLE `Pages` (
 
 LOCK TABLES `Pages` WRITE;
 /*!40000 ALTER TABLE `Pages` DISABLE KEYS */;
-INSERT INTO `Pages` VALUES (1,'page1','<p>hello</p>');
 /*!40000 ALTER TABLE `Pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -726,4 +727,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-05 23:04:38
+-- Dump completed on 2014-05-06  9:47:55
