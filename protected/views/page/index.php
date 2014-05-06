@@ -14,6 +14,7 @@ Yii::app()->getClientScript()->registerScriptFile( Yii::app()->baseUrl.'/protect
 		tinymce.init({
 		selector: "textarea",
 		theme: "modern",
+		language: "ru",
 		plugins: [
 			"advlist autolink lists link image charmap print preview hr anchor pagebreak",
 			"searchreplace wordcount visualblocks visualchars code fullscreen",
@@ -22,11 +23,7 @@ Yii::app()->getClientScript()->registerScriptFile( Yii::app()->baseUrl.'/protect
 		],
 		toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
 		toolbar2: "print preview media | forecolor backcolor emoticons",
-		image_advtab: true,
-		templates: [
-			{title: 'Test template 1', content: 'Test 1'},
-			{title: 'Test template 2', content: 'Test 2'}
-		]
+		image_advtab: true
 		});
 	</script>
 		
@@ -38,6 +35,7 @@ Yii::app()->getClientScript()->registerScriptFile( Yii::app()->baseUrl.'/protect
 	            	<div class="pluginForm"> 
 						<form method="post" action="?r=page/create">
 							<div class="pluginBody"><input name="category" type="hidden" value=<?=$category?>></div>
+							<div class="pluginBody">  Наименование <input name="p_name" type="text"/></div>
 							<div class="pluginBody">  Заголовок <input name="title" type="text"/></div>
 							<div class="pluginBody"><textarea name="content" style="width:70%"></textarea></div>
 							<div class="pluginBody"><input value="Сохранить" type="submit"/></div>
