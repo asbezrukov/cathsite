@@ -223,7 +223,7 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
-	 
+	
     'staff' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Преподаватель',
