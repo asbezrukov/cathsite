@@ -111,12 +111,7 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
-	'' => array(
-        'type' => CAuthItem::TYPE_OPERATION,
-        'description' => '...',
-        'bizRule' => null,
-        'data' => null
-    ),
+
 	
 	'student' => array(
         'type' => CAuthItem::TYPE_ROLE,
@@ -156,7 +151,79 @@ return array(
         'data' => null
     ),
 
-
+	'NewsManager' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'EventManager' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'StaffManager' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'ContentManager' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'LabsManager' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'SubjectManager' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'NotesManager' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'SubscribeManager' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'StudentManager' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'StaffPasswordChanger' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'StudentPasswordChanger' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	'StudentPersAuthor' => array(
+        'type' => CAuthItem::TYPE_OPERATION,
+        'description' => '...',
+        'bizRule' => null,
+        'data' => null
+    ),
+	
     'staff' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Преподаватель',
@@ -181,6 +248,19 @@ return array(
         'description' => 'Заведующий кафедры',
         'children' => array(
             'staff',
+			'NewsManager',
+			'EventManager',
+			'StaffManager',
+			'ContentManager',
+			'LabsManager',
+			'SubjectManager',
+			'NotesManager',
+			'SubscribeManager',
+			'StudentManager',
+			'StaffPasswordChanger',
+			'StudentPasswordChanger',
+			'StudentPersAuthor',	
+
         ),
         'bizRule' => null,
         'data' => null
