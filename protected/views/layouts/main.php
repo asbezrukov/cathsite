@@ -2,6 +2,7 @@
 
 $cathPages = new PagesModel;
 $cathPages=PagesModel::model()->findAll(array('condition'=>'category = "cath"'));
+$studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'));
 
 ?>
 <!DOCTYPE html>
@@ -66,7 +67,10 @@ $cathPages=PagesModel::model()->findAll(array('condition'=>'category = "cath"'))
                 </li>
                 <li><a href="#">Кафедра</a>
                     <ul>
+						<? //Yii::app()->user->checkAccess('pageReader') { ?>
                         <li><a href="<?php echo Yii::app()->request->baseUrl; ?>?r=page/index&category=cath">Добавить страницу...</a></li>
+						<? //} ?>
+						
 						<?php
 						
 						foreach($cathPages as $page) {
@@ -78,9 +82,17 @@ $cathPages=PagesModel::model()->findAll(array('condition'=>'category = "cath"'))
                 </li>
                 <li><a href="#">Студентам</a>
                     <ul>
-                        <li><a href="#">Студентам_1</a></li>
-                        <li><a href="#">Студентам_2</a></li>
-                        <li><a href="#">Студентам_3</a></li>
+                        <? //Yii::app()->user->checkAccess('pageReader') { ?>
+                        <li><a href="<?php echo Yii::app()->request->baseUrl; ?>?r=page/index&category=stud">Добавить страницу...</a></li>
+						<? //} ?>
+						
+						<?php
+						
+						foreach($studPages as $page) {
+							echo '<li><a href="'.Yii::app()->request->baseUrl.'?r=page/show&p_name='.$page->p_name.'">'.$page->title.'</a></li>';
+						}
+						
+						?>
                     </ul>
                 </li>
                 <li><a href="#">Контакты</a></li>
@@ -156,9 +168,17 @@ $cathPages=PagesModel::model()->findAll(array('condition'=>'category = "cath"'))
                             </li>
                             <li><a href="#">Студентам</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Студентам_1</a></li>
-                                    <li><a href="#">Студентам_2</a></li>
-                                    <li><a href="#">Студентам_3</a></li>
+                                    <? //Yii::app()->user->checkAccess('pageReader') { ?>
+			                        <li><a href="<?php echo Yii::app()->request->baseUrl; ?>?r=page/index&category=stud">Добавить страницу...</a></li>
+									<? //} ?>
+									
+									<?php
+									
+									foreach($studPages as $page) {
+										echo '<li><a href="'.Yii::app()->request->baseUrl.'?r=page/show&p_name='.$page->p_name.'">'.$page->title.'</a></li>';
+									}
+									
+									?>
                                 </ul>
                             </li>
                             <li><a href="#">Контакты</a></li>
