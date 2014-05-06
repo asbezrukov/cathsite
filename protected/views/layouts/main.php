@@ -107,8 +107,14 @@
                 <div class="col-md-4 header-right">
                     <p><i class="fa fa-phone"></i> +7 (3452) 123-123 (доп. 123)</p>
                     <p><i class="fa fa-envelope"></i> <a href="mailto:email@utmn.ru">email@utmn.ru</a></p>
-                    <p><a href=<? if (Yii::app()->user->isGuest) echo "?r=site/login"; else  echo "?r=site/logout";?>>
-                        <? if (Yii::app()->user->isGuest) { echo "Вход"; } else { echo (Yii::app()->user->name); ?> <br/> <? echo "Выход"; }  ?> </a></p>
+                    <p>
+                        <?php if (!Yii::app()->user->isGuest) { ?>
+                            <span class="textA"> Здравствуйте, <? echo (Yii::app()->user->name);  ?>!  </span>
+                            <a class="login" href="?r=site/logout">Выход</a>
+                        <?php } else { ?>
+                            <a class="login" href="?r=site/login">Вход</a>
+                        <?php } ?>
+                    </p>
                 </div><!-- /.header-right -->
             </div>
         </div> <!-- /.container -->
