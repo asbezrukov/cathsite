@@ -61,8 +61,7 @@
                 </li>
                 <li><a href="#">Кафедра</a>
                     <ul>
-                        <li><a href="#">ИБ</a></li>
-                        <li><a href="#">ПО</a></li>
+                        <li><a href="<?php echo Yii::app()->request->baseUrl; ?>?r=page/index&category=cath">Добавить страницу...</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Студентам</a>
@@ -133,8 +132,7 @@
                             </li>
                             <li><a href="#">Кафедра</a>
                                 <ul class="sub-menu">
-                                   <li><a href="#">ИБ</a></li>
-                                   <li><a href="#">ПО</a></li>
+                        			<li><a href="<?php echo Yii::app()->request->baseUrl; ?>?r=page/index&category=cath">Добавить страницу...</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Студентам</a>
