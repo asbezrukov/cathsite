@@ -1,4 +1,9 @@
-<?php /* @var $this Controller */ ?>
+<?php /* @var $this Controller */ 
+
+$cathPages = new PagesModel;
+$cathPages=PagesModel::model()->findAll(array('condition'=>'category = "cath"'));
+
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> 
 <![endif]-->
@@ -62,6 +67,13 @@
                 <li><a href="#">Кафедра</a>
                     <ul>
                         <li><a href="<?php echo Yii::app()->request->baseUrl; ?>?r=page/index&category=cath">Добавить страницу...</a></li>
+						<?php
+						
+						foreach($cathPages as $page) {
+							echo '<li><a href="'.Yii::app()->request->baseUrl.'?r=page/show&p_name='.$page->p_name.'">'.$page->title.'</a></li>';
+						}
+						
+						?>
                     </ul>
                 </li>
                 <li><a href="#">Студентам</a>
@@ -133,6 +145,13 @@
                             <li><a href="#">Кафедра</a>
                                 <ul class="sub-menu">
                         			<li><a href="<?php echo Yii::app()->request->baseUrl; ?>?r=page/index&category=cath">Добавить страницу...</a></li>
+									<?php
+						
+									foreach($cathPages as $page) {
+										echo '<li><a href="'.Yii::app()->request->baseUrl.'?r=page/show&p_name='.$page->p_name.'">'.$page->title.'</a></li>';
+									}
+									
+									?>	
                                 </ul>
                             </li>
                             <li><a href="#">Студентам</a>
