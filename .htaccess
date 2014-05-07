@@ -1,4 +1,3 @@
 RewriteEngine on
 RewriteRule ^page/index/(.*)$ index.php?r=page/index&categoty=$1 [L]
 RewriteRule ^page/(.*)/(.*)$ index.php?r=page/$1&p_name=$2 [L]
-RewriteRule ^(.*)/(.*)$ index.php?r=$1/$2 [L]
