@@ -33,7 +33,7 @@ Yii::app()->getClientScript()->registerScriptFile( Yii::app()->baseUrl.'/protect
 	        <div class="row">
 	            <div class="col-md-12">
 	            	<div class="pluginForm"> 
-						<form method="post" action="?r=page/create">
+						<form method="post" action="/page/create">
 							<div class="pluginBody"><input name="category" type="hidden" value="<?=$category?>"/></div>
 							<div class="pluginBody">  Наименование <input name="p_name" type="text"/></div>
 							<div class="pluginBody">  Заголовок <input name="title" type="text"/></div>

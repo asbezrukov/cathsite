@@ -19,8 +19,8 @@ Yii::app()->getClientScript()->registerScriptFile( Yii::app()->baseUrl.'/protect
 	                    <h6><span class="page-active"><?php echo CHtml::encode($page->title); ?></span></h6>
 	                    <div class="grid-or-list">
 	                        <ul>
-	                            <li><a href="?r=page/update&p_name=<?=$page->p_name?>" title="Редактировать"><img src="/images/edit.png"></a></li>
-	                            <li><a href="?r=page/delete&p_name=<?=$page->p_name?>" title="Удалить"><img src="/images/delete.png"></a></li>
+	                            <li><a href="/page/update/<?=$page->p_name?>" title="Редактировать"><img src="/images/edit.png"></a></li>
+	                            <li><a href="/page/delete/<?=$page->p_name?>" title="Удалить"><img src="/images/delete.png"></a></li>
 	                        </ul>
 	                    </div>
 	                </div>
