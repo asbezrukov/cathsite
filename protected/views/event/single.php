@@ -4,12 +4,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <h6><a href="/">Главная</a></h6>
-                    <h6><a href="/?r=event/list">Все события</a></h6>
+                    <h6><a href="/event/list">Все события</a></h6>
                     <h6><span class="page-active"><?php echo CHtml::encode($arResult['data']->name_event); ?></span></h6>
                     <div class="grid-or-list">
                         <ul>
-                            <li><a href="?r=event/update&mid=event&id=<?=$arResult['data']['id_event']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
-                            <li><a href="?r=event/delete&mid=event&id=<?=$arResult['data']['id_event']?>" title="Удалить"><img src="/images/delete.png"></a></li>
+                            <li><a href="/event/update/<?=$arResult['data']['id_event']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
+                            <li><a href="/event/delete/<?=$arResult['data']['id_event']?>" title="Удалить"><img src="/images/delete.png"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                                  </div>
                                  <div class="event-small-details">
                                      <h5 class="event-small-title">
-                                         <a href="?r=event/single&id=<?=$node->id_event?>">
+                                         <a href="/event/single/<?=$node->id_event?>">
                                              <?php echo $node->name_event; ?>
                                          </a>
                                      </h5>
@@ -84,7 +84,7 @@
                     <div class="widget-inner">
                         <?php     
                             foreach ($arResult['category'] as $node) {?> 
-                            <h5 class="event-small-title"><a href="?r=event/category&id="><?php echo $node->ec_name; ?></a></h5>
+                            <h5 class="event-small-title"><a href="/event/category/"><?php echo $node->ec_name; ?></a></h5>
                         <?}?> 
                     </div> <!-- /.widget-inner -->
                 </div> <!-- /.widget-main -->

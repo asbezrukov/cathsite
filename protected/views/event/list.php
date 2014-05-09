@@ -13,10 +13,10 @@ $this->pageTitle=Yii::app()->name;
             <div class="row">
                 <div class="col-md-12">
                     <h6><a href="/">Главная</a></h6>
-                    <h6><span class="?r=event/list">Все события</span></h6>
+                    <h6><span class="/event/list">Все события</span></h6>
                     <div class="grid-or-list">
                         <ul>
-                            <li><a href="?r=event/create&mid=event" title="Добавить"><img src="/images/add.png"></a></li>
+                            <li><a href="/event/create/" title="Добавить"><img src="/images/add.png"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ $this->pageTitle=Yii::app()->name;
                              </div>
                              <div class="event-small-details">
                                  <h5 class="event-small-title">
-                                     <a href="?r=event/single&id=<?=$node->id_event?>">
+                                     <a href="/event/single/<?=$node->id_event?>">
                                          <?php echo $node->name_event; ?>
                                      </a>
                                  </h5>
@@ -101,7 +101,7 @@ $this->pageTitle=Yii::app()->name;
                     <div class="widget-inner">
                      <?php     
                         foreach ($arResult['category'] as $node) {?>
-                        <h5 class="event-small-title"><a href="?r=event/category$id="><?php echo $node->ec_name; ?></a></h5>                           
+                        <h5 class="event-small-title"><a href="/event/category/"><?php echo $node->ec_name; ?></a></h5>                           
                     <?}?>    
                     </div> <!-- /.widget-inner --> 
                 </div> <!-- /.widget-main -->
