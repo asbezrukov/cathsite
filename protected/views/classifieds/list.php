@@ -11,7 +11,7 @@
                 </div>
 				<div class="grid-or-list">
                     <ul>
-                        <li><a href="?r=classifieds/create&mid=classifieds" title="Добавить"><img src="/images/add.png"></a></li>
+                        <li><a href="/classifieds/create" title="Добавить"><img src="/images/add.png"></a></li>
                     </ul>
                 </div>
             </div>
