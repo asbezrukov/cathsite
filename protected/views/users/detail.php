@@ -4,12 +4,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <h6><a href="/">Главная</a></h6>
-                    <h6><a href="/?r=users/list">Сотрудники</a></h6>
+                    <h6><a href="/users/list">Сотрудники</a></h6>
                     <h6><span class="page-active"><?php echo CHtml::encode($arResult['data']->username); ?></span></h6>
 					<div class="grid-or-list">
                         <ul>
-                            <li><a href="?r=users/update&mid=users&id=<?=$arResult['data']['idUsers']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
-                            <li><a href="?r=users/delete&mid=users&id=<?=$arResult['data']['idUsers']?>" title="Удалить"><img src="/images/delete.png"></a></li>
+                            <li><a href="/users/update/<?=$arResult['data']['idUsers']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
+                            <li><a href="/users/delete/<?=$arResult['data']['idUsers']?>" title="Удалить"><img src="/images/delete.png"></a></li>
                         </ul>
                     </div>
                 </div>
