@@ -6,7 +6,7 @@ $this->pageTitle=Yii::app()->name;
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-	        	<form name = "formLogin" action = "?r=site/login" method = "post">
+	        	<form name = "formLogin" action = "/site/login" method = "post">
 	        		<table class="formAuth">  
 	        			<tr> <td> Введите логин </td> <td> <input type="text" name="username" ></td> </tr>
 	        			<tr><td> </td></tr>

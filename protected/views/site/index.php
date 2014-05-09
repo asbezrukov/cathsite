@@ -12,14 +12,14 @@ $this->pageTitle=Yii::app()->name;
                             <li>
                                 <img src="http://placehold.it/770x400" alt="Slide 1"/>
                                 <div class="slider-caption">
-                                    <h2><a href="?r=news/list" class="none">Последние новости</a></h2>
+                                    <h2><a href="/news/list" class="none">Последние новости</a></h2>
                                     <p>Самая актуальная новость...</p>
                                 </div>
                             </li>
                             <li>
                                 <img src="http://placehold.it/770x400" alt="Slide 1"/>
                                 <div class="slider-caption">
-                                    <h2><a href="/?r=event/list">Предстоящие события</a></h2>
+                                    <h2><a href="/event/list">Предстоящие события</a></h2>
                                     <p>защита работ...</p>
                                 </div>
                             </li>
@@ -47,11 +47,11 @@ $this->pageTitle=Yii::app()->name;
                                     ?>
                                     
                                     <li>
-                                        <a href="?r=classifieds/detail&id=<?=$node->id_classifieds?>" class="none">
+                                        <a href="/classifieds/detail/<?=$node->id_classifieds?>" class="none">
                                             <img src="http://placehold.it/350x390" alt="Slide 1"/>
                                         </a>
                                         <div class="slider-caption">
-                                            <h2><a href="?r=classifieds/detail&id=<?=$node->id_classifieds?>" class="none"><?php echo $node->header; ?></a></h2>
+                                            <h2><a href="/classifieds/detail/<?=$node->id_classifieds?>" class="none"><?php echo $node->header; ?></a></h2>
                                             <!--<p><?php //echo $node->text; ?></p>-->
                                         </div>
                                     </li>
@@ -93,7 +93,7 @@ $this->pageTitle=Yii::app()->name;
             <div class="row">
                 <div class="col-md-4">
                     <div class="informatory-widget">
-                        <h4 class="informatory-widget-title"><a href="?r=news/list" class="none">НОВОСТИ</a></h4>
+                        <h4 class="informatory-widget-title"><a href="/news/list" class="none">НОВОСТИ</a></h4>
                         <u>
                             <ul class="list-links">
                                 <?php 
@@ -103,12 +103,12 @@ $this->pageTitle=Yii::app()->name;
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="?r=news/detail&id=<?=$node->id_news?>"> 
+                                            <a href="/news/detail/<?=$node->id_news?>"> 
                                                 <div class="col-md-2"> 
                                                    <img src="<? echo $node->getImageUrl(); ?>">
                                                 </div> 
                                                 <div class="col-md-10"> 
-                                                    <a href="?r=news/detail&id=<?=$node->id_news?>">
+                                                    <a href="/news/detail/<?=$node->id_news?>">
                                                         <?php echo $node->header; ?>
                                                     </a> 
                                                     <br/> <time> <?php echo date_format(new DateTime($node->date_publication),"d-m-Y"); ?> </time> 
@@ -126,7 +126,7 @@ $this->pageTitle=Yii::app()->name;
                 </div>
                 <div class="col-md-4">
                     <div class="informatory-widget">
-                        <h4 class="informatory-widget-title"> <a href="/?r=event/list" class="none"> События </a> </h4>
+                        <h4 class="informatory-widget-title"> <a href="/event/list" class="none"> События </a> </h4>
                         <u>
                             <ul class="list-links">
                                 <?php 
@@ -136,12 +136,12 @@ $this->pageTitle=Yii::app()->name;
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="?r=event/single&id=<?=$node->id_event?>"> 
+                                            <a href="/event/single/<?=$node->id_event?>"> 
                                                 <div class="col-md-2"> 
                                                     <img src="<? echo $node->getImageUrl(); ?>">
                                                 </div> 
                                                 <div class="col-md-10"> 
-                                                    <a href="?r=event/single&id=<?=$node->id_event?>">
+                                                    <a href="/event/single/<?=$node->id_event?>">
                                                         <?php echo $node->name_event; ?>
                                                     </a> 
                                                     <br/> <time> <?php echo date_format(new DateTime($node->hold_date),"d-m-Y"); ?> </time> 
@@ -159,7 +159,7 @@ $this->pageTitle=Yii::app()->name;
                 </div>
                 <div class="col-md-4">
                     <div class="informatory-widget">
-                        <h4 class="informatory-widget-title"><a href="/?r=staff/list" class="none">Преподаватели</a></h4>
+                        <h4 class="informatory-widget-title"><a href="/staff/list" class="none">Преподаватели</a></h4>
                         <u>
                             <ul class="list-links">
                                 <?php 
@@ -169,12 +169,12 @@ $this->pageTitle=Yii::app()->name;
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="?r=staff/detail&id=<?=$node->id?>"> 
+                                            <a href="/staff/detail/<?=$node->id?>"> 
                                                 <div class="col-md-2"> 
                                                     <img src="<? echo $node->getImageUrl(); ?>" alt=""> 
                                                 </div> 
                                                 <div class="col-md-10"> 
-                                                    <a href="?r=staff/detail&id=<?=$node->id?>">
+                                                    <a href="/staff/detail/<?=$node->id?>">
                                                         <?php echo $node->surname.' '.$node->name.' '.$node->patronymic; ?>
                                                     </a> 
                                                     <br/> <time> <?php echo $node->rank.' '.$node->degree; ?> </time> 
