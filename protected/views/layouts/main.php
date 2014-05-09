@@ -58,7 +58,7 @@ $studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'))
         <div class="responsive_menu">
             <ul class="main_menu">
                 <li><a href="/">Главная</a></li>
-                <li><a href="/?r=event/list">События</a>
+                <li><a href="/event/list">События</a>
                     <ul>
                         <li><a href="#">Событие_1</a></li>
                         <li><a href="#">Событие_2</a></li>
@@ -133,9 +133,9 @@ $studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'))
                     <p>
                         <?php if (!Yii::app()->user->isGuest) { ?>
                             <span class="textA"> Здравствуйте, <? echo (Yii::app()->user->name);  ?>!  </span>
-                            <a class="login" href="?r=site/logout">Выход</a>
+                            <a class="login" href="/site/logout">Выход</a>
                         <?php } else { ?>
-                            <a class="login" href="?r=site/login">Вход</a>
+                            <a class="login" href="/site/login">Вход</a>
                         <?php } ?>
                     </p>
                 </div><!-- /.header-right -->
@@ -147,7 +147,7 @@ $studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'))
                 <nav class="main-navigation clearfix visible-md visible-lg" role="navigation">
                         <ul class="main-menu sf-menu">
                             <li class="active"><a href="/">Главная</a></li>
-                            <li><a href="?r=event/list">События</a>
+                            <li><a href="/event/list">События</a>
                                 <ul class="sub-menu">
                                     <li><a href="#">Событие_1</a></li>
                                     <li><a href="#">Событие_2</a></li>
