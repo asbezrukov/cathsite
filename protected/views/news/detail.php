@@ -4,12 +4,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <h6><a href="/">Главная</a></h6>
-                    <h6><a href="/?r=news/list">Все новости</a></h6>
+                    <h6><a href="/news/list">Все новости</a></h6>
                     <h6><span class="page-active"><?php echo $arResult['data']->header; ?></span></h6>
                     <div class="grid-or-list">
                         <ul>
-                            <li><a href="?r=news/update&mid=news&id=<?=$arResult['data']['id_news']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
-                            <li><a href="?r=news/delete&mid=news&id=<?=$arResult['data']['id_news']?>" title="Удалить"><img src="/images/delete.png"></a></li>
+                            <li><a href="/news/update/<?=$arResult['data']['id_news']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
+                            <li><a href="/news/delete/<?=$arResult['data']['id_news']?>" title="Удалить"><img src="/images/delete.png"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
                 
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-md-12">
                         <div id="blog-comments" class="blog-post-comments">
                             <div class="widget-main-title">
@@ -118,17 +118,17 @@
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, nam magni repellendus!</p>
                                     </div>
                                 </div>
-                            </div> <!-- /.blog-comments-content -->
-                        </div> <!-- /.blog-post-comments -->
-                    </div> <!-- /.col-md-12 -->
-                </div> <!-- /.row -->
+                            </div>  
+                        </div>  
+                    </div>  
+                </div>
 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="widget-main comment-form">
                             <div class="widget-main-title">
                                 <h4 class="widget-title">Leave a comment</h4>
-                            </div> <!-- /.widget-main-title -->
+                            </div> 
                             <div class="widget-inner">
                                 <div class="row">
                                     <div class="col-md-4">
@@ -163,12 +163,12 @@
                                         <input class="mainBtn" type="submit" name="" value="Submit Comment">
                                     </div>
                                 </div>
-                            </div> <!-- /.widget-inner -->
-                        </div> <!-- /.widget-main -->
-                    </div> <!-- /.col-md-12 -->
-                </div> <!-- /.row -->
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
 
-            </div> <!-- /.col-md-8 -->
+            </div>-->
 
             <!-- Here begin Sidebar -->
             <div class="col-md-4">
@@ -190,7 +190,7 @@
                     <div class="widget-inner">
                      <?php     
                         foreach ($arResult['category'] as $node) {?>
-                        <h5 class="event-small-title"><a href="?r=news/category$id="><?php echo $node->nc_name; ?></a></h5>                           
+                        <h5 class="event-small-title"><a href="/news/category/"><?php echo $node->nc_name; ?></a></h5>                           
                     <?}?>    
                     </div> <!-- /.widget-inner --> 
                 </div> <!-- /.widget-main -->
