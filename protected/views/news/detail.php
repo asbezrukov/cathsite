@@ -84,7 +84,7 @@
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
                 
-                <!--<div class="row">
+               <!-- <div class="row">
                     <div class="col-md-12">
                         <div id="blog-comments" class="blog-post-comments">
                             <div class="widget-main-title">
@@ -121,9 +121,9 @@
                             </div>  
                         </div>  
                     </div>  
-                </div>
+                </div>-->
 
-                <div class="row">
+               <!-- <div class="row">
                     <div class="col-md-12">
                         <div class="widget-main comment-form">
                             <div class="widget-main-title">
@@ -166,22 +166,22 @@
                             </div> 
                         </div> 
                     </div> 
-                </div> 
+                </div> -->
 
-            </div>-->
+            </div>
 
             <!-- Here begin Sidebar -->
             <div class="col-md-4">
                 
-                <div class="widget-main">
+               <!-- <div class="widget-main">
                     <div class="widget-inner">
                         <div class="search-form-widget">
                             <form name="search_form" method="get" action="#" class="search_form">
                                 <input type="text" name="s" placeholder="Type and click enter to search..." title="Type and click enter to search..." class="field_search">
                             </form>
                         </div>
-                    </div> <!-- /.widget-inner -->
-                </div> <!-- /.widget-main -->
+                    </div>  
+                </div>  -->
 
                 <div class="widget-main">
                     <div class="widget-main-title">
