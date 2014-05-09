@@ -2,5 +2,7 @@ RewriteEngine on
 RewriteRule ^page/index/(.*)$ index.php?r=page/index&category=$1 [L]
 RewriteRule ^page/(.*)/(.*)$ index.php?r=page/$1&p_name=$2 [L]
 RewriteRule ^page/create$ index.php?r=page/create [L]
-RewriteRule ^classifieds/(.*)$ index.php?r=classifieds/$1 [L]
 RewriteRule ^classifieds/detail/(.*)$ index.php?r=classifieds/detail&id=$1 [L]
+RewriteRule ^classifieds/(.*)$ index.php?r=classifieds/$1 [L]
+RewriteRule ^event/single/(.*)$ index.php?r=event/single&id=$1 [L]
+RewriteRule ^classifieds/(.*)$ index.php?r=event/$1 [L]
