@@ -1,5 +1,9 @@
 RewriteEngine on
 RewriteRule ^page/create$ index.php?r=page/create [L]
+RewriteRule ^staff/create$ index.php?r=$1/create&mid=employee [L]
+RewriteRule ^staff/read/(.*)$ index.php?r=$1/read&mid=employee&id=$1 [L]
+RewriteRule ^staff/update/(.*)$ index.php?r=$1/update&mid=employee&id=$1 [L]
+RewriteRule ^staff/delete/(.*)$ index.php?r=$1/delete&mid=employee&id=$1 [L]
 RewriteRule ^(.*)/create$ index.php?r=$1/create&mid=$1 [L]
 RewriteRule ^(.*)/read/(.*)$ index.php?r=$1/read&mid=$1&id=$2 [L]
 RewriteRule ^(.*)/update/(.*)$ index.php?r=$1/update&mid=$1&id=$2 [L]
