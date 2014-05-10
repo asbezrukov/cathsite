@@ -32,10 +32,8 @@
                                 <div class="blog-post-meta">
                                     <ul>
                                         <li><i class="fa fa-calendar-o"></i><?php echo $arResult['data']->date_publication; ?></li>
-                                        <li><a href="#blog-comments"><i class="fa fa-comments"></i>3 comments</a></li>
-                                        <li><a href="#blog-author"><i class="fa fa-user"></i>Esmet Hajrizi</a></li>
                                     </ul>
-                                </div> <!-- /.blog-post-meta -->
+                                </div> 
                             </div> <!-- /.blog-post-image -->
                             <div class="blog-post-inner">
                                 <h3 class="blog-post-title"><?php echo $arResult['data']->header; ?></h3>
@@ -53,34 +51,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="pag"> 
-                            <div class="prev-next-post clearfix">
-                                <!--<span class="whiteBtn">
-                                    <?  if (($arResult['data']['id_news']-1)!=null) { $prev = $arResult['data']['id_news']-1; } else {$prev = null;}
-                                        if (($arResult['data']['id_news']+1)!=null) { $next = $arResult['data']['id_news']+1; }?>
-                                    <a href="?r=news/detail&id=<?=$prev?>" class="prev"><i class="fa fa-angle-left"></i>Предыдущая новость</a>
-                                </span>
-                                <span class="whiteBtn">
-                                    <a href="?r=news/detail&id=<?=$next?>" class="next">Следующая новость<i class="fa fa-angle-right"></i></a>
-                                </span>-->
-                                <?php 
-                                    $this->widget('CLinkPager', array (
-                                        'header'=>'',
-                                        'cssFile'=>'false',
-                                        'firstPageCssClass'=>'prev-next-post whiteBtn',
-                                        'lastPageCssClass'=>'prev-next-post whiteBtn', 
-                                        'nextPageCssClass'=>'prev-next-post whiteBtn',
-                                        'previousPageCssClass'=>'prev-next-post whiteBtn',
-                                        'prevPageLabel'=>'Предыдущая новость',
-                                        'nextPageLabel'=>'Следующая новость',
-                                        'firstPageLabel'=>'<<',
-                                        'lastPageLabel'=>'>>',
-                                        'maxButtonCount' => 0,
-                                        'pages'=>$arResult['pages']
-                                        ));
-                                ?>
-                            </div>
-                        </div>
+                       
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
                 
