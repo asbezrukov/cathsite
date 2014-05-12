@@ -1,8 +1,8 @@
 <?php /* @var $this Controller */ 
 
-$cathPages = new PagesModel;
-$cathPages=PagesModel::model()->findAll(array('condition'=>'category = "cath"'));
-$studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'));
+//$cathPages = new PagesModel;
+//$cathPages=PagesModel::model()->findAll(array('condition'=>'category = "cath"'));
+//$studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'));
 
 ?>
 <!DOCTYPE html>
@@ -73,9 +73,9 @@ $studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'))
 						
 						<?php
 						
-						foreach($cathPages as $page) {
-							echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
-						}
+						//foreach($cathPages as $page) {
+						//	echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
+						//}
 						
 						?>
                     </ul>
@@ -88,9 +88,9 @@ $studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'))
 						
 						<?php
 						
-						foreach($studPages as $page) {
-							echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
-						}
+						//foreach($studPages as $page) {
+						//	echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
+						//}
 						
 						?>
                     </ul>
@@ -159,9 +159,9 @@ $studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'))
                         			<li><a href="<?php echo Yii::app()->request->baseUrl; ?>/page/index/cath">Добавить страницу...</a></li>
 									<?php
 						
-									foreach($cathPages as $page) {
-										echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
-									}
+									//foreach($cathPages as $page) {
+									//	echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
+									//}
 									
 									?>	
                                 </ul>
@@ -174,9 +174,9 @@ $studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'))
 									
 									<?php
 									
-									foreach($studPages as $page) {
-										echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
-									}
+									//foreach($studPages as $page) {
+									//	echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
+									//}
 									
 									?>
                                 </ul>
