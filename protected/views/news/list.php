@@ -43,6 +43,8 @@ $this->pageTitle=Yii::app()->name;
 								 $this->widget('CLinkPager', array (
                                     'header'=>'',
                                     'firstPageLabel'=>'<<',
+									'prevPageLabel'=>'<',
+                                    'nextPageLabel'=>'>',
 									));
 							?>
                         </div>
