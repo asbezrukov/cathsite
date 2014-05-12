@@ -39,7 +39,12 @@ $this->pageTitle=Yii::app()->name;
                 <div class="row">
                     <div class="col-md-12">
                         <div class="load-more-btn">
-                            
+                            <?php
+								 $this->widget('CLinkPager', array (
+                                    'header'=>'',
+                                    'firstPageLabel'=>'<<',
+									));
+							?>
                         </div>
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
