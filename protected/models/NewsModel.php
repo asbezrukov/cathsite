@@ -53,10 +53,26 @@ class NewsModel extends CActiveRecord
     {
         $this->setAttributes($this->tempData, false);
 
+        $path = Yii::getPathOfAlias('application.upload.news.400x');
+        $pathSmallImg  = Yii::getPathOfAlias('application.upload.news.65x65');
+        $pathNormalImg = Yii::getPathOfAlias('application.upload.news.360x220');
+
+        if (!file_exists($path))
+            mkdir($path, 0777, true);
+
+        if (!file_exists($pathSmallImg))
+            mkdir($pathSmallImg, 0777, true);
+
+        if (!file_exists($pathNormalImg))
+            mkdir($pathNormalImg, 0777, true);
+
         if (isset($this->image)) {
-            $this->image->saveAs(Yii::app()->basePath.'/upload/'.$this->image->name);
+            $this->image->saveAs($path.'/'.$this->image->name);
             $this->news_pictures = $this->image->name;
         }
+
+        print_r($path.'/'.$this->image->name);
+        die;
 
         if ($this->validate()) {
             return true;
@@ -73,10 +89,25 @@ class NewsModel extends CActiveRecord
         unset($this->tempData);
     }
 
-    public function getImageUrl() {
+    public function getImageUrl($place = "detail") {
         if (empty($this->news_pictures))
             return false;
-        return Yii::app()->baseUrl."/protected/upload/".$this->news_pictures;
+
+        switch ($place) {
+            case "detail":
+                $path = Yii::getPathOfAlias('application.upload.news.400x');
+                break;
+            case "main": {
+                $path = Yii::getPathOfAlias('application.upload.news.65x65');
+                break;
+            }
+            case "list": {
+                $path = Yii::getPathOfAlias('application.upload.news.360x220');
+                break;
+            }
+        }
+
+        return $path.'/'.$this->news_pictures;
     }
 
     public static function model($className=__CLASS__) {
