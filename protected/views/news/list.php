@@ -45,6 +45,7 @@ $this->pageTitle=Yii::app()->name;
                                     'firstPageLabel'=>'<<',
 									'prevPageLabel'=>'<',
                                     'nextPageLabel'=>'>',
+									'lastPageLabel'=>'>>',
 									));
 							?>
                         </div>
