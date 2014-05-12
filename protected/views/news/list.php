@@ -46,6 +46,8 @@ $this->pageTitle=Yii::app()->name;
 									'prevPageLabel'=>'<',
                                     'nextPageLabel'=>'>',
 									'lastPageLabel'=>'>>',
+									'maxButtonCount' => 5,
+                                    'pages'=>$arResult['pages']
 									));
 							?>
                         </div>
