@@ -62,6 +62,89 @@ class EmployeeModel extends CActiveRecord
             return false;
         }
     }
+	
+	    public function beforeSave()
+    {
+        $this->setAttributes($this->tempData, false);
+
+        $path = Yii::getPathOfAlias('application.upload.news');
+        $pathBigImg = Yii::getPathOfAlias('application.upload.news.300x');
+        $pathSmallImg  = Yii::getPathOfAlias('application.upload.news.65x65');
+        $pathNormalImg = Yii::getPathOfAlias('application.upload.news.170');
+
+        if (!file_exists($path)) {
+            mkdir($path);
+            chmod($path, 0777);
+        }
+
+        if (!file_exists($pathBigImg)) {
+            mkdir($pathBigImg);
+            chmod($pathBigImg, 0777);
+        }
+
+        if (!file_exists($pathSmallImg)) {
+            mkdir($pathSmallImg);
+            chmod($pathSmallImg, 0777);
+        }
+
+        if (!file_exists($pathNormalImg)) {
+            mkdir($pathNormalImg);
+            chmod($pathNormalImg, 0777);
+        }
+
+        if (isset($this->image)) {
+            $this->image->saveAs($pathBigImg.'/'.$this->image->name);
+
+            $fileImage = new CFileImage();
+            $fileImage->load($pathBigImg.'/'.$this->image->name);
+
+            $fileImage->resizeToWidth(300);
+            $fileImage->save($pathBigImg.'/'.$this->image->name);
+
+            $fileImage->resize(65,65);
+            $fileImage->save($pathSmallImg.'/'.$this->image->name);
+
+            $fileImage->resize(170);
+            $fileImage->save($pathNormalImg.'/'.$this->image->name);
+
+            $this->news_pictures = $this->image->name;
+        }
+
+        if ($this->validate()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+	
+	public function imageFieldName()
+    {
+        return 'news_pictures';
+    }
+    public function afterSave() {
+        unset($this->tempData);
+    }
+
+    public function getImageUrl($place = "detail") {
+        if (empty($this->news_pictures))
+            return false;
+
+        switch ($place) {
+            case "detail":
+                $url = "/protected/upload/staff/300x";
+                break;
+            case "main": {
+                $url = "/protected/upload/staff/65x65";
+                break;
+            }
+            case "list": {
+                $url = "/protected/upload/staff/170";
+                break;
+            }
+        }
+
+        return Yii::app()->baseUrl.$url.'/'.$this->news_pictures;
+    }
 
     public function afterSave() {
         unset($this->tempData);
