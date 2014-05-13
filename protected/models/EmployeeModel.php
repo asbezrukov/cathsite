@@ -29,16 +29,7 @@ class EmployeeModel extends CActiveRecord
         return 'Employee';
     }
 
-    public function imageFieldName()
-    {
-        return 'photo';
-    }
 
-    public function getImageUrl() {
-        if (empty($this->photo))
-            return false;
-        return Yii::app()->baseUrl."/protected/upload/".$this->photo;
-    }
 
     public function rules() {
         
@@ -104,7 +95,7 @@ public function beforeSave()
 
 
 	public function imageFieldName() {
-        return 'url_pictures';
+        return 'photo';
     }
 
     public function getImageUrl($place = "detail") {
