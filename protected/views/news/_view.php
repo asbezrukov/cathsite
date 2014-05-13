@@ -3,10 +3,10 @@
         <div class="blog-grid-thumb">
             <a href="/news/category/" class="cat-blog"><?php echo CHtml::encode($data->category->nc_name); ?></a>
             <a href="/news/detail/<?=$data['id_news']?>">
-                <?php if ($node->getImageUrl()==false) { ?>
+                <?php if ($data->getImageUrl()==false) { ?>
 					<img src="http://placehold.it/65x65">
 				<?php }	else { ?>
-					<img src="<? echo $node->getImageUrl('main'); ?>">
+					<img src="<? echo $data->getImageUrl('main'); ?>">
 				<?php } ?>
             </a>
         </div>
