@@ -116,7 +116,16 @@ class EventModel extends CActiveRecord
     public function getImageUrl() {
         if (empty($this->url_pictures))
             return false;
-        return Yii::app()->baseUrl."/protected/upload/".$this->url_pictures;
+			
+		switch ($place) {
+            case "detail":
+                $url = "/protected/upload/events/225x";
+                break;
+            case "main": {
+                $url = "/protected/upload/events/65x65";
+                break;
+			}
+        //return Yii::app()->baseUrl."/protected/upload/".$this->url_pictures;
     }
 
     public function afterSave() {
