@@ -29,7 +29,7 @@
                             <div class="left-event-content">
                                 <?php $url = $arResult['data']->getImageUrl();?>
                                 <?php if(!empty($url)) { ?>
-                                    <img src="<?php echo $arResult['data']->getImageUrl()?>" alt="">
+                                    <img src="<?php echo $arResult['data']->getImageUrl('detail')?>" alt="">
                                 <?php } else { ?>
                                     <img src="http://placehold.it/225x240" alt="">
                                 <?php } ?>
