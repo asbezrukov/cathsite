@@ -47,30 +47,15 @@ class EmployeeModel extends CActiveRecord
 			array('photo', 'file', 'types'=>'jpg, gif, png'),
         );
     }   
-
-    public function beforeSave()
-    {
-        $this->setAttributes($this->tempData, false);
-        if (isset($this->image)) {
-            $this->image->saveAs(Yii::app()->basePath.'/upload/'.$this->image->name);
-            $this->photo = $this->image->name;
-        }
-
-        if ($this->validate()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 	
-	    public function beforeSave()
+public function beforeSave()
     {
         $this->setAttributes($this->tempData, false);
 
-        $path = Yii::getPathOfAlias('application.upload.news');
-        $pathBigImg = Yii::getPathOfAlias('application.upload.news.300x');
-        $pathSmallImg  = Yii::getPathOfAlias('application.upload.news.65x65');
-        $pathNormalImg = Yii::getPathOfAlias('application.upload.news.170');
+        $path = Yii::getPathOfAlias('application.upload.events');
+        $pathBigImg = Yii::getPathOfAlias('application.upload.events.300x');
+        $pathSmallImg  = Yii::getPathOfAlias('application.upload.events.65x65');
+        $pathNormalImg = Yii::getPathOfAlias('application.upload.events.170');
 
         if (!file_exists($path)) {
             mkdir($path);
@@ -116,34 +101,32 @@ class EmployeeModel extends CActiveRecord
             return false;
         }
     }
-	
-	public function imageFieldName()
-    {
-        return 'news_pictures';
-    }
-    public function afterSave() {
-        unset($this->tempData);
+
+
+	public function imageFieldName() {
+        return 'url_pictures';
     }
 
     public function getImageUrl($place = "detail") {
-        if (empty($this->news_pictures))
+        if (empty($this->url_pictures))
             return false;
-
-        switch ($place) {
+			
+		switch ($place) {
             case "detail":
                 $url = "/protected/upload/staff/300x";
                 break;
             case "main": {
                 $url = "/protected/upload/staff/65x65";
                 break;
-            }
+			}
             case "list": {
                 $url = "/protected/upload/staff/170";
                 break;
             }
         }
 
-        return Yii::app()->baseUrl.$url.'/'.$this->news_pictures;
+        return Yii::app()->baseUrl.$url.'/'.$this->url_pictures;
+        //return Yii::app()->baseUrl."/protected/upload/".$this->url_pictures;
     }
 
     public function afterSave() {
