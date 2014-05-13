@@ -45,7 +45,7 @@ class PageController extends Controller
     {
 		$page=new PagesModel;
 		$page=PagesModel::model()->find(array('condition'=>'p_name = "'.$p_name.'"'));
-        $this->render('update', array('page'=>$page));
+        $this->redirect('/');
     }
 	
 	public function actionSave($p_name)
