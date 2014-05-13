@@ -2,7 +2,11 @@
     <div class="box-content-inner clearfix">
         <div class="list-event-thumb">
             <a href="/staff/detail/<?=$data['id']?>">
-                <img src="<?php echo $data->getImageUrl(); ?>" alt="">
+			<?php if ($data->getImageUrl()==false) { ?>
+					<img src="http://placehold.it/170x">
+				<?php }	else { ?>
+					<img src="<? echo $data->getImageUrl('list'); ?>" alt="">
+				<?php } ?>
             </a>
         </div>
         <h5 class="event-title"><a href="/staff/detail/<?=$data['id']?>"><?php echo CHtml::encode($data->surname).' '.CHtml::encode($data->name).' '.CHtml::encode($data->patronymic); ?></a></h5>
