@@ -68,9 +68,47 @@ class EventModel extends CActiveRecord
     {
         $this->setAttributes($this->tempData, false);
 
+        $path = Yii::getPathOfAlias('application.upload.events');
+        $pathBigImg = Yii::getPathOfAlias('application.upload.events.225x');
+        $pathSmallImg  = Yii::getPathOfAlias('application.upload.events.65x65');
+        $pathNormalImg = Yii::getPathOfAlias('application.upload.events.170x150');
+
+        if (!file_exists($path)) {
+            mkdir($path);
+            chmod($path, 0777);
+        }
+
+        if (!file_exists($pathBigImg)) {
+            mkdir($pathBigImg);
+            chmod($pathBigImg, 0777);
+        }
+
+        if (!file_exists($pathSmallImg)) {
+            mkdir($pathSmallImg);
+            chmod($pathSmallImg, 0777);
+        }
+
+        if (!file_exists($pathNormalImg)) {
+            mkdir($pathNormalImg);
+            chmod($pathNormalImg, 0777);
+        }
+
         if (isset($this->image)) {
-            $this->image->saveAs(Yii::app()->basePath.'/upload/'.$this->image->name);
-            $this->url_pictures = $this->image->name;
+            $this->image->saveAs($pathBigImg.'/'.$this->image->name);
+
+            $fileImage = new CFileImage();
+            $fileImage->load($pathBigImg.'/'.$this->image->name);
+
+            $fileImage->resizeToWidth(225);
+            $fileImage->save($pathBigImg.'/'.$this->image->name);
+
+            $fileImage->resize(65,65);
+            $fileImage->save($pathSmallImg.'/'.$this->image->name);
+
+            $fileImage->resize(170,150);
+            $fileImage->save($pathNormalImg.'/'.$this->image->name);
+
+            $this->news_pictures = $this->image->name;
         }
 
         if ($this->validate()) {
@@ -79,6 +117,7 @@ class EventModel extends CActiveRecord
             return false;
         }
     }
+	
 
     public function afterSave() {
         unset($this->tempData);
