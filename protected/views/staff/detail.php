@@ -26,7 +26,11 @@
                     <div class="col-md-12">
                         <div class="event-container clearfix">
                             <div class="left-event-content">
-                                <img src="<?php echo $arResult['data']->getImageUrl(); ?>" alt="">
+							<?php if ($arResult['data']->getImageUrl()==false) { ?>
+								<img src="http://placehold.it/300x">
+							<?php }	else { ?>
+								<img src="<? echo $arResult['data']->getImageUrl(); ?>" alt="">
+							<?php } ?>
                             </div> <!-- /.left-event-content -->
                             <div class="right-event-content">
                                 <h2 class="event-title"><?php echo CHtml::encode($arResult['data']->surname).' '.CHtml::encode($arResult['data']->name).' '.CHtml::encode($arResult['data']->patronymic); ?></h2> 
