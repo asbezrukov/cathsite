@@ -47,16 +47,6 @@ class EventModel extends CActiveRecord
         return 'Event';
     }
 
-    public function imageFieldName() {
-        return 'url_pictures';
-    }
-
-    public function getImageUrl() {
-        if (empty($this->url_pictures))
-            return false;
-        return Yii::app()->baseUrl."/protected/upload/".$this->url_pictures;
-    }
-
     public function rules() {
         
         return array(
@@ -117,7 +107,17 @@ class EventModel extends CActiveRecord
             return false;
         }
     }
-	
+
+
+	public function imageFieldName() {
+        return 'url_pictures';
+    }
+
+    public function getImageUrl() {
+        if (empty($this->url_pictures))
+            return false;
+        return Yii::app()->baseUrl."/protected/upload/".$this->url_pictures;
+    }
 
     public function afterSave() {
         unset($this->tempData);
