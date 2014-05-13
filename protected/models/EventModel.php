@@ -126,7 +126,7 @@ class EventModel extends CActiveRecord
                 break;
 			}
             case "list": {
-                $url = "/protected/upload/news/360x220";
+                $url = "/protected/upload/events/170x150";
                 break;
             }
         }
