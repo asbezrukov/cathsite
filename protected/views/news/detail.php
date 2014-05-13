@@ -28,7 +28,11 @@
                     <div class="col-md-12">
                         <div class="blog-post-container">
                             <div class="blog-post-image">
-                                <img src="<? echo $arResult['data']->getImageUrl(); ?>">
+							<?php if ($arResult['data']->getImageUrl()==false) { ?>
+													<img src="http://placehold.it/400х">
+												<?php }	else { ?>
+													<img src="<?php echo $arResult['data']->getImageUrl('detail'); ?>">
+												<?php } ?>
                                 <div class="blog-post-meta">
                                     <ul>
                                         <li><i class="fa fa-calendar-o"></i><?php echo $arResult['data']->date_publication; ?></li>
