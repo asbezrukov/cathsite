@@ -23,7 +23,6 @@
 
             <!-- Here begin Main Content -->
             <div class="col-md-8">
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="blog-post-container">
@@ -165,16 +164,10 @@
                     <div class="widget-inner">
                      <?php     
                         foreach ($arResult['category'] as $node) {?>
-                        <h5 class="event-small-title"><a href="/news/category/"><?php echo $node->nc_name; ?></a></h5>                           
+                        <h5 class="event-small-title"><a href="/news/category/"><?php echo $node->nc_name; ?></a></h5>
                     <?}?>    
                     </div> <!-- /.widget-inner --> 
                 </div> <!-- /.widget-main -->
-
-                
-
-                
-
             </div> <!-- /.col-md-4 -->
-    
         </div> <!-- /.row -->
     </div> <!-- /.container -->
