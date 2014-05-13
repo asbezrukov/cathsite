@@ -113,7 +113,7 @@ class EventModel extends CActiveRecord
         return 'url_pictures';
     }
 
-    public function getImageUrl() {
+    public function getImageUrl($place = "detail") {
         if (empty($this->url_pictures))
             return false;
 			
