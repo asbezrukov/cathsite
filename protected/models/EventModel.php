@@ -125,6 +125,13 @@ class EventModel extends CActiveRecord
                 $url = "/protected/upload/events/65x65";
                 break;
 			}
+            case "list": {
+                $url = "/protected/upload/news/360x220";
+                break;
+            }
+        }
+
+        return Yii::app()->baseUrl.$url.'/'.$this->url_pictures;
         //return Yii::app()->baseUrl."/protected/upload/".$this->url_pictures;
     }
 
