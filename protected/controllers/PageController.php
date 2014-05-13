@@ -45,6 +45,11 @@ class PageController extends Controller
     {
 		$page=new PagesModel;
 		$page=PagesModel::model()->find(array('condition'=>'p_name = "'.$p_name.'"'));
+		$page->title=$_POST["title"];
+		$page->p_name=$_POST["p_name"];
+		$page->category=$_POST["category"];
+		$page->content=$_POST["content"];
+		$page->save();
         $this->redirect('/');
     }
 	
