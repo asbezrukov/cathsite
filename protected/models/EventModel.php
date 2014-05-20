@@ -88,15 +88,16 @@ class EventModel extends CActiveRecord
 
             $fileImage = new CFileImage();
             $fileImage->load($pathBigImg.'/'.$this->image->name);
-
             $fileImage->resizeToWidth(225);
             $fileImage->save($pathBigImg.'/'.$this->image->name);
 
-            $fileImage->resize(65,65);
-            $fileImage->save($pathSmallImg.'/'.$this->image->name);
-
+            $fileImage->load($pathBigImg.'/'.$this->image->name);
             $fileImage->resize(170,150);
             $fileImage->save($pathNormalImg.'/'.$this->image->name);
+
+            $fileImage->load($pathBigImg.'/'.$this->image->name);
+            $fileImage->resize(65,65);
+            $fileImage->save($pathSmallImg.'/'.$this->image->name);
 
             $this->url_pictures = $this->image->name;
         }

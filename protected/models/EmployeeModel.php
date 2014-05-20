@@ -43,10 +43,10 @@ public function beforeSave()
     {
         $this->setAttributes($this->tempData, false);
 
-        $path = Yii::getPathOfAlias('application.upload.events');
-        $pathBigImg = Yii::getPathOfAlias('application.upload.events.300x');
-        $pathSmallImg  = Yii::getPathOfAlias('application.upload.events.65x65');
-        $pathNormalImg = Yii::getPathOfAlias('application.upload.events.170');
+        $path = Yii::getPathOfAlias('application.upload.staff');
+        $pathBigImg = Yii::getPathOfAlias('application.upload.staff.300x');
+        $pathSmallImg  = Yii::getPathOfAlias('application.upload.staff.65x65');
+        $pathNormalImg = Yii::getPathOfAlias('application.upload.staff.170');
 
         if (!file_exists($path)) {
             mkdir($path);
@@ -73,17 +73,18 @@ public function beforeSave()
 
             $fileImage = new CFileImage();
             $fileImage->load($pathBigImg.'/'.$this->image->name);
-
             $fileImage->resizeToWidth(300);
             $fileImage->save($pathBigImg.'/'.$this->image->name);
 
+            $fileImage->load($pathBigImg.'/'.$this->image->name);
             $fileImage->resize(65,65);
             $fileImage->save($pathSmallImg.'/'.$this->image->name);
 
-            $fileImage->resize(170);
+            $fileImage->load($pathBigImg.'/'.$this->image->name);
+            $fileImage->resize(170, 150);
             $fileImage->save($pathNormalImg.'/'.$this->image->name);
 
-            $this->news_pictures = $this->image->name;
+            $this->photo = $this->image->name;
         }
 
         if ($this->validate()) {
@@ -99,7 +100,7 @@ public function beforeSave()
     }
 
     public function getImageUrl($place = "detail") {
-        if (empty($this->url_pictures))
+        if (empty($this->photo))
             return false;
 			
 		switch ($place) {
@@ -116,7 +117,7 @@ public function beforeSave()
             }
         }
 
-        return Yii::app()->baseUrl.$url.'/'.$this->url_pictures;
+        return Yii::app()->baseUrl . $url.'/'.$this->photo;
         //return Yii::app()->baseUrl."/protected/upload/".$this->url_pictures;
     }
 
@@ -131,21 +132,21 @@ public function beforeSave()
 	public function attributeLabels()
 	{
 	return array(
-	'surname' => 'Фамилия',
-	'name' => 'Имя',
-	'patronymic' => 'Отчество',
-	'photo' => 'Фото',
-	'prof_interest' => 'Профессиональные интересы',
-	'projects' => 'Исследовательские проекты',
-	'languages' => 'Знание иностранных языков',
-	'begin_date' => 'Начало работы на кафедре',
-	'phone' => 'Телефон',
-	'degree' => 'Звание',
-	'lecturer' => 'Преподователь?',
-	'position' => 'Должность',
-	'training' => 'Повышение квалификации',
-	'consult_time' => 'Время консультаций',
-	'rank' => 'Образование, ученые степени'
+        'surname' => 'Фамилия',
+        'name' => 'Имя',
+        'patronymic' => 'Отчество',
+        'photo' => 'Фото',
+        'prof_interest' => 'Профессиональные интересы',
+        'projects' => 'Исследовательские проекты',
+        'languages' => 'Знание иностранных языков',
+        'begin_date' => 'Начало работы на кафедре',
+        'phone' => 'Телефон',
+        'degree' => 'Звание',
+        'lecturer' => 'Преподователь?',
+        'position' => 'Должность',
+        'training' => 'Повышение квалификации',
+        'consult_time' => 'Время консультаций',
+        'rank' => 'Образование, ученые степени'
 	);
 	}
 

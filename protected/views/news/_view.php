@@ -6,7 +6,7 @@
                 <?php if ($data->getImageUrl()==false) { ?>
 					<img src="http://placehold.it/360x220">
 				<?php }	else { ?>
-					<img src="<? echo $data->getImageUrl('main'); ?>">
+					<img src="<? echo $data->getImageUrl('list'); ?>">
 				<?php } ?>
             </a>
         </div>

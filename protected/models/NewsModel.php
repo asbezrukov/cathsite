@@ -83,15 +83,16 @@ class NewsModel extends CActiveRecord
 
             $fileImage = new CFileImage();
             $fileImage->load($pathBigImg.'/'.$this->image->name);
-
             $fileImage->resizeToWidth(400);
             $fileImage->save($pathBigImg.'/'.$this->image->name);
 
-            $fileImage->resize(65,65);
-            $fileImage->save($pathSmallImg.'/'.$this->image->name);
-
+            $fileImage->load($pathBigImg.'/'.$this->image->name);
             $fileImage->resize(360,220);
             $fileImage->save($pathNormalImg.'/'.$this->image->name);
+
+            $fileImage->load($pathBigImg.'/'.$this->image->name);
+            $fileImage->resize(65,65);
+            $fileImage->save($pathSmallImg.'/'.$this->image->name);
 
             $this->news_pictures = $this->image->name;
         }
