@@ -142,7 +142,11 @@ $this->pageTitle=Yii::app()->name;
                                         <div class="informatory_list"> 
                                             <a href="/event/single/<?=$node->id_event?>"> 
                                                 <div class="col-md-2"> 
-                                                    <img src="<? echo $node->getImageUrl(); ?>">
+                                                <?php if ($node->getImageUrl()==false) { ?>
+                                                    <img src="http://placehold.it/65x65">
+                                                <?php } else { ?>
+                                                    <img src="<? echo $node->getImageUrl('main'); ?>">
+                                                <?php } ?>                                                 
                                                 </div> 
                                                 <div class="col-md-10"> 
                                                     <a href="/event/single/<?=$node->id_event?>">
