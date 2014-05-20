@@ -39,50 +39,25 @@ class EmployeeModel extends CActiveRecord
         );
     }   
 	
-public function beforeSave()
+    public function beforeSave()
     {
         $this->setAttributes($this->tempData, false);
 
-        $path = Yii::getPathOfAlias('application.upload.staff');
         $pathBigImg = Yii::getPathOfAlias('application.upload.staff.300x');
+        $pathNormalImg = Yii::getPathOfAlias('application.upload.staff.170x150');
         $pathSmallImg  = Yii::getPathOfAlias('application.upload.staff.65x65');
-        $pathNormalImg = Yii::getPathOfAlias('application.upload.staff.170');
-
-        if (!file_exists($path)) {
-            mkdir($path);
-            chmod($path, 0777);
-        }
-
-        if (!file_exists($pathBigImg)) {
-            mkdir($pathBigImg);
-            chmod($pathBigImg, 0777);
-        }
-
-        if (!file_exists($pathSmallImg)) {
-            mkdir($pathSmallImg);
-            chmod($pathSmallImg, 0777);
-        }
-
-        if (!file_exists($pathNormalImg)) {
-            mkdir($pathNormalImg);
-            chmod($pathNormalImg, 0777);
-        }
 
         if (isset($this->image)) {
-            $this->image->saveAs($pathBigImg.'/'.$this->image->name);
+            // Ключ: размер картинки,
+            // Значение: папка для сохранения.
+            $params = array(
+                "300x"   =>$pathBigImg,
+                "170x150"=>$pathNormalImg,
+                "65x65"  =>$pathSmallImg
+            );
 
-            $fileImage = new CFileImage();
-            $fileImage->load($pathBigImg.'/'.$this->image->name);
-            $fileImage->resizeToWidth(300);
-            $fileImage->save($pathBigImg.'/'.$this->image->name);
-
-            $fileImage->load($pathBigImg.'/'.$this->image->name);
-            $fileImage->resize(65,65);
-            $fileImage->save($pathSmallImg.'/'.$this->image->name);
-
-            $fileImage->load($pathBigImg.'/'.$this->image->name);
-            $fileImage->resize(170, 150);
-            $fileImage->save($pathNormalImg.'/'.$this->image->name);
+            $uploadManager = new UploadManager($this->image, $params);
+            $uploadManager->saveAll();
 
             $this->photo = $this->image->name;
         }
@@ -112,7 +87,7 @@ public function beforeSave()
                 break;
 			}
             case "list": {
-                $url = "/protected/upload/staff/170";
+                $url = "/protected/upload/staff/170x150";
                 break;
             }
         }

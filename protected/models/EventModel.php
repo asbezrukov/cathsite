@@ -15,7 +15,7 @@ class EventModel extends CActiveRecord
 			$criteria->limit=$limit;
 		}
 		if(isset($past))
-		{ 
+		{
 			$criteria->condition=$past?'hold_date < NOW()':'hold_date > NOW()'; 
 		}
 		return $this->findAll($criteria);
@@ -26,7 +26,7 @@ class EventModel extends CActiveRecord
 		return array(
 			'category'=>array(
 				self::BELONGS_TO, 'EventCategoryModel', 'id_category')
-			);
+        );
 	}
 
     public function getKeyValueCategories() {
@@ -58,46 +58,21 @@ class EventModel extends CActiveRecord
     {
         $this->setAttributes($this->tempData, false);
 
-        $path = Yii::getPathOfAlias('application.upload.events');
         $pathBigImg = Yii::getPathOfAlias('application.upload.events.225x');
-        $pathSmallImg  = Yii::getPathOfAlias('application.upload.events.65x65');
         $pathNormalImg = Yii::getPathOfAlias('application.upload.events.170x150');
-
-        if (!file_exists($path)) {
-            mkdir($path);
-            chmod($path, 0777);
-        }
-
-        if (!file_exists($pathBigImg)) {
-            mkdir($pathBigImg);
-            chmod($pathBigImg, 0777);
-        }
-
-        if (!file_exists($pathSmallImg)) {
-            mkdir($pathSmallImg);
-            chmod($pathSmallImg, 0777);
-        }
-
-        if (!file_exists($pathNormalImg)) {
-            mkdir($pathNormalImg);
-            chmod($pathNormalImg, 0777);
-        }
+        $pathSmallImg  = Yii::getPathOfAlias('application.upload.events.65x65');
 
         if (isset($this->image)) {
-            $this->image->saveAs($pathBigImg.'/'.$this->image->name);
+            // Ключ: размер картинки,
+            // Значение: папка для сохранения.
+            $params = array(
+                "225x"   =>$pathBigImg,
+                "170x150"=>$pathNormalImg,
+                "65x65"  =>$pathSmallImg
+            );
 
-            $fileImage = new CFileImage();
-            $fileImage->load($pathBigImg.'/'.$this->image->name);
-            $fileImage->resizeToWidth(225);
-            $fileImage->save($pathBigImg.'/'.$this->image->name);
-
-            $fileImage->load($pathBigImg.'/'.$this->image->name);
-            $fileImage->resize(170,150);
-            $fileImage->save($pathNormalImg.'/'.$this->image->name);
-
-            $fileImage->load($pathBigImg.'/'.$this->image->name);
-            $fileImage->resize(65,65);
-            $fileImage->save($pathSmallImg.'/'.$this->image->name);
+            $uploadManager = new UploadManager($this->image, $params);
+            $uploadManager->saveAll();
 
             $this->url_pictures = $this->image->name;
         }
@@ -146,15 +121,14 @@ class EventModel extends CActiveRecord
 	
 	public function attributeLabels()
 	{
-	return array(
-		'name_event' => 'Название события',
-		'id_category' => 'Категория',
-		'date_publication' => 'Дата публикации',
-		'hold_date' => 'Дата проведения',
-		'text_description' => 'Текст-описание',
-		'url_pictures' => 'Изображение' 
-		
-		);
+        return array(
+            'name_event' => 'Название события',
+            'id_category' => 'Категория',
+            'date_publication' => 'Дата публикации',
+            'hold_date' => 'Дата проведения',
+            'text_description' => 'Текст-описание',
+            'url_pictures' => 'Изображение'
+        );
 	}
     
 }

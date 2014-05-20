@@ -53,46 +53,21 @@ class NewsModel extends CActiveRecord
     {
         $this->setAttributes($this->tempData, false);
 
-        $path = Yii::getPathOfAlias('application.upload.news');
         $pathBigImg = Yii::getPathOfAlias('application.upload.news.400x');
-        $pathSmallImg  = Yii::getPathOfAlias('application.upload.news.65x65');
         $pathNormalImg = Yii::getPathOfAlias('application.upload.news.360x220');
-
-        if (!file_exists($path)) {
-            mkdir($path);
-            chmod($path, 0777);
-        }
-
-        if (!file_exists($pathBigImg)) {
-            mkdir($pathBigImg);
-            chmod($pathBigImg, 0777);
-        }
-
-        if (!file_exists($pathSmallImg)) {
-            mkdir($pathSmallImg);
-            chmod($pathSmallImg, 0777);
-        }
-
-        if (!file_exists($pathNormalImg)) {
-            mkdir($pathNormalImg);
-            chmod($pathNormalImg, 0777);
-        }
+        $pathSmallImg  = Yii::getPathOfAlias('application.upload.news.65x65');
 
         if (isset($this->image)) {
-            $this->image->saveAs($pathBigImg.'/'.$this->image->name);
+            // Ключ: размер картинки,
+            // Значение: папка для сохранения.
+            $params = array(
+                "400x"   =>$pathBigImg,
+                "360x220"=>$pathNormalImg,
+                "65x65"  =>$pathSmallImg
+            );
 
-            $fileImage = new CFileImage();
-            $fileImage->load($pathBigImg.'/'.$this->image->name);
-            $fileImage->resizeToWidth(400);
-            $fileImage->save($pathBigImg.'/'.$this->image->name);
-
-            $fileImage->load($pathBigImg.'/'.$this->image->name);
-            $fileImage->resize(360,220);
-            $fileImage->save($pathNormalImg.'/'.$this->image->name);
-
-            $fileImage->load($pathBigImg.'/'.$this->image->name);
-            $fileImage->resize(65,65);
-            $fileImage->save($pathSmallImg.'/'.$this->image->name);
+            $uploadManager = new UploadManager($this->image, $params);
+            $uploadManager->saveAll();
 
             $this->news_pictures = $this->image->name;
         }
