@@ -49,13 +49,16 @@ class NewsModel extends CActiveRecord
         );
     }
 
+    const PathAliasToBigImg = 'application.upload.news.400x';
+    const PathAliasToNormalImg = 'application.upload.news.360x220';
+    const PathAliasToSmallImg = 'application.upload.news.65x65';
     public function beforeSave()
     {
         $this->setAttributes($this->tempData, false);
 
-        $pathBigImg = Yii::getPathOfAlias('application.upload.news.400x');
-        $pathNormalImg = Yii::getPathOfAlias('application.upload.news.360x220');
-        $pathSmallImg  = Yii::getPathOfAlias('application.upload.news.65x65');
+        $pathBigImg = Yii::getPathOfAlias(self::PathAliasToBigImg);
+        $pathNormalImg = Yii::getPathOfAlias(self::PathAliasToNormalImg);
+        $pathSmallImg  = Yii::getPathOfAlias(self::PathAliasToSmallImg);
 
         if (isset($this->image)) {
             // Ключ: размер картинки,
@@ -93,17 +96,18 @@ class NewsModel extends CActiveRecord
 
         switch ($place) {
             case "detail":
-                $url = "/protected/upload/news/400x";
+                $absPath = Yii::getPathOfAlias(self::PathAliasToBigImg);
                 break;
             case "main": {
-                $url = "/protected/upload/news/65x65";
+                $absPath = Yii::getPathOfAlias(self::PathAliasToSmallImg);
                 break;
             }
             case "list": {
-                $url = "/protected/upload/news/360x220";
+                $absPath = Yii::getPathOfAlias(self::PathAliasToNormalImg);
                 break;
             }
         }
+        $url = CPath::getRelativePath($absPath);
 
         return Yii::app()->baseUrl.$url.'/'.$this->news_pictures;
     }

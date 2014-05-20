@@ -37,15 +37,18 @@ class EmployeeModel extends CActiveRecord
 
 			array('photo', 'file', 'types'=>'jpg, gif, png'),
         );
-    }   
-	
+    }
+
+    const PathAliasToBigImg = 'application.upload.staff.300x';
+    const PathAliasToNormalImg = 'application.upload.staff.170x150';
+    const PathAliasToSmallImg = 'application.upload.staff.65x65';
     public function beforeSave()
     {
         $this->setAttributes($this->tempData, false);
 
-        $pathBigImg = Yii::getPathOfAlias('application.upload.staff.300x');
-        $pathNormalImg = Yii::getPathOfAlias('application.upload.staff.170x150');
-        $pathSmallImg  = Yii::getPathOfAlias('application.upload.staff.65x65');
+        $pathBigImg = Yii::getPathOfAlias(self::PathAliasToBigImg);
+        $pathNormalImg = Yii::getPathOfAlias(self::PathAliasToNormalImg);
+        $pathSmallImg  = Yii::getPathOfAlias(self::PathAliasToSmallImg);
 
         if (isset($this->image)) {
             // Ключ: размер картинки,
@@ -77,20 +80,21 @@ class EmployeeModel extends CActiveRecord
     public function getImageUrl($place = "detail") {
         if (empty($this->photo))
             return false;
-			
-		switch ($place) {
+
+        switch ($place) {
             case "detail":
-                $url = "/protected/upload/staff/300x";
+                $absPath = Yii::getPathOfAlias(self::PathAliasToBigImg);
                 break;
             case "main": {
-                $url = "/protected/upload/staff/65x65";
+                $absPath = Yii::getPathOfAlias(self::PathAliasToSmallImg);
                 break;
-			}
+            }
             case "list": {
-                $url = "/protected/upload/staff/170x150";
+                $absPath = Yii::getPathOfAlias(self::PathAliasToNormalImg);
                 break;
             }
         }
+        $url = CPath::getRelativePath($absPath);
 
         return Yii::app()->baseUrl . $url.'/'.$this->photo;
         //return Yii::app()->baseUrl."/protected/upload/".$this->url_pictures;

@@ -54,13 +54,16 @@ class EventModel extends CActiveRecord
         );
     }
 
+    const PathAliasToBigImg = 'application.upload.events.225x';
+    const PathAliasToNormalImg = 'application.upload.events.170x150';
+    const PathAliasToSmallImg = 'application.upload.events.65x65';
     public function beforeSave()
     {
         $this->setAttributes($this->tempData, false);
 
-        $pathBigImg = Yii::getPathOfAlias('application.upload.events.225x');
-        $pathNormalImg = Yii::getPathOfAlias('application.upload.events.170x150');
-        $pathSmallImg  = Yii::getPathOfAlias('application.upload.events.65x65');
+        $pathBigImg = Yii::getPathOfAlias(self::PathAliasToBigImg);
+        $pathNormalImg = Yii::getPathOfAlias(self::PathAliasToNormalImg);
+        $pathSmallImg  = Yii::getPathOfAlias(self::PathAliasToSmallImg);
 
         if (isset($this->image)) {
             // Ключ: размер картинки,
@@ -95,19 +98,20 @@ class EventModel extends CActiveRecord
 			
 		switch ($place) {
             case "detail":
-                $url = "/protected/upload/events/225x";
+                $absPath = Yii::getPathOfAlias(self::PathAliasToBigImg);
                 break;
             case "main": {
-                $url = "/protected/upload/events/65x65";
+                $absPath = Yii::getPathOfAlias(self::PathAliasToSmallImg);
                 break;
 			}
             case "list": {
-                $url = "/protected/upload/events/170x150";
+                $absPath = Yii::getPathOfAlias(self::PathAliasToNormalImg);
                 break;
             }
         }
+        $url = CPath::getRelativePath($absPath);
 
-        return Yii::app()->baseUrl.$url.'/'.$this->url_pictures;
+        return Yii::app()->baseUrl . $url . '/' . $this->url_pictures;
         //return Yii::app()->baseUrl."/protected/upload/".$this->url_pictures;
     }
 
