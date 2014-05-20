@@ -149,9 +149,8 @@
                             <li class="active"><a href="/">Главная</a></li>
                             <li><a href="/event/list">События</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Событие_1</a></li>
-                                    <li><a href="#">Событие_2</a></li>
-                                    <li><a href="#">Событие_3</a></li>
+                                    <li><a href="/event/list">Просмотр всех событий</a></li>
+                                    <li><a href="/event/create">Добавить событие</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Кафедра</a>
