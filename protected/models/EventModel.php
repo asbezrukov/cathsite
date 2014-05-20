@@ -50,7 +50,7 @@ class EventModel extends CActiveRecord
     public function rules() {
         
         return array(
-			array('url_pictures', 'file', 'types'=>'jpg, gif, png'),
+			array('url_pictures', 'file', 'types'=>'jpeg, jpg, gif, png'),
         );
     }
 
