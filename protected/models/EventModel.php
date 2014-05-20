@@ -98,7 +98,7 @@ class EventModel extends CActiveRecord
             $fileImage->resize(170,150);
             $fileImage->save($pathNormalImg.'/'.$this->image->name);
 
-            $this->news_pictures = $this->image->name;
+            $this->url_pictures = $this->image->name;
         }
 
         if ($this->validate()) {
