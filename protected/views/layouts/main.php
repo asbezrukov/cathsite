@@ -275,6 +275,7 @@
         </div> <!-- /.container -->
     </footer> <!-- /.site-footer -->
 
+    <?php $this->widget('application.widgets.AdminPanel'); ?>
 
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins.js"></script>

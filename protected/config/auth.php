@@ -99,13 +99,13 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
-	'SubjectAuthor' => array(
+	'subjectAuthor' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'NotesAuthor' => array(
+	'notesAuthor' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
@@ -118,106 +118,91 @@ return array(
         'description' => 'Guest',
         'bizRule' => null,
         'children' => array(
-            'newsReader',
-            'eventReader',
-            'staffReader',
-            'contentReader',
-            'LabsAuthor',
-            'subjectFullReader',
-            'notesReader',
-            'subscribeJoiner',
-            'studentUnPersReader'
+            'guest',
         ),
         'data' => null
     ),
 	
-	'chiefStudent' => array(
+	'chiefstudent' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Guest',
         'bizRule' => null,
         'children' => array(
-            'newsReader',
-            'eventReader',
-            'staffReader',
-            'contentReader',
-            'LabsAuthor',
-            'subjectFullReader',
-            'notesReader',
-            'subscribeJoiner',
-            'studentUnPersReader',
-			'GroupPersAuthor',
-			'GroupPasswordChanger',
+            'student',
+			'groupPersAuthor',
+            'newsManager',
+			'groupPasswordChanger'
         ),
         'data' => null
     ),
 
-	'NewsManager' => array(
+	'newsManager' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'EventManager' => array(
+	'eventManager' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'StaffManager' => array(
+	'staffManager' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'ContentManager' => array(
+	'contentManager' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'LabsManager' => array(
+	'labsManager' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'SubjectManager' => array(
+	'subjectManager' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'NotesManager' => array(
+	'notesManager' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'SubscribeManager' => array(
+	'subscribeManager' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'StudentManager' => array(
+	'studentManager' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'StaffPasswordChanger' => array(
+	'staffPasswordChanger' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'StudentPasswordChanger' => array(
+	'studentPasswordChanger' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
         'data' => null
     ),
-	'StudentPersAuthor' => array(
+	'studentPersAuthor' => array(
         'type' => CAuthItem::TYPE_OPERATION,
         'description' => '...',
         'bizRule' => null,
@@ -229,75 +214,47 @@ return array(
         'description' => 'Преподаватель',
         'children' => array(
             'guest',
-			'LabsReader',
+			'labsReader',
             'staffReader',
-			'LabsAuthor',
-			'SubjectAuthor',
-			'NotesAuthor',
-			'StudentPersReader',
-			'SubscribeJoiner',
+			'labsAuthor',
+			'subjectAuthor',
+			'notesAuthor',
+			'studentPersReader',
+			'subscribeJoiner',
         ),
         'bizRule' => null,
         'data' => null
     ),
- 
 
-
-    'chiefStaff' => array(
+    'chiefstaff' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Заведующий кафедры',
         'children' => array(
             'staff',
-			'NewsManager',
-			'EventManager',
-			'StaffManager',
-			'ContentManager',
-			'LabsManager',
-			'SubjectManager',
-			'NotesManager',
-			'SubscribeManager',
-			'StudentManager',
-			'StaffPasswordChanger',
-			'StudentPasswordChanger',
-			'StudentPersAuthor',	
+			'newsManager',
+			'eventManager',
+			'staffManager',
+			'contentManager',
+			'labsManager',
+			'subjectManager',
+			'notesManager',
+			'subscribeManager',
+			'studentManager',
+			'staffPasswordChanger',
+			'studentPasswordChanger',
+			'studentPersAuthor',
 
         ),
         'bizRule' => null,
         'data' => null
     ),
-
-
-
-    'student' => array(
-        'type' => CAuthItem::TYPE_ROLE,
-        'description' => 'Студент',
-        'children' => array(
-            'guest',
-        ),
-        'bizRule' => null,
-        'data' => null
-    ),
-
-
-
-    'chiefStudent' => array(
-        'type' => CAuthItem::TYPE_ROLE,
-        'description' => 'Староста',
-        'children' => array(
-            'student',
-        ),
-        'bizRule' => null,
-        'data' => null
-    ),
-
-
 
     'admin' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Администратор',
         'children' => array(
-            'chiefStudent',
-            'chiefStaff'
+            'chiefstudent',
+            'chiefstaff'
         ),
         'bizRule' => null,
         'data' => null
