@@ -39,30 +39,68 @@ class AdminController extends Controller
     public function actionPages()
     {
         $data = PagesModel::model()->findAll();
-        $this->render('index', array('arResult'=>$data));
+        $idField = "idPage";
+        $nameField = "title";
+        $this->render('index', array(
+            'arResult'=>$data,
+            'idField'=>$idField,
+            'nameField'=>$nameField
+            )
+        );
     }
 
     public function actionNews()
     {
         $data = NewsModel::model()->findAll();
-        $this->render('index', array('arResult'=>$data));
+        $idField = "id_news";
+        $nameField = "header";
+        $this->render('index', array(
+                'arResult'=>$data,
+                'idField'=>$idField,
+                'nameField'=>$nameField
+            )
+        );
     }
 
     public function actionEvents()
     {
         $data = EventModel::model()->findAll();
-        $this->render('index', array('arResult'=>$data));
+        $idField = "id_event";
+        $nameField = "name_event";
+        $this->render('index', array(
+                'arResult'=>$data,
+                'idField'=>$idField,
+                'nameField'=>$nameField
+            )
+        );
     }
 
     public function actionStaff()
     {
         $data = EmployeeModel::model()->findAll();
-        $this->render('index', array('arResult'=>$data));
+        $idField = "id";
+        foreach ($data as $index=>$item) {
+            $data[$index]->name = $item->name . ' ' . $item->patronymic;
+        }
+        $nameField = "name";
+        $this->render('index', array(
+                'arResult'=>$data,
+                'idField'=>$idField,
+                'nameField'=>$nameField
+            )
+        );
     }
 
     public function actionClassifieds()
     {
         $data = ClassifiedsModel::model()->findAll();
-        $this->render('index', array('arResult'=>$data));
+        $idField = "id_classifieds";
+        $nameField = "header";
+        $this->render('index', array(
+                'arResult'=>$data,
+                'idField'=>$idField,
+                'nameField'=>$nameField
+            )
+        );
     }
 }

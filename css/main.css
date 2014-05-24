@@ -7,6 +7,19 @@ body {
   word-wrap: break-word;
   border-top: 4px solid;
 }
+.course-list a.fa {
+    margin: 3px 5px 0;
+}
+.course-list a.fa.fa-pencil {
+    color: #000000;
+}
+.course-list a.fa.fa-times {
+    color: #DA0404;
+}
+.course-list a.fa:hover
+{
+    text-decoration: none;
+}
 .error {
     margin-top: 20px;
     font-size: 16px;
