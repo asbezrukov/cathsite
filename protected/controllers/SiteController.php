@@ -50,4 +50,15 @@ class SiteController extends Controller
         Yii::app()->user->logout();
         $this->redirect('/');
     }
+
+    public function actionError()
+    {
+        if($error=Yii::app()->errorHandler->error)
+        {
+            if(Yii::app()->request->isAjaxRequest)
+                echo $error['message'];
+            else
+                $this->render('error', $error);
+        }
+    }
 }

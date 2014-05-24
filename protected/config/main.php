@@ -18,6 +18,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
         'application.helpers.*',
+        'application.widgets.*'
 	),
 
 	'modules'=>array(
@@ -38,7 +39,7 @@ return array(
         'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
-            'loginUrl'=>array('site/currentlogin')
+            'loginUrl'=>array('site/login')
 		),
 
         'authManager' => array(
