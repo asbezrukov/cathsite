@@ -9,31 +9,31 @@ class AdminPanel extends CWidget
         $this->sections = array(
             array(
                 'name' => 'Страницы',
-                'url' => '/cms/pages',
+                'url' => '/admin/pages',
                 'operation' => 'contentManager',
                 'active' => false
             ),
             array(
                 'name' => 'Новости',
-                'url' => '/news/list',
+                'url' => '/admin/news',
                 'operation' => 'newsManager',
                 'active' => false
             ),
             array(
                 'name' => 'События',
-                'url' => '/event/list',
+                'url' => '/admin/events',
                 'operation' => 'eventManager',
                 'active' => false
             ),
             array(
                 'name' => 'Сотрудники',
-                'url' => '/cms/staff',
+                'url' => '/admin/staff',
                 'operation' => 'staffManager',
                 'active' => false
             ),
             array(
                 'name' => 'Объявления',
-                'url' => '/cms/classifieds',
+                'url' => '/admin/classifieds',
                 'operation' => 'notesManager',
                 'active' => false
             )
@@ -53,7 +53,10 @@ class AdminPanel extends CWidget
                 $arResult[] = $item;
             }
         }
-        $this->render('adminPanelForm', array('arResult'=>$arResult));
+
+        if (count($arResult) > 0) {
+            $this->render('adminPanelForm', array('arResult'=>$arResult));
+        }
     }
 
     private function isActive($url)
