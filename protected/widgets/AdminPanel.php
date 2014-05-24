@@ -9,28 +9,33 @@ class AdminPanel extends CWidget
         $this->sections = array(
             array(
                 'name' => 'Страницы',
-                'url' => '',
-                'operation' => 'contentManager'
+                'url' => '/cms/pages',
+                'operation' => 'contentManager',
+                'active' => false
             ),
             array(
                 'name' => 'Новости',
-                'url' => '',
-                'operation' => 'newsManager'
+                'url' => '/news/list',
+                'operation' => 'newsManager',
+                'active' => false
             ),
             array(
                 'name' => 'События',
-                'url' => '',
-                'operation' => 'eventManager'
+                'url' => '/event/list',
+                'operation' => 'eventManager',
+                'active' => false
             ),
             array(
                 'name' => 'Сотрудники',
-                'url' => '',
-                'operation' => 'staffManager'
+                'url' => '/cms/staff',
+                'operation' => 'staffManager',
+                'active' => false
             ),
             array(
                 'name' => 'Объявления',
-                'url' => '',
-                'operation' => 'notesManager'
+                'url' => '/cms/classifieds',
+                'operation' => 'notesManager',
+                'active' => false
             )
         );
     }
@@ -44,10 +49,19 @@ class AdminPanel extends CWidget
         foreach ($this->sections as $item) {
             if (Yii::app()->user->checkAccess($item['operation'])) {
                 unset($item['operation']);
+                $item['active'] = $this->isActive($item['url']);
                 $arResult[] = $item;
             }
         }
-
         $this->render('adminPanelForm', array('arResult'=>$arResult));
+    }
+
+    private function isActive($url)
+    {
+        if (Yii::app()->request->requestUri == $url) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
