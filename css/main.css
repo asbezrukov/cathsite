@@ -476,6 +476,10 @@ blockquote h5 {
   height: 100%;
 }
 
+.flexslider-no-arrow .flex-direction-nav {
+    display: none;
+}
+
 .flex-direction-nav {
   position: absolute;
   right: 36px;

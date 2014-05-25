@@ -49,7 +49,7 @@ class NewsModel extends CActiveRecord
         );
     }
 
-    const PathAliasToBigImg = 'application.upload.news.400x';
+    const PathAliasToBigImg = 'application.upload.news.750x';
     const PathAliasToNormalImg = 'application.upload.news.360x220';
     const PathAliasToSmallImg = 'application.upload.news.65x65';
     public function beforeSave()
@@ -64,7 +64,7 @@ class NewsModel extends CActiveRecord
             // Ключ: размер картинки,
             // Значение: папка для сохранения.
             $params = array(
-                "400x"   =>$pathBigImg,
+                "750x"   =>$pathBigImg,
                 "360x220"=>$pathNormalImg,
                 "65x65"  =>$pathSmallImg
             );

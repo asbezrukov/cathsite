@@ -38,12 +38,12 @@ $this->pageTitle=Yii::app()->name;
             <div class="col-md-4">
                 <div>
                     <div class="main-slideshow">
-                        <div class="flexslider">
+                        <div class="flexslider <?php if (count($arResult['classifieds']) == 0) echo 'flexslider-no-arrow'; ?>">
                             <ul class="slides">
                                 <?php 
-                                if (count($arResult['classifieds']) != 0) {
-                                for ($i = 0; $i < count($arResult['classifieds']); ++$i) { 
-                                    $node = $arResult['classifieds'][$i];
+                                    if (count($arResult['classifieds']) != 0) {
+                                        for ($i = 0; $i < count($arResult['classifieds']); ++$i) {
+                                            $node = $arResult['classifieds'][$i];
                                     ?>
                                     
                                     <li>
@@ -59,7 +59,7 @@ $this->pageTitle=Yii::app()->name;
                                 <?}} else {?>
                                     <li>
                                         <img src="http://placehold.it/350x390" alt="Slide 1"/>
-                                        <div class="slider-caption">
+                                        <div class="slider-caption slider">
                                             <h2><a href="#" class="none">Актуальных объявлений пока что нет</a></h2>
                                             <!--<p>Следите за новостями</p>-->
                                         </div>

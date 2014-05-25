@@ -8,6 +8,10 @@
             padding: 7px;
             text-align: center;
             margin-bottom: 5px;
+            text-transform: uppercase;
+            font-family: "Helvetica Neue", Helvetica-, Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
         }
         .admin-panel a {
             color: #8ab5d6;
