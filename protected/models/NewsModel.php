@@ -55,6 +55,8 @@ class NewsModel extends CActiveRecord
     public function beforeSave()
     {
         $this->setAttributes($this->tempData, false);
+        $now = new DateTime();
+        $this->date_publication = $now->format("Y-m-d");
 
         $pathBigImg = Yii::getPathOfAlias(self::PathAliasToBigImg);
         $pathNormalImg = Yii::getPathOfAlias(self::PathAliasToNormalImg);
@@ -86,7 +88,9 @@ class NewsModel extends CActiveRecord
     {
         return 'news_pictures';
     }
-    public function afterSave() {
+
+    public function afterSave()
+    {
         unset($this->tempData);
     }
 

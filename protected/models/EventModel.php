@@ -29,7 +29,8 @@ class EventModel extends CActiveRecord
         );
 	}
 
-    public function getKeyValueCategories() {
+    public function getKeyValueCategories()
+    {
         $data = $this->getAllCategories();
         $result = array();
 
@@ -39,16 +40,18 @@ class EventModel extends CActiveRecord
         return $result;
     }
 
-    public function getAllCategories() {
+    public function getAllCategories()
+    {
         return EventCategoryModel::model()->findAll();
     }
 
-    public function tableName() {
+    public function tableName()
+    {
         return 'Event';
     }
 
-    public function rules() {
-        
+    public function rules()
+    {
         return array(
 			array('url_pictures', 'file', 'types'=>'jpeg, jpg, gif, png'),
         );
@@ -60,6 +63,8 @@ class EventModel extends CActiveRecord
     public function beforeSave()
     {
         $this->setAttributes($this->tempData, false);
+        $now = new DateTime();
+        $this->date_publication = $now->format("Y-m-d");
 
         $pathBigImg = Yii::getPathOfAlias(self::PathAliasToBigImg);
         $pathNormalImg = Yii::getPathOfAlias(self::PathAliasToNormalImg);

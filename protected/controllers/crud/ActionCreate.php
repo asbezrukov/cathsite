@@ -24,8 +24,9 @@ class ActionCreate extends CrudAction
             $model->tempData = $data;
             //Метод save автоматически вызывает метод beforeSave модели, в котором записываются данные из переменной '$model->tempData' в модель, проходят валидацию и сохраняются.
             //Метод beforeSave у каждой модели свой.
-            if (isset($model->image))
+            if (property_exists($postMid, 'image')) {
                 $model->image = CUploadedFile::getInstance($model, $model->imageFieldName());
+            }
 
             if($model->save())
                 $this->controller->redirect(array($this->controller->listAction));

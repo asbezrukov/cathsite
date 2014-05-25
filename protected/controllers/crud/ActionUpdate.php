@@ -30,7 +30,6 @@ class ActionUpdate extends CrudAction
                 $model->image = CUploadedFile::getInstance($model, $model->imageFieldName());
             }
 
-
             if($model->save())
                 $this->controller->redirect(array($this->controller->detailAction, 'id'=>$id));
         }
