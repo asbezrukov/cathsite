@@ -25,7 +25,7 @@ class NewsController extends Controller
             ),
             array('allow',
                 'actions'=>array('delete'),
-                'roles'=>array('chiefStaff')
+                'roles'=>array('chiefstaff')
             ),
             array('deny')
         );
