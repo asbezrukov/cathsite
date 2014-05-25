@@ -12,11 +12,11 @@ $this->pageTitle=Yii::app()->name;
                     <form name = "formLogin" action = "/site/login" method = "post">
                         <div class="form-auth-wrap">
                             <table class="form-auth">
-                                <tr><td> Введите логин </td> <td> <input type="text" name="username" ></td> </tr>
+                                <tr><td>Логин:&nbsp;</td><td><input type="text" name="username" ></td> </tr>
                                 <tr><td><div class="form-auth-space"></div></td></tr>
-                                <tr><td> Введите пароль</td> <td> <input type="password" name="password" ></td> </tr>
+                                <tr><td>Пароль:&nbsp;</td><td><input type="password" name="password" ></td> </tr>
                                 <tr><td><div class="form-auth-space"></div></td></tr>
-                                <tr><td></td><td><input type="submit" value = "Войти"></td> </tr>
+                                <tr><td></td><td><input class="pull-right" type="submit" value = "Войти"></td> </tr>
                            </table>
                         </div>
                     </form>

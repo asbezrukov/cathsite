@@ -41,7 +41,7 @@ class AdminController extends Controller
         $data = PagesModel::model()->findAll();
         $idField = "idPage";
         $nameField = "title";
-        $this->render('index', array(
+        $this->render('list', array(
             'arResult'=>$data,
             'idField'=>$idField,
             'nameField'=>$nameField
@@ -54,7 +54,7 @@ class AdminController extends Controller
         $data = NewsModel::model()->findAll();
         $idField = "id_news";
         $nameField = "header";
-        $this->render('index', array(
+        $this->render('list', array(
                 'arResult'=>$data,
                 'idField'=>$idField,
                 'nameField'=>$nameField
@@ -67,7 +67,7 @@ class AdminController extends Controller
         $data = EventModel::model()->findAll();
         $idField = "id_event";
         $nameField = "name_event";
-        $this->render('index', array(
+        $this->render('list', array(
                 'arResult'=>$data,
                 'idField'=>$idField,
                 'nameField'=>$nameField
@@ -83,7 +83,7 @@ class AdminController extends Controller
             $data[$index]->name = $item->name . ' ' . $item->patronymic;
         }
         $nameField = "name";
-        $this->render('index', array(
+        $this->render('list', array(
                 'arResult'=>$data,
                 'idField'=>$idField,
                 'nameField'=>$nameField
@@ -96,7 +96,7 @@ class AdminController extends Controller
         $data = ClassifiedsModel::model()->findAll();
         $idField = "id_classifieds";
         $nameField = "header";
-        $this->render('index', array(
+        $this->render('list', array(
                 'arResult'=>$data,
                 'idField'=>$idField,
                 'nameField'=>$nameField

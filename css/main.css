@@ -37,11 +37,15 @@ body {
     color: #4444ff;
     font-style: normal;
 }
+.course-list-error {
+    margin-bottom: 0;
+}
 .form-auth-wrap {
     padding: 30px;
     background-color: #efefef;
     display: table;
     margin: 0 auto;
+    min-width: 300px;
 }
 .form-auth-space {
     height: 10px;

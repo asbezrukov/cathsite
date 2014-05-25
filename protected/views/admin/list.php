@@ -4,8 +4,9 @@
             <div class="widget-main">
                 <div class="widget-inner">
 
-                    <dl class="course-list" role="tablist">
-                        <?php if (count($arResult) > 0) { ?>
+                    <?php if (count($arResult) > 0) { ?>
+
+                        <dl class="course-list" role="tablist">
                             <?php foreach($arResult as $arItem) { ?>
                                 <dt>
                                     <a class="fa fa-times pull-right" href="#"></a>
@@ -18,11 +19,11 @@
                                     <?php } ?>
                                 </dt>
                             <?php } ?>
-                        <?php } else { ?>
-                            <p>Елементы не найдены</p>
-                        <?php } ?>
-                    </dl>
+                        </dl>
 
+                    <?php } else { ?>
+                        <p class="course-list-error">Елементы не найдены</p>
+                    <?php } ?>
                 </div> <!-- /.widget-inner -->
             </div> <!-- /.widget-main -->
         </div> <!-- /.col-md-12 -->
