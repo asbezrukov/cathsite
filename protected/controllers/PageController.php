@@ -2,14 +2,6 @@
 
 class PageController extends Controller
 {
-    public function actions() {
-        return array(
-            'create' => 'application.controllers.crud.ActionCreate',
-            'update' => 'application.controllers.crud.ActionUpdate',
-            'delete' => 'application.controllers.crud.ActionDelete'
-        );
-    }
-
     public function actionIndex($category=null)
     {
         $this->render('index', array('category'=>$category));
@@ -23,7 +15,7 @@ class PageController extends Controller
 		$page->category=$_POST["category"];
 		$page->content=$_POST["content"];
 		$page->save();
-        $this->redirect('/');
+        $this->redirect('/page/'.$page->p_name);
     }
 	
 	public function actionShow($p_name)
@@ -45,12 +37,7 @@ class PageController extends Controller
     {
 		$page=new PagesModel;
 		$page=PagesModel::model()->find(array('condition'=>'p_name = "'.$p_name.'"'));
-		$page->title=$_POST["title"];
-		$page->p_name=$_POST["p_name"];
-		$page->category=$_POST["category"];
-		$page->content=$_POST["content"];
-		$page->save();
-        $this->redirect('/');
+        $this->render('update', array('page'=>$page));
     }
 	
 	public function actionSave($p_name)
@@ -62,6 +49,6 @@ class PageController extends Controller
 		$page->category=$_POST["category"];
 		$page->content=$_POST["content"];
 		$page->save();
-        $this->redirect('/');
+        $this->redirect('/page/'.$page->p_name);
     }
 }
