@@ -1,8 +1,13 @@
 <?php /* @var $this Controller */ 
 
-//$cathPages = new PagesModel;
-//$cathPages=PagesModel::model()->findAll(array('condition'=>'category = "cath"'));
-//$studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'));
+$cathPages = new PagesModel;
+$cathPages=PagesModel::model()->findAll(array('condition'=>'category = "cath"'));
+$studPages = new PagesModel;
+$studPages=PagesModel::model()->findAll(array('condition'=>'category = "stud"'));
+$contactPages= new PagesModel;
+$contactPages=PagesModel::model()->findAll(array('condition'=>'category = "contact"'));
+$eventPages= new PagesModel;
+$eventPages=PagesModel::model()->findAll(array('condition'=>'category = "event"'));
 
 ?>
 <!DOCTYPE html>
@@ -60,42 +65,48 @@
                 <li><a href="/">Главная</a></li>
                 <li><a href="/event/list">События</a>
                     <ul>
-                        <li><a href="#">Событие_1</a></li>
-                        <li><a href="#">Событие_2</a></li>
-                        <li><a href="#">Событие_3</a></li>
+                        <?php
+						
+						foreach($eventPages as $page) {
+							echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/'.$page->p_name.'">'.$page->title.'</a></li>';
+						}
+						
+						?>
                     </ul>
                 </li>
                 <li><a href="#">Кафедра</a>
                     <ul>
-						<? //Yii::app()->user->checkAccess('pageReader') { ?>
-                        <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/page/index/cath">Добавить страницу...</a></li>
-						<? //} ?>
-						
 						<?php
 						
-						//foreach($cathPages as $page) {
-						//	echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
-						//}
+						foreach($cathPages as $page) {
+							echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/'.$page->p_name.'">'.$page->title.'</a></li>';
+						}
 						
 						?>
                     </ul>
                 </li>
                 <li><a href="#">Студентам</a>
                     <ul>
-                        <? //Yii::app()->user->checkAccess('pageReader') { ?>
-                        <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/page/index/stud">Добавить страницу...</a></li>
-						<? //} ?>
-						
 						<?php
 						
-						//foreach($studPages as $page) {
-						//	echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
-						//}
+						foreach($studPages as $page) {
+							echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/'.$page->p_name.'">'.$page->title.'</a></li>';
+						}
 						
 						?>
                     </ul>
                 </li>
-                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Контакты</a>
+					<ul>
+						<?php
+						
+						foreach($contactPages as $page) {
+							echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/'.$page->p_name.'">'.$page->title.'</a></li>';
+						}
+						
+						?>
+                    </ul>
+				</li>
             </ul> <!-- /.main_menu -->
             <div class="search-form">
                 <form name="search_form" method="get" action="#" class="search_form">
@@ -151,36 +162,53 @@
                                 <ul class="sub-menu">
                                     <li><a href="/event/list">Просмотр всех событий</a></li>
                                     <li><a href="/event/create">Добавить событие</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Кафедра</a>
-                                <ul class="sub-menu">
-                        			<li><a href="<?php echo Yii::app()->request->baseUrl; ?>/page/index/cath">Добавить страницу...</a></li>
-									<?php
-						
-									//foreach($cathPages as $page) {
-									//	echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
-									//}
-									
-									?>	
-                                </ul>
-                            </li>
-                            <li><a href="#">Студентам</a>
-                                <ul class="sub-menu">
-                                    <? //Yii::app()->user->checkAccess('pageReader') { ?>
-			                        <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/page/index/stud">Добавить страницу...</a></li>
-									<? //} ?>
-									
 									<?php
 									
-									//foreach($studPages as $page) {
-									//	echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/show/'.$page->p_name.'">'.$page->title.'</a></li>';
-									//}
+									foreach($eventPages as $page) {
+										echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/'.$page->p_name.'">'.$page->title.'</a></li>';
+									}
 									
 									?>
                                 </ul>
                             </li>
-                            <li><a href="#">Контакты</a></li>
+                            <li><a href="#">Кафедра</a>
+                                <?php
+										if(sizeof($cathPages) > 0)
+										{
+										echo '<ul class="sub-menu">';
+										foreach($cathPages as $page) {
+											echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/'.$page->p_name.'">'.$page->title.'</a></li>';
+										}
+										echo '</ul>';
+									}
+									?>
+                            </li>
+                            <li><a href="#">Студентам</a>
+                                <?php
+										if(sizeof($studPages) > 0)
+										{
+										echo '<ul class="sub-menu">';
+										foreach($studPages as $page) {
+											echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/'.$page->p_name.'">'.$page->title.'</a></li>';
+										}
+										echo '</ul>';
+									}
+									?>
+                            </li>
+                            <li><a href="#">Контакты</a>
+								
+                        			<?php
+										if(sizeof($contactPages) > 0)
+										{
+										echo '<ul class="sub-menu">';
+										foreach($contactPages as $page) {
+											echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/'.$page->p_name.'">'.$page->title.'</a></li>';
+										}
+										echo '</ul>';
+									}
+									?>	
+									
+							</li>
                         </ul> <!-- /.main-menu -->
 
                         <div class="search-form">
