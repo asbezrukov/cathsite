@@ -6,6 +6,7 @@ $this->pageTitle=Yii::app()->name;
 Yii::app()->getClientScript()->registerScriptFile( Yii::app()->baseUrl.'/protected/extensions/tinymce_4.0.25/tinymce/js/tinymce/tinymce.min.js' );
 */
 ?>
+
 <html>
 	<head>
 	<script type="text/javascript" src="/protected/extensions/tinymce_4.0.25/tinymce/js/tinymce/tinymce.min.js"></script>
@@ -33,10 +34,17 @@ Yii::app()->getClientScript()->registerScriptFile( Yii::app()->baseUrl.'/protect
 	            <div class="col-md-12">
 	            	<div class="pluginForm"> 
 						<form method="post" action="/page/save/<?=$page->p_name?>">
-							<div class="pluginBody"><input name="category" type="hidden" value="<?=$page->category?>"/></div>
 							<div class="pluginBody">  Наименование <input name="p_name" type="text" value="<?=$page->p_name?>"/></div>
 							<div class="pluginBody">  Заголовок <input name="title" type="text" value="<?=$page->title?>"/></div>
-							<div class="pluginBody"><textarea name="content" style="width:70%"><?echo $page->content?></textarea></div>
+							<div class="pluginBody">  Категория 
+								<select name="category">
+									<option <?php if($page->category == 'cath') echo 'selected'?> value="cath">Кафедра</option>
+									<option <?php if($page->category == 'stud') echo 'selected'?> value="stud">Студентам</option>
+									<option <?php if($page->category == 'event') echo 'selected'?> value="event">События</option>
+									<option <?php if($page->category == 'contact') echo 'selected'?> value="contact">Контакты</option>
+								</select>
+							</div>
+							<div class="pluginBody"><textarea name="content" style="width:70%;height:400px"><?=$page->content?></textarea></div>
 							<div class="pluginBody"><input value="Сохранить" type="submit"/></div>
 						</form>
 					</div>
