@@ -34,9 +34,16 @@ Yii::app()->getClientScript()->registerScriptFile( Yii::app()->baseUrl.'/protect
 	            <div class="col-md-12">
 	            	<div class="pluginForm"> 
 						<form method="post" action="/page/create">
-							<div class="pluginBody"><input name="category" type="hidden" value="<?=$category?>"/></div>
 							<div class="pluginBody">  Наименование <input name="p_name" type="text"/></div>
 							<div class="pluginBody">  Заголовок <input name="title" type="text"/></div>
+							<div class="pluginBody">  Категория 
+								<select name="category">
+									<option value="cath">Кафедра</option>
+									<option value="stud">Студентам</option>
+									<option value="event">События</option>
+									<option value="contact">Контакты</option>
+								</select>
+							</div>
 							<div class="pluginBody"><textarea name="content" style="width:70%"></textarea></div>
 							<div class="pluginBody"><input value="Сохранить" type="submit"/></div>
 						</form>
