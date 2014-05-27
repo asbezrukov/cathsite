@@ -41,10 +41,12 @@ class AdminController extends Controller
         $data = PagesModel::model()->findAll();
         $idField = "idPage";
         $nameField = "title";
+        $modelType = "page";
         $this->render('list', array(
             'arResult'=>$data,
             'idField'=>$idField,
-            'nameField'=>$nameField
+            'nameField'=>$nameField,
+            'modelType'=>$modelType
             )
         );
     }
@@ -54,10 +56,12 @@ class AdminController extends Controller
         $data = NewsModel::model()->findAll();
         $idField = "id_news";
         $nameField = "header";
+        $modelType = "news";
         $this->render('list', array(
                 'arResult'=>$data,
                 'idField'=>$idField,
-                'nameField'=>$nameField
+                'nameField'=>$nameField,
+                'modelType'=>$modelType
             )
         );
     }
@@ -67,10 +71,12 @@ class AdminController extends Controller
         $data = EventModel::model()->findAll();
         $idField = "id_event";
         $nameField = "name_event";
+        $modelType = "event";
         $this->render('list', array(
                 'arResult'=>$data,
                 'idField'=>$idField,
-                'nameField'=>$nameField
+                'nameField'=>$nameField,
+                'modelType'=>$modelType
             )
         );
     }
@@ -83,10 +89,12 @@ class AdminController extends Controller
             $data[$index]->name = $item->name . ' ' . $item->patronymic;
         }
         $nameField = "name";
+        $modelType = "staff";
         $this->render('list', array(
                 'arResult'=>$data,
                 'idField'=>$idField,
-                'nameField'=>$nameField
+                'nameField'=>$nameField,
+                'modelType'=>$modelType
             )
         );
     }
@@ -96,10 +104,12 @@ class AdminController extends Controller
         $data = ClassifiedsModel::model()->findAll();
         $idField = "id_classifieds";
         $nameField = "header";
+        $modelType = "classifieds";
         $this->render('list', array(
                 'arResult'=>$data,
                 'idField'=>$idField,
-                'nameField'=>$nameField
+                'nameField'=>$nameField,
+                'modelType'=>$modelType
             )
         );
     }
