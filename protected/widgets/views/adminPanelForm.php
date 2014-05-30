@@ -115,13 +115,13 @@
     }
     function show_panel() {
         var elem = $('.admin-panel');
-        document.cookie = 'admin-panel-ishide' + '=0;path=/';
+        document.cookie = 'admin-panel-ishide=0;path=/';
         elem.removeClass('admin-panel-hidden');
     }
 
     function hide_panel() {
         var elem = $('.admin-panel');
-        document.cookie = 'admin-panel-ishide' + '=1;path=/';
+        document.cookie = 'admin-panel-ishide=1;path=/';
         elem.addClass('admin-panel-hidden');
     }
     function show_actions() {
