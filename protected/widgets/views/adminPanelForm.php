@@ -76,9 +76,18 @@
 <script>
     $(document).ready(function() {
         var hideTimer;
+
+        var isHide = getCookie('admin-panel-ishide');
+        console.log(isHide)
+        if (isHide == '0') {
+            show_panel();
+        } else {
+            hide_panel();
+        }
+
         $('.admin-panel').hover(function() {
             var elem = $(this);
-            if (elem.hasClass('admin-panel-hidden')) {
+            if (isHidden()) {
                 hideTimer = window.setTimeout(show_panel, 500);
             } else {
                 show_actions();
@@ -87,14 +96,29 @@
             hide_actions();
             window.clearTimeout(hideTimer);
         });
-    })
+    });
+
+    function getCookie(name) {
+        var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+
+    function isHidden() {
+        var isHide = $('.admin-panel').hasClass('admin-panel-hidden');
+        return isHide;
+    }
     function show_panel() {
         var elem = $('.admin-panel');
+        document.cookie = 'admin-panel-ishide' + '=0';
         elem.removeClass('admin-panel-hidden');
     }
 
     function hide_panel() {
         var elem = $('.admin-panel');
+        document.cookie = 'admin-panel-ishide' + '=1';
         elem.addClass('admin-panel-hidden');
     }
     function show_actions() {
