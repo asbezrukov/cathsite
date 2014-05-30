@@ -22,8 +22,8 @@
                         <dl class="course-list" role="tablist">
                             <?php foreach($arResult as $arItem) { ?>
                                 <dt>
-                                    <a class="fa fa-times pull-right" href="<?=$deleteUrl.$arItem[$keyField] ?>"></a>
-                                    <a class="fa fa-pencil pull-right" href="<?=$updateUrl.$arItem[$keyField] ?>"></a>
+                                    <a class="fa fa-times pull-right" href="/event/delete/<? echo $arItem->id_event?>"></a>
+                                    <a class="fa fa-pencil pull-right" href="/event/update/<? echo $arItem->id_event?>"></a>
                                     <span class="level"><?php echo $arItem[$idField]; ?></span>
                                     <?php if (!empty($arItem[$nameField])) { ?>
                                         <a href="<?=$singleUrl.$arItem[$keyField] ?>"><?php echo $arItem[$nameField]; ?></a>
