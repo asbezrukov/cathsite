@@ -1385,7 +1385,7 @@ input, select {
   border-bottom: 1px solid;
 }
 .course-list dt a {
-  display: block;
+  *display: block;
 }
 .course-list .ui-icon {
   position: absolute;
