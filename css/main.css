@@ -7,6 +7,16 @@ body {
   word-wrap: break-word;
   border-top: 4px solid;
 }
+.pageTable {
+  width: 800px;
+}
+.pageTdCat {
+  width:30%; 
+  color:#428bca;
+}
+.pageTdTile {
+  width:70%;
+}
 .course-list a.fa {
     margin: 3px 5px 0;
 }
