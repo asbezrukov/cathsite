@@ -79,7 +79,7 @@
 
         var isHide = getCookie('admin-panel-ishide');
         console.log(isHide)
-        if (isHide == '0') {
+        if (isHide == '0' || isHide == undefined) {
             show_panel();
         } else {
             hide_panel();
@@ -88,7 +88,10 @@
         $('.admin-panel').hover(function() {
             var elem = $(this);
             if (isHidden()) {
-                hideTimer = window.setTimeout(show_panel, 500);
+                hideTimer = window.setTimeout(function() {
+                    show_panel();
+                    show_actions();
+                }, 500 );
             } else {
                 show_actions();
             }
@@ -112,13 +115,13 @@
     }
     function show_panel() {
         var elem = $('.admin-panel');
-        document.cookie = 'admin-panel-ishide' + '=0';
+        document.cookie = 'admin-panel-ishide' + '=0;path=/';
         elem.removeClass('admin-panel-hidden');
     }
 
     function hide_panel() {
         var elem = $('.admin-panel');
-        document.cookie = 'admin-panel-ishide' + '=1';
+        document.cookie = 'admin-panel-ishide' + '=1;path=/';
         elem.addClass('admin-panel-hidden');
     }
     function show_actions() {
