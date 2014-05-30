@@ -1,6 +1,8 @@
 <?php
 
 class UploadManager {
+    public $filename;
+
     private $sizeAndPath = array();
     private $image;
 
@@ -8,10 +10,11 @@ class UploadManager {
     {
         $this->image = $image;
         $this->sizeAndPath = $params;
+        $this->setFileName($this->image->name);
     }
 
-    public function saveAll() {
-
+    public function saveAll()
+    {
         foreach ($this->sizeAndPath as $size=>$path) {
             $this->saveAs($path, $size);
         }
@@ -36,10 +39,25 @@ class UploadManager {
                 $imageFile->resizeToWidth($width);
             }
 
-            $imageFile->save($path . '/' . $this->image->name);
+            $imageFile->save($path . '/' . $this->getFilename());
         } else {
-            $this->image->saveAs($path . '/' . $this->image->name);
+            $this->image->saveAs($path . '/' . $this->getFilename());
         }
+    }
+
+    public function appendHashToFilename()
+    {
+        $fileAndExt = explode('.',$this->image->name);
+        $this->filename = $fileAndExt[0] . '-' . substr( md5(time()), 0, 3) . $fileAndExt[1];
+    }
+
+    public function setFileName($name) {
+        $this->filename = $name;
+    }
+
+    public function getFilename()
+    {
+        return $this->filename;
     }
 
     private function checkPath($path) {

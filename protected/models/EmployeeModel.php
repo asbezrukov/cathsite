@@ -31,11 +31,10 @@ class EmployeeModel extends CActiveRecord
 
 
 
-    public function rules() {
-        
+    public function rules()
+    {
         return array(
-
-			array('photo', 'file', 'types'=>'jpg, gif, png'),
+			//array('photo', 'file', 'types'=>'jpg, gif, png'),
         );
     }
 
@@ -60,9 +59,10 @@ class EmployeeModel extends CActiveRecord
             );
 
             $uploadManager = new UploadManager($this->image, $params);
+            $uploadManager->appendHashToFilename();
             $uploadManager->saveAll();
 
-            $this->photo = $this->image->name;
+            $this->photo = $uploadManager->getFilename();
         }
 
         if ($this->validate()) {

@@ -42,10 +42,10 @@ class NewsModel extends CActiveRecord
         return 'News';
     }
 
-    public function rules() {
-
+    public function rules()
+    {
         return array(
-            array('news_pictures', 'file', 'types'=>'jpg, gif, png'),
+            //array('news_pictures', 'file', 'types'=>'jpg, gif, png'),
         );
     }
 
@@ -72,9 +72,10 @@ class NewsModel extends CActiveRecord
             );
 
             $uploadManager = new UploadManager($this->image, $params);
+            $uploadManager->appendHashToFilename();
             $uploadManager->saveAll();
 
-            $this->news_pictures = $this->image->name;
+            $this->news_pictures = $uploadManager->getFilename();
         }
 
         if ($this->validate()) {

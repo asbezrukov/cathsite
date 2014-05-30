@@ -53,7 +53,7 @@ class EventModel extends CActiveRecord
     public function rules()
     {
         return array(
-			array('url_pictures', 'file', 'types'=>'jpeg, jpg, gif, png'),
+			//array('url_pictures', 'file', 'types'=>'jpeg, jpg, gif, png'),
         );
     }
 
@@ -80,9 +80,10 @@ class EventModel extends CActiveRecord
             );
 
             $uploadManager = new UploadManager($this->image, $params);
+            $uploadManager->appendHashToFilename();
             $uploadManager->saveAll();
 
-            $this->url_pictures = $this->image->name;
+            $this->url_pictures = $uploadManager->getFilename();
         }
 
         if ($this->validate()) {
