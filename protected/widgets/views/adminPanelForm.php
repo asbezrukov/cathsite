@@ -75,14 +75,17 @@
 </style>
 <script>
     $(document).ready(function() {
+        var hideTimer;
         $('.admin-panel').hover(function() {
             var elem = $(this);
             if (elem.hasClass('admin-panel-hidden')) {
-                show_panel();
+                hideTimer = window.setTimeout(show_panel, 500);
+            } else {
+                show_actions();
             }
-            show_actions();
         }, function() {
             hide_actions();
+            window.clearTimeout(hideTimer);
         });
     })
     function show_panel() {
