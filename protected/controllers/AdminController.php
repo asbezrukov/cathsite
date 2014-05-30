@@ -39,16 +39,7 @@ class AdminController extends Controller
     public function actionPages()
     {
         $data = PagesModel::model()->findAll();
-        $idField = "idPage";
-        $nameField = "title";
-        $modelType = "page";
-        $this->render('list', array(
-            'arResult'=>$data,
-            'idField'=>$idField,
-            'nameField'=>$nameField,
-            'modelType'=>$modelType
-            )
-        );
+        $this->render('list_pages', array('arResult'=>$data));
     }
 
     public function actionNews()
