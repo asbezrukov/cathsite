@@ -20,18 +20,36 @@
 		<div class="col-md-12">
 			<div class="widget-main">
 				<div class="widget-inner">
-
                     <?php if (count($arResult) > 0) { ?>
-
                         <dl class="course-list" role="tablist">
-                            <?php foreach($arResult as $arItem) { ?>
+                            <?php foreach($arResult as $arItem) { 
+                                $cat = '';
+                                switch ($arItem->category) {
+                                    case 'stud':
+                                        $cat = 'Студентам';
+                                        break;
+                                    case 'cath':
+                                        $cat = 'Кафедра';
+                                        break;
+                                    case 'event':
+                                        $cat = 'События';
+                                        break;
+                                    case 'contact':
+                                        $cat = 'Контакты';
+                                        break;
+                                }
+                                ?>
                                 <dt>
                                     <a class="fa fa-times pull-right" href="/page/delete/<? echo $arItem->p_name?>"></a>
                                     <a class="fa fa-pencil pull-right" href="/page/update/<? echo $arItem->p_name?>"></a>
                                     <span class="level"><?php echo $arItem->idPage ?></span>
                                         <?php if (!empty($arItem->title)) { ?>
-                                        <a href="/page/<?=$arItem->p_name ?>"><?php echo $arItem->title; ?></a>
-                                        
+                                        <table class="pageTable">
+                                            <tr>
+                                                <td class="pageTdCat"><?php echo $cat; ?></td>
+                                                <td class="pageTdTitle"><a href="/page/<?=$arItem->p_name ?>"><?php echo $arItem->title; ?></a></td>
+                                            </tr>
+                                        </table>
                                         <?php } else { ?>
                                     <span>-</span>
                                     <?php } ?>
