@@ -69,16 +69,7 @@ class AdminController extends Controller
     public function actionEvents()
     {
         $data = EventModel::model()->findAll();
-        $idField = "id_event";
-        $nameField = "name_event";
-        $modelType = "event";
-        $this->render('list', array(
-                'arResult'=>$data,
-                'idField'=>$idField,
-                'nameField'=>$nameField,
-                'modelType'=>$modelType
-            )
-        );
+		$this->render('list_events', array('arResult'=>$data));
     }
 
     public function actionStaff()
