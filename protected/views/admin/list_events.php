@@ -6,7 +6,7 @@
                 <h6><span>Редактирование</span></h6>
                 <div class="grid-or-list">
                     <ul>
-                        <li><a href="<?=$createUrl?>" title="Добавить"><img src="/images/add.png"></a></li>
+                        <li><a href="/event/create" title="Добавить"><img src="/images/add.png"></a></li>
                     </ul>
                 </div>
             </div>
