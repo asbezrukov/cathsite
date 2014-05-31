@@ -79,12 +79,16 @@ $this->pageTitle=Yii::app()->name;
                              <div class="event-small-details">
                                  <h5 class="event-small-title">
                                      <a href="/event/single/<?=$node->id_event?>">
-                                         <?php echo $node->name_event; ?>
+                                         <?php 
+                                            $tail = strlen($node->name_event) > 45 ? '...' : '';
+                                            echo mb_substr($node->name_event, 0, 45, 'UTF-8') . $tail; ?>
                                      </a>
                                  </h5>
                                  <div class="event-small-body">
                                      <p class="event-small-meta small-text">
-                                         <?php echo $node->text_description; ?>
+                                         <?php 
+                                            $tail = strlen($node->text_description) > 45 ? '...' : '';
+                                            echo mb_substr($node->text_description, 0, 45, 'UTF-8') . $tail; ?>
                                      </p>
                                  </div>
                              </div>

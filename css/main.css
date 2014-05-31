@@ -765,9 +765,12 @@ input, select {
 
 .blog-list-title,
 .blog-grid-title,
-.event-small-title,
 .event-title,
 .gallery-title {
+  margin: 2px 0 0 0;
+}
+
+.event-small-title {
   margin: 2px 0 0 0;
 }
 
