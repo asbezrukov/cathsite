@@ -172,16 +172,20 @@ $eventPages=PagesModel::model()->findAll(array('condition'=>'category = "event"'
                                 </ul>
                             </li>
                             <li><a href="#">Кафедра</a>
+                                <ul class="sub-menu">
+                                    <li><a href="/news/list">Новости</a></li>
+                                    <li><a href="/staff/list">Сотрудники</a></li>
                                 <?php
 										if(sizeof($cathPages) > 0)
 										{
-										echo '<ul class="sub-menu">';
+										
 										foreach($cathPages as $page) {
 											echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/'.$page->p_name.'">'.$page->title.'</a></li>';
 										}
-										echo '</ul>';
+										
 									}
 									?>
+                                </ul>
                             </li>
                             <li><a href="#">Студентам</a>
                                 <?php
