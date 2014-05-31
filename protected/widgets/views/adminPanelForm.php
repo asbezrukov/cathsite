@@ -77,7 +77,7 @@
     $(document).ready(function() {
         var hideTimer;
 
-        var isHide = getCookie('admin-panel-ishide');
+        var isHide = getCookie('is-hide-ap');
         console.log(isHide)
         if (isHide == '0' || isHide == undefined) {
             show_panel();
@@ -115,13 +115,13 @@
     }
     function show_panel() {
         var elem = $('.admin-panel');
-        document.cookie = 'admin-panel-ishide=0;path=/';
+        document.cookie = 'is-hide-ap=0;path=/';
         elem.removeClass('admin-panel-hidden');
     }
 
     function hide_panel() {
         var elem = $('.admin-panel');
-        document.cookie = 'admin-panel-ishide=1;path=/';
+        document.cookie = 'is-hide-ap=1;path=/';
         elem.addClass('admin-panel-hidden');
     }
     function show_actions() {
