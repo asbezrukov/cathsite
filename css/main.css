@@ -609,6 +609,8 @@ blockquote h5 {
 .informatory-widget { 
   margin-bottom: 45px; 
   background-color: #fff;
+  padding: 5px;
+  height: 330px;
 }
 
 .informatory-widget-title {
@@ -624,7 +626,7 @@ blockquote h5 {
 }
 
 .informatory_list {
-  margin-bottom: 45px;  
+  height: 50px; 
 }
 .informatory_list img {
     width: 100%;

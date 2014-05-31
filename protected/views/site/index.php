@@ -113,7 +113,9 @@ $this->pageTitle=Yii::app()->name;
                                                 </div> 
                                                 <div class="col-md-10"> 
                                                     <a href="/news/detail/<?=$node->id_news?>">
-                                                        <?php echo $node->header; ?>
+                                                        <?php 
+                                                        $tail = strlen($node->header) > 45 ? '...' : '';
+                                                        echo mb_substr($node->header, 0, 45, 'UTF-8') . $tail; ?>
                                                     </a> 
                                                     <br/> <time> <?php echo date_format(new DateTime($node->date_publication),"d-m-Y"); ?> </time> 
                                                 </div> 
@@ -150,7 +152,9 @@ $this->pageTitle=Yii::app()->name;
                                                 </div> 
                                                 <div class="col-md-10"> 
                                                     <a href="/event/single/<?=$node->id_event?>">
-                                                        <?php echo $node->name_event; ?>
+                                                        <?php 
+                                                        $tail = strlen($node->name_event) > 45 ? '...' : '';
+                                                         echo mb_substr($node->name_event, 0, 45, 'UTF-8') . $tail; ?>
                                                     </a> 
                                                     <br/> <time> <?php echo date_format(new DateTime($node->hold_date),"d-m-Y"); ?> </time> 
                                                 </div> 
