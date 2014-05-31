@@ -2,9 +2,9 @@ CREATE DATABASE  IF NOT EXISTS `mydb` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `mydb`;
 -- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
 --
--- Host: vmubuntu    Database: mydb
+-- Host: 192.168.131.128    Database: mydb
 -- ------------------------------------------------------
--- Server version	5.5.35-0ubuntu0.12.04.2
+-- Server version	5.5.37-0ubuntu0.12.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -276,7 +276,7 @@ CREATE TABLE `Employee` (
   `rank` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -285,7 +285,7 @@ CREATE TABLE `Employee` (
 
 LOCK TABLES `Employee` WRITE;
 /*!40000 ALTER TABLE `Employee` DISABLE KEYS */;
-INSERT INTO `Employee` VALUES (7,'Бабич','Андрей','Владимирович','15-5fdJPG','','','','0000-00-00','','','',1,'ст.преподаватель','','',''),(8,'Ниссенбаум','Ольга','Владимировна','13-9b5JPG','','','','0000-00-00','','','',1,'доцент','','',''),(9,'Пуртов','Владимир','Георгиевич','22-402JPG','','','','0000-00-00','','','',1,'ассистент','','',''),(10,'Оленников','Евгений','Александрович','19-451JPG','','','','0000-00-00','','','',1,'доцент','','',''),(11,'Нестерова','Ольга ','Андреевна','11-362JPG','','','','0000-00-00','','','',1,'ст.преподаватель','','',''),(12,'Захаров','Александр','Анатольевич','загруженное-4f3jpg','','','','0000-00-00','','','',1,'зав.кафедры','','','профессор'),(13,'Широких','Андрей','Валерьевич','','','','','0000-00-00','','','',0,'доцент','','',''),(14,'Акимова','Марина','Михайловна','','','','','0000-00-00','','','',0,'ассистент','','',''),(15,'Попов','Евгений','Федорович','c1HiYGzHGw0-feajpg','','','','0000-00-00','','','',1,'аспирант','','','');
+INSERT INTO `Employee` VALUES (1,'Иванов','Иван','Иванович',NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'',0,'',NULL,NULL,NULL),(2,'Петров','Петр','Петрович','image/',NULL,NULL,NULL,'0000-00-00',NULL,NULL,'degree1',0,'position1',NULL,'All day, all night','rank1'),(3,'Сидоров','Иван','Петрович','image/',NULL,NULL,NULL,'0000-00-00',NULL,NULL,'degree1',0,'position2',NULL,'All day, all night','rank3'),(4,'Сотрудников','Сотрудник','Сотрудникович','image/',NULL,NULL,NULL,'0000-00-00',NULL,NULL,'degree2',0,'position3',NULL,'All day, all night','rank5');
 /*!40000 ALTER TABLE `Employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,12 +302,12 @@ CREATE TABLE `Event` (
   `id_category` int(11) NOT NULL,
   `date_publication` datetime NOT NULL,
   `hold_date` datetime NOT NULL,
-  `text_description` varchar(1000) DEFAULT NULL,
+  `text_description` text,
   `url_pictures` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id_event`),
   KEY `fk_event_category_idx` (`id_category`),
   CONSTRAINT `fk_event_category` FOREIGN KEY (`id_category`) REFERENCES `EventCategory` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -316,7 +316,7 @@ CREATE TABLE `Event` (
 
 LOCK TABLES `Event` WRITE;
 /*!40000 ALTER TABLE `Event` DISABLE KEYS */;
-INSERT INTO `Event` VALUES (2,'TestEvent2',1,'2014-05-29 00:00:00','0000-00-00 00:00:00','Description Here','619658-1920x1200-9eajpg'),(3,'TestEvent3',1,'2014-05-29 00:00:00','0000-00-00 00:00:00','Description Here','448910-1920x1080-202jpg'),(4,'TestEvent4',1,'2014-05-30 00:00:00','0000-00-00 00:00:00','Description Here','653575-2112x1188-7ddjpg'),(5,'TestEvent5',1,'2014-05-30 00:00:00','0000-00-00 00:00:00','Description Here','448910-1920x1080-8aajpg'),(6,'TestEvent6',1,'2014-05-30 00:00:00','0000-00-00 00:00:00','Description Here','576406-1920x1080-b3ajpg'),(7,'TestEvent7',1,'2014-05-30 00:00:00','0000-00-00 00:00:00','Description Here','384718-1920x1080-038jpg');
+INSERT INTO `Event` VALUES (3,'ТЮМГУ УСПЕШНО ПРОШЕЛ ГОСУДАРСТВЕННУЮ АККРЕДИТАЦИЮ',1,'0000-00-00 00:00:00','2014-05-05 00:00:00','Тюменский государственный университет прошел государственную аккредитацию и подтвердил право осуществления образовательной деятельности на последующие 6 лет.\r\n\r\nК аккредитации были представлены все 90 программ высшего профессионального образования по уровням: бакалавриат, специалитет и магистратура.\r\n\r\nАккредитационная комиссия работала в ТюмГУ с 14 по 18 апреля 2014 года. Эксперты дали положительную оценку содержанию и качеству подготовки обучающихся в вузе на соответствие требованиям федеральных государственных образовательных стандартов. \r\n\r\n \r\n\r\n \r\n\r\nИсточник:\r\n\r\nУправление информационной политики','13193.png'),(4,'НОВЫЕ ТРЕБОВАНИЯ В ПРАВИЛАХ ПРИЕМА ДЛЯ АБИТУРИЕНТОВ-2014',1,'0000-00-00 00:00:00','2014-04-25 00:00:00','31 марта в соответствии с приказом Минобрануки России от 9 января 2012 г. № 3 на сайте go.utmn.ru опубликованы Правила приема в Тюменский государственный университет на 2014/2015 учебный год на обучение по образовательным программам высшего образования – программам бакалавриата, программам специалитета и программам магистратуры. \r\n\r\nТакже на сайте размещены:\r\n\r\nинформация о перечне направлений подготовки (специальностей) и вступительных испытаний;\r\nинформация о возможности подачи документов для поступления на обучение в электронной форме; \r\nинформация о приоритетности вступительных испытаний при ранжировании поступающих по результатам вступительных испытаний; \r\nинформация о формах проведения и программы вступительных испытаний, проводимых организацией самостоятельно; \r\nинформация об особенностях проведения вступительных испытаний для лиц с  ограниченными возможностями здоровья, инвалидов;  \r\nинформация о дополнительных сроках проведения ЕГЭ для сдачи ЕГЭ лицами, не имеющими результатов ЕГЭ (при приеме на обучение по программам бакалавриата);\r\nинформация о необходимости (отсутствии необходимости) прохождения  поступающими обязательного предварительного медицинского осмотра (обследования);\r\nминимальное количество баллов для каждого вступительного испытания по каждому конкурсу;  \r\nинформация о проведении вступительных испытаний с использованием дистанционных технологий (в случае проведения таких вступительных испытаний).\r\nВпервые опубликован порядок учета индивидуальных достижений поступающих, - отметил ответственный секретарь Приемной комиссии ТюмГУ Иван Романчук. - Преимущество при прочих равных условиях будут иметь победители и призеры регионального этапа Всероссийской олимпиады школьников, победители и призеры заключительного этапа Межрегиональной многопрофильной олимпиады школьников «Менделеев».\r\n\r\nКак и в прошлом году, подать документы в Приемную комиссию можно лично, прислать по почте или заполнить в электронной форме. В этом случае поступающий заполняет заявление на сайте Приемной комиссии go.utmn.ru и прикрепляет к заявлению сканированные копии документов.\r\n\r\nАбитуриент участвует в конкурсе не более чем на три направления подготовки при подаче заявлений в каждый вуз. При этом число вузов, в которые можно подавать документы, не изменилось: их по-прежнему пять.\r\n\r\nИзменились правила приема для олимпиадников. Победителям и призерам олимпиад придется, кроме свидетельства о своих успехах на состязаниях, представить результаты ЕГЭ по профильному предмету с суммой не ниже 65 баллов.\r\n\r\nПо словам Ивана Сергеевича, в 2014 году не менее 10 % бюджетных мест будет отдано льготникам, в том числе детям-инвалидам, инвалидам-военнослужащим, инвалидам с детства, сиротам или лицам, приравненным к ним.\r\n\r\nВ соответствии с Постановлением Правительства РФ от 14 августа 2013 г. №697, поступающим на ряд специальностей направлений подготовки педагогической направленности, придется пройти обязательное медицинское освидетельствование и принести справку в университет, – добавил Иван Романчук.\r\n\r\n \r\n\r\nИсточник:\r\n\r\nУправление информационной политики','12958.jpg');
 /*!40000 ALTER TABLE `Event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -531,7 +531,7 @@ CREATE TABLE `News` (
 
 LOCK TABLES `News` WRITE;
 /*!40000 ALTER TABLE `News` DISABLE KEYS */;
-INSERT INTO `News` VALUES (2,1,'2014-05-29','619658-1920x1200-3c2jpg',0,'Title','Cool story bro','Text here'),(3,1,'2014-05-29','658951-2112x1188-8f1jpg',0,'News1','Preview here...','Text here'),(4,1,'2014-05-30','592443-2112x1188-86fjpg',0,'News2','Preview here...','Text here'),(5,1,'2014-05-29','619658-1920x1200-7adjpg',0,'News3','Preview here...','Text here'),(6,1,'2014-05-29','653575-2112x1188-a45jpg',0,'News4','Preview here...','Text here'),(7,1,'2014-05-30','619658-1920x1200-bcdjpg',0,'News5','Preview here...','Text here'),(8,1,'2014-05-30','448910-1920x1080-d2ajpg',0,'News6','Preview here...','Text here'),(9,1,'2014-05-30','658951-2112x1188-75bjpg',0,'News7','Preview here...','Text here'),(10,1,'2014-05-29','609899-1920x1080-7ddjpg',0,'News8','Preview here...','Text here');
+INSERT INTO `News` VALUES (2,1,'0000-00-00','image/',0,'Title','Cool story bro','Text here'),(3,1,'2014-11-11','image/',0,'News1','Preview here...','Text here'),(4,1,'2014-11-12','image/',0,'News2','Preview here...','Text here'),(5,1,'2014-11-13','image/',0,'News3','Preview here...','Text here'),(6,1,'2014-11-14','image/',0,'News4','Preview here...','Text here'),(7,1,'2014-11-14','image/',0,'News5','Preview here...','Text here'),(8,1,'2014-11-14','image/',0,'News6','Preview here...','Text here'),(9,1,'2014-11-14','image/',0,'News7','Preview here...','Text here'),(10,1,'2014-11-14','image/',0,'News8','Preview here...','Text here');
 /*!40000 ALTER TABLE `News` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -571,11 +571,11 @@ CREATE TABLE `Pages` (
   `idPage` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `content` text NOT NULL,
-  `category` varchar(150) NOT NULL,
-  `p_name` varchar(150) NOT NULL,
+  `p_name` varchar(100) NOT NULL,
+  `category` varchar(100) NOT NULL,
   PRIMARY KEY (`idPage`),
   UNIQUE KEY `idPage_UNIQUE` (`idPage`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -584,7 +584,7 @@ CREATE TABLE `Pages` (
 
 LOCK TABLES `Pages` WRITE;
 /*!40000 ALTER TABLE `Pages` DISABLE KEYS */;
-INSERT INTO `Pages` VALUES (2,'1','<p>123asdasdsa</p>','stud','New page');
+INSERT INTO `Pages` VALUES (7,'Котики','<p><img src=\"http://d2.endata.cx/data/games/14191/kotik1.jpg\" alt=\"\" width=\"600\" height=\"384\" /></p>','teststud2','stud');
 /*!40000 ALTER TABLE `Pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -728,4 +728,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-31 12:26:26
+-- Dump completed on 2014-05-13  9:30:39
