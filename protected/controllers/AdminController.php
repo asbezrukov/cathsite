@@ -38,7 +38,7 @@ class AdminController extends Controller
 
     public function actionPages()
     {
-        $data = PagesModel::model()->findAll();
+        $data = PagesModel::model()->findAll(array('order'=>'category ASC'));
         $this->render('list_pages', array('arResult'=>$data));
     }
 

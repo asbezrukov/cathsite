@@ -7,6 +7,16 @@ body {
   word-wrap: break-word;
   border-top: 4px solid;
 }
+.pageTable {
+  width: 800px;
+}
+.pageTdCat {
+  width:30%; 
+  color:#428bca;
+}
+.pageTdTile {
+  width:70%;
+}
 .course-list a.fa {
     margin: 3px 5px 0;
 }
@@ -599,6 +609,8 @@ blockquote h5 {
 .informatory-widget { 
   margin-bottom: 45px; 
   background-color: #fff;
+  padding: 5px;
+  height: 330px;
 }
 
 .informatory-widget-title {
@@ -614,7 +626,7 @@ blockquote h5 {
 }
 
 .informatory_list {
-  margin-bottom: 45px;  
+  height: 50px; 
 }
 .informatory_list img {
     width: 100%;
@@ -753,9 +765,12 @@ input, select {
 
 .blog-list-title,
 .blog-grid-title,
-.event-small-title,
 .event-title,
 .gallery-title {
+  margin: 2px 0 0 0;
+}
+
+.event-small-title {
   margin: 2px 0 0 0;
 }
 
