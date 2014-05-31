@@ -36,7 +36,7 @@
                             </div> <!-- /.left-event-content -->
                             <div class="right-event-content">
                                 <h2 class="event-title"><?php echo CHtml::encode($arResult['data']->name_event); ?></h2> 
-                                <span class="event-time"><?php echo date_format(new DateTime($arResult['data']->hold_date),"d M Y")?></span>
+                                <span class="event-time"><?php echo date_format(new DateTime($arResult['data']->hold_date),"d-m-Y")?></span>
                                 <p><?php echo CHtml::encode($arResult['data']->text_description); ?></p>
                             </div> <!-- /.right-event-content -->
                         </div> <!-- /.event-container -->

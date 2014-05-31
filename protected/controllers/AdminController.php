@@ -84,15 +84,6 @@ class AdminController extends Controller
     public function actionClassifieds()
     {
         $data = ClassifiedsModel::model()->findAll();
-        $idField = "id_classifieds";
-        $nameField = "header";
-        $modelType = "classifieds";
-        $this->render('list', array(
-                'arResult'=>$data,
-                'idField'=>$idField,
-                'nameField'=>$nameField,
-                'modelType'=>$modelType
-            )
-        );
+        $this->render('list_classifieds', array('arResult'=>$data));
     }
 }

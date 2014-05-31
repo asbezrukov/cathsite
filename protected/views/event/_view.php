@@ -10,7 +10,7 @@
             </a>
         </div>
         <div class="list-event-header">
-            <span class="event-date small-text"><i class="fa fa-calendar-o"></i><?php echo date_format(new DateTime($data->hold_date),"d M Y"); ?></span>
+            <span class="event-date small-text"><i class="fa fa-calendar-o"></i><?php echo date_format(new DateTime($data->hold_date),"d-m-Y"); ?></span>
             <div class="view-details"><a href="/event/single/<?=$data['id_event']?>" class="lightBtn">Подробнее</a></div>
         </div>
         <h5 class="event-title"><a href="/event/single/<?=$data['id_event']?>"><?php 

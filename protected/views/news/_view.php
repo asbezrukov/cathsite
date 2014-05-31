@@ -16,7 +16,7 @@
                     $tail = strlen(CHtml::encode($data->header)) > 80 ? '...' : '';
                     echo mb_substr(CHtml::encode($data->header), 0, 80, 'UTF-8') . $tail; ?>
             </a></h4>
-            <p class="blog-grid-meta small-text"><span><a href="/news/detail/<?=$data['id_news']?>"><?php echo CHtml::encode($data->date_publication); ?></a></span></p>
+            <p class="blog-grid-meta small-text"><span><a href="/news/detail/<?=$data['id_news']?>"><?php echo CHtml::encode(date_format(new DateTime($data->date_publication),"d-m-Y"));?></a></span></p>
         </div> <!-- /.box-content-inner -->
     </div> <!-- /.blog-grid-item -->
 </div> <!-- /.col-md-6 -->
