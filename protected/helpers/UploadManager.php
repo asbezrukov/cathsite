@@ -48,7 +48,7 @@ class UploadManager {
     public function appendHashToFilename()
     {
         $fileAndExt = explode('.',$this->image->name);
-        $this->filename = $fileAndExt[0] . '-' . substr( md5(time()), 0, 3) . $fileAndExt[1];
+        $this->filename = $fileAndExt[0] . '-' . substr( md5(time()), 0, 3) . '.' . $fileAndExt[1];
     }
 
     public function setFileName($name) {

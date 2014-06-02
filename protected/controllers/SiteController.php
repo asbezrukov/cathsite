@@ -2,9 +2,6 @@
 
 class SiteController extends Controller
 {
-    public function actionTest() {
-        print_r(UsersModel::model()->findAll());
-    }
 
 	public function actionIndex()
 	{
@@ -24,10 +21,6 @@ class SiteController extends Controller
     public function actionContacts()
     {
         $this->render('contacts');
-    }
-
-    public function actionCurrentLogin() {
-        $this->actionLogin(null, null);
     }
 
     public function actionLogin() {

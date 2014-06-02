@@ -77,15 +77,20 @@
 		    <?php echo $form->error($model,'text_description'); ?>
 		</td>
 	</tr>
-	<tr> 
-		<td>
-			<?php echo $form->labelEx($model,'url_pictures'); ?>
-		
-		</td>
-		<td>
-			<?php echo $form->fileField($model,'url_pictures', array('allowEmpty'=>true)); ?>
-		    <?php echo $form->error($model,'url_pictures'); ?>
-		</td>
+	<tr>
+        <td><?php echo $form->labelEx($model,'url_pictures'); ?> </td>
+
+        <?php if (empty($model->url_pictures)) { ?>
+            <td>
+                <?php echo $form->fileField($model,'url_pictures', array('allowEmpty'=>true)); ?>
+                <?php echo $form->error($model,'url_pictures'); ?>
+            </td>
+        <?php } else { ?>
+            <td>
+                <img src="<?php echo $model->getImageUrl('main'); ?>">
+                <?php echo $form->fileField($model,'url_pictures', array('allowEmpty'=>true)); ?>
+            </td>
+        <?php } ?>
 	</tr>
 	<tr>
 		<td>

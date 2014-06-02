@@ -64,10 +64,18 @@
 			<?php echo $form->labelEx($model,'photo'); ?>
 		
 		</td>
-		<td>
-			<?php echo $form->fileField($model,'photo'); ?>
-		    <?php echo $form->error($model,'photo'); ?>
-		</td>
+
+        <?php if (empty($model->photo)) { ?>
+            <td>
+                <?php echo $form->fileField($model,'photo', array('allowEmpty'=>true)); ?>
+                <?php echo $form->error($model,'photo'); ?>
+            </td>
+        <?php } else { ?>
+            <td>
+                <img src="<?php echo $model->getImageUrl('main'); ?>">
+                <?php echo $form->fileField($model,'photo', array('allowEmpty'=>true)); ?>
+            </td>
+        <?php } ?>
 	</tr>
 	<tr> 
 		<td>

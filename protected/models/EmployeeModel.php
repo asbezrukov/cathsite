@@ -34,7 +34,7 @@ class EmployeeModel extends CActiveRecord
     public function rules()
     {
         return array(
-			//array('photo', 'file', 'types'=>'jpg, gif, png'),
+			array('photo', 'file', 'allowEmpty'=>true, 'types'=>'jpg, gif, png'),
         );
     }
 
@@ -43,11 +43,22 @@ class EmployeeModel extends CActiveRecord
     const PathAliasToSmallImg = 'application.upload.staff.65x65';
     public function beforeSave()
     {
-        $this->setAttributes($this->tempData, false);
-
         $pathBigImg = Yii::getPathOfAlias(self::PathAliasToBigImg);
         $pathNormalImg = Yii::getPathOfAlias(self::PathAliasToNormalImg);
         $pathSmallImg  = Yii::getPathOfAlias(self::PathAliasToSmallImg);
+
+        if (!empty($this[$this->imageFieldName()])) {
+            // Если картинка загружена и загружается новая картинка, то старая удаляется со всеми копиями.
+            if (!empty($this->image)) {
+                @unlink($pathBigImg . '/' . $this[$this->imageFieldName()]);
+                @unlink($pathNormalImg . '/' . $this[$this->imageFieldName()]);
+                @unlink($pathSmallImg . '/' . $this[$this->imageFieldName()]);
+            }
+
+            $this->tempData[$this->imageFieldName()] = $this[$this->imageFieldName()];
+        }
+
+        $this->setAttributes($this->tempData, false);
 
         if (isset($this->image)) {
             // Ключ: размер картинки,

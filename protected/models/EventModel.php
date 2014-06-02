@@ -53,7 +53,7 @@ class EventModel extends CActiveRecord
     public function rules()
     {
         return array(
-			//array('url_pictures', 'file', 'types'=>'jpeg, jpg, gif, png'),
+			array('url_pictures', 'file', 'allowEmpty'=>true, 'types'=>'jpeg, jpg, gif, png'),
         );
     }
 
@@ -62,13 +62,24 @@ class EventModel extends CActiveRecord
     const PathAliasToSmallImg = 'application.upload.events.65x65';
     public function beforeSave()
     {
-        $this->setAttributes($this->tempData, false);
-        $now = new DateTime();
-        $this->date_publication = $now->format("Y-m-d");
-
         $pathBigImg = Yii::getPathOfAlias(self::PathAliasToBigImg);
         $pathNormalImg = Yii::getPathOfAlias(self::PathAliasToNormalImg);
         $pathSmallImg  = Yii::getPathOfAlias(self::PathAliasToSmallImg);
+
+        if (!empty($this[$this->imageFieldName()])) {
+            // Если картинка загружена и загружается новая картинка, то старая удаляется со всеми копиями.
+            if (!empty($this->image)) {
+                @unlink($pathBigImg . '/' . $this[$this->imageFieldName()]);
+                @unlink($pathNormalImg . '/' . $this[$this->imageFieldName()]);
+                @unlink($pathSmallImg . '/' . $this[$this->imageFieldName()]);
+            }
+
+            $this->tempData[$this->imageFieldName()] = $this[$this->imageFieldName()];
+        }
+
+        $this->setAttributes($this->tempData, false);
+        $now = new DateTime();
+        $this->date_publication = $now->format("Y-m-d");
 
         if (isset($this->image)) {
             // Ключ: размер картинки,
@@ -86,6 +97,7 @@ class EventModel extends CActiveRecord
             $this->url_pictures = $uploadManager->getFilename();
         }
 
+        //Debug::write($this->tempData, true);
         if ($this->validate()) {
             return true;
         } else {

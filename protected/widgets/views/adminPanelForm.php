@@ -32,6 +32,7 @@
     .admin-panel-hidden .admin-panel-outer {
         overflow: hidden;
         white-space: nowrap;
+        -ms-white-space: nowrap;
         width: 5px;
     }
     .admin-panel-hidden .admin-panel-lock {

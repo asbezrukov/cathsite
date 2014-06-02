@@ -44,15 +44,18 @@
                 <td>
                     <?php echo $form->labelEx($model,'news_pictures'); ?>
                 </td>
-                <td>
-                    <?php if (!empty($model->news_pictures)) { ?>
-                        <?php echo $form->textField($model,'news_pictures'); ?>
-                        <?php echo $form->fileField($model,'news_pictures'); ?>
-                    <?php } else { ?>
-                        <?php echo $form->fileField($model,'news_pictures'); ?>
-                    <?php } ?>
-                    <?php echo $form->error($model,'news_pictures'); ?>
-                </td>
+
+                <?php if (empty($model->news_pictures)) { ?>
+                    <td>
+                        <?php echo $form->fileField($model,'news_pictures', array('allowEmpty'=>true)); ?>
+                        <?php echo $form->error($model,'news_pictures'); ?>
+                    </td>
+                <?php } else { ?>
+                    <td>
+                        <img src="<?php echo $model->getImageUrl('main'); ?>">
+                        <?php echo $form->fileField($model,'news_pictures', array('allowEmpty'=>true)); ?>
+                    </td>
+                <?php } ?>
             </tr>
             <tr>
                 <td>
