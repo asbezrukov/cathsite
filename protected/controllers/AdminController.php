@@ -45,16 +45,7 @@ class AdminController extends Controller
     public function actionNews()
     {
         $data = NewsModel::model()->findAll();
-        $idField = "id_news";
-        $nameField = "header";
-        $modelType = "news";
-        $this->render('list', array(
-                'arResult'=>$data,
-                'idField'=>$idField,
-                'nameField'=>$nameField,
-                'modelType'=>$modelType
-            )
-        );
+        $this->render('list_news', array('arResult'=>$data));
     }
 
     public function actionEvents()
