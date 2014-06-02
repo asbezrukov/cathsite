@@ -123,7 +123,7 @@ $eventPages=PagesModel::model()->findAll(array('condition'=>'category = "event"'
                 <div class="col-md-4">
                     <div class="logo left">
                         <!---logo-imkn-->
-                        <a href="http://imkn.ru/" title="ИМиКН" rel="nofollow">
+                        <a href="/" title="ИМиКН" rel="nofollow">
                             <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_IMKN.png" alt="ИМиКН">
                         </a> 
                     </div><!-- /.logo.left -->
@@ -246,11 +246,11 @@ $eventPages=PagesModel::model()->findAll(array('condition'=>'category = "event"'
                     <div class="footer-widget">
                         <h4 class="footer-widget-title">Избранное</h4>
 						<u><ul class="list-links">
-                            <li><a href="#"><b>Вход для студентов и преподавателей</b></a></li>
-                            <li><a href="#">История кафедры</a></li>
-                            <li><a href="#">Список преподавателей кафедры</a></li>
+                            <li><a href="http://cathtest.ru/site/login"><b>Вход для студентов и преподавателей</b></a></li>
+                            <li><a href="http://cathtest.ru/page/history">История кафедры</a></li>
+                            <li><a href="http://cathtest.ru/staff/list">Список преподавателей кафедры</a></li>
                             <li><a href="#">Дисциплины кафедры</a></li>
-                            <li><a href="#">Истории выпускников</a></li>
+                            <!-- <li><a href="#">Истории выпускников</a></li> -->
                         </ul></u>
                     </div>
                 </div>
@@ -259,11 +259,11 @@ $eventPages=PagesModel::model()->findAll(array('condition'=>'category = "event"'
                         <h4 class="footer-widget-title">Студентам</h4>
                         <u><ul class="list-links">
                             <li><a href="#">Темы курсовых работ</a></li>
-                            <li><a href="#">Правила оформления работ</a></li>
+                            <li><a href="http://cathtest.ru/page/rule">Правила оформления работ</a></li>
                             <li><a href="#">Написать письмо заведующему кафедры</a></li>
                             <li><a href="#"><font color=red>Курсовые работы</font></a></li>
-                            <li><a href="#"><font color=red>Отчёты по практике</font></a></li>
-                            <li><a href="#"><font color=red>Дисциплины</font></a></li>
+                           <!-- <li><a href="#"><font color=red>Отчёты по практике</font></a></li> -->
+                           <!-- <li><a href="#"><font color=red>Дисциплины</font></a></li> -->
                         </ul></u>
                     </div>
                 </div>
@@ -284,9 +284,9 @@ $eventPages=PagesModel::model()->findAll(array('condition'=>'category = "event"'
 						<h4 class="footer-widget-title">Социальные сети</h4>
                         <u><ul class="list-links">
                             <li><a href="http://vk.com/club172205" rel="nofollow">Группа ИМиКН в VK</a></li>
-                            <li><a href="#" rel="nofollow">Страница ИМиКН в FB</a></li>
+                           <!-- <li><a href="#" rel="nofollow">Страница ИМиКН в FB</a></li> -->
                             <li><a href="http://vk.com/imenit_aktiv" rel="nofollow">Cтудактив в VK</a></li>
-                            <li><a href="#" rel="nofollow">Студактив в Twitter</a></li></u>
+                           <!-- <li><a href="#" rel="nofollow">Студактив в Twitter</a></li></u> -->
                         </ul>  
                     </div>
                 </div>
@@ -295,10 +295,10 @@ $eventPages=PagesModel::model()->findAll(array('condition'=>'category = "event"'
             <div class="bottom-footer">
                 <div class="row">
                     <div class="col-md-9">
-                        <p class="small-text">2014.<u>Тюменский государственный университет</u></a></p>
+                        <p class="small-text">2014.<u><a href="http://www.utmn.ru/" rel="nofollow">Тюменский государственный университет</a></u></a></p>
                     </div> <!-- /.col-md-9 -->
                     <div class="col-md-3">
-                        <p class="small-text"><u>Институт Математики и Компьютерных наук</u></a></p>
+                        <p class="small-text"><u><a href="http://www.imkn.ru/" rel="nofollow">Институт Математики и Компьютерных наук</a></u></a></p>
                     </div> <!-- /.col-md-3 -->
                 </div> <!-- /.row -->
             </div> <!-- /.bottom-footer -->
