@@ -9,11 +9,13 @@
                     <h6><a href="/">Главная</a></h6>
                     <h6><span class="page-active">Преподаватели</span></h6>
                 </div>
-				<div class="grid-or-list">
-                    <ul>
-                        <li><a href="/staff/create" title="Добавить"><img src="/images/add.png"></a></li>
-                    </ul>
-                </div>
+                <?php if (Yii::app()->user->checkAccess('staffManager')) { ?>
+                    <div class="grid-or-list">
+                        <ul>
+                            <li><a href="/staff/create" title="Добавить"><img src="/images/add.png"></a></li>
+                        </ul>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>

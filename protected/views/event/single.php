@@ -6,12 +6,14 @@
                     <h6><a href="/">Главная</a></h6>
                     <h6><a href="/event/list">Все события</a></h6>
                     <h6><span class="page-active"><?php echo CHtml::encode($arResult['data']->name_event); ?></span></h6>
-                    <div class="grid-or-list">
-                        <ul>
-                            <li><a href="/event/update/<?=$arResult['data']['id_event']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
-                            <li><a href="/event/delete/<?=$arResult['data']['id_event']?>" title="Удалить"><img src="/images/delete.png"></a></li>
-                        </ul>
-                    </div>
+                    <?php if (Yii::app()->user->checkAccess('eventManager')) { ?>
+                        <div class="grid-or-list">
+                            <ul>
+                                <li><a href="/event/update/<?=$arResult['data']['id_event']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
+                                <li><a href="/event/delete/<?=$arResult['data']['id_event']?>" title="Удалить"><img src="/images/delete.png"></a></li>
+                            </ul>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

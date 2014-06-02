@@ -11,11 +11,13 @@ $this->pageTitle=Yii::app()->name;
                 <div class="col-md-12">
                     <h6><a href="/">Главная</a></h6>
                     <h6><span class="/news/list">Все новости</span></h6>
-                    <div class="grid-or-list">
-                        <ul>
-                            <li><a href="/news/create" title="Добавить"><img src="/images/add.png"></a></li>
-                        </ul>
-                    </div>
+                    <?php if (Yii::app()->user->checkAccess('newsManager')) { ?>
+                        <div class="grid-or-list">
+                            <ul>
+                                <li><a href="/news/create" title="Добавить"><img src="/images/add.png"></a></li>
+                            </ul>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

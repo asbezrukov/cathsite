@@ -6,12 +6,14 @@
                     <h6><a href="/">Главная</a></h6>
                     <h6><a href="/staff/list">Преподаватели</a></h6>
                     <h6><span class="page-active"><?php echo CHtml::encode($arResult['data']->surname).' '.CHtml::encode($arResult['data']->name).' '.CHtml::encode($arResult['data']->patronymic); ?></span></h6>
-					<div class="grid-or-list">
-                        <ul>
-                            <li><a href="/staff/update/<?=$arResult['data']['id']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
-                            <li><a href="/staff/delete/<?=$arResult['data']['id']?>" title="Удалить"><img src="/images/delete.png"></a></li>
-                        </ul>
-                    </div>
+                    <?php if (Yii::app()->user->checkAccess('staffManager')) { ?>
+                        <div class="grid-or-list">
+                            <ul>
+                                <li><a href="/staff/update/<?=$arResult['data']['id']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
+                                <li><a href="/staff/delete/<?=$arResult['data']['id']?>" title="Удалить"><img src="/images/delete.png"></a></li>
+                            </ul>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

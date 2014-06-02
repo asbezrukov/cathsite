@@ -6,12 +6,14 @@
                     <h6><a href="/">Главная</a></h6>
                     <h6><a href="/news/list">Все новости</a></h6>
                     <h6><span class="page-active"><?php echo $arResult['data']->header; ?></span></h6>
-                    <div class="grid-or-list">
-                        <ul>
-                            <li><a href="/news/update/<?=$arResult['data']['id_news']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
-                            <li><a href="/news/delete/<?=$arResult['data']['id_news']?>" title="Удалить"><img src="/images/delete.png"></a></li>
-                        </ul>
-                    </div>
+                    <?php if (Yii::app()->user->checkAccess('newsManager')) { ?>
+                        <div class="grid-or-list">
+                            <ul>
+                                <li><a href="/news/update/<?=$arResult['data']['id_news']?>" title="Редактировать"><img src="/images/edit.png"></a></li>
+                                <li><a href="/news/delete/<?=$arResult['data']['id_news']?>" title="Удалить"><img src="/images/delete.png"></a></li>
+                            </ul>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
