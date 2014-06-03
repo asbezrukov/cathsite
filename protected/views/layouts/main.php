@@ -199,14 +199,16 @@ $eventPages=PagesModel::model()->findAll(array('condition'=>'category = "event"'
 									}
 									?>
                             </li>
-                            <li><a href="#">Контакты</a>
+                            <li><a href="/page/contacts">Контакты</a>
 								
                         			<?php
-										if(sizeof($contactPages) > 0)
+										$contactPageName = 'contacts';
+										if(sizeof($contactPages) > 0 && $contactPages[0]->p_name != $contactPageName)
 										{
 										echo '<ul class="sub-menu">';
 										foreach($contactPages as $page) {
-											echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/'.$page->p_name.'">'.$page->title.'</a></li>';
+											if($page->p_name != $contactPageName)
+												echo '<li><a href="'.Yii::app()->request->baseUrl.'/page/'.$page->p_name.'">'.$page->title.'</a></li>';
 										}
 										echo '</ul>';
 									}
@@ -249,7 +251,7 @@ $eventPages=PagesModel::model()->findAll(array('condition'=>'category = "event"'
                             <li><a href="http://cathtest.ru/site/login"><b>Вход для студентов и преподавателей</b></a></li>
                             <li><a href="http://cathtest.ru/page/history">История кафедры</a></li>
                             <li><a href="http://cathtest.ru/staff/list">Список преподавателей кафедры</a></li>
-                            <li><a href="#">Дисциплины кафедры</a></li>
+                            <li><a href="http://cathtest.ru/page/disciplines">Дисциплины кафедры</a></li>
                             <!-- <li><a href="#">Истории выпускников</a></li> -->
                         </ul></u>
                     </div>
@@ -258,7 +260,7 @@ $eventPages=PagesModel::model()->findAll(array('condition'=>'category = "event"'
                     <div class="footer-widget">
                         <h4 class="footer-widget-title">Студентам</h4>
                         <u><ul class="list-links">
-                            <li><a href="#">Темы курсовых работ</a></li>
+                            <li><a href="http://cathtest.ru/page/topics">Темы курсовых работ</a></li>
                             <li><a href="http://cathtest.ru/page/rule">Правила оформления работ</a></li>
                             <li><a href="#">Написать письмо заведующему кафедры</a></li>
                             <li><a href="#"><font color=red>Курсовые работы</font></a></li>
