@@ -105,11 +105,11 @@ $this->pageTitle=Yii::app()->name;
                                         <div class="informatory_list"> 
                                             <a href="/news/detail/<?=$node->id_news?>"> 
                                                 <div class="col-md-2"> 
-												<?php if ($node->getImageUrl()==false) { ?>
-													<img src="http://placehold.it/65x65">
-												<?php }	else { ?>
-													<img src="<? echo $node->getImageUrl('main'); ?>">
-												<?php } ?>												   
+                                                    <?php if ($node->getImageUrl()==false) { ?>
+                                                        <img src="http://placehold.it/65x65">
+                                                    <?php }	else { ?>
+                                                        <img src="<? echo $node->getImageUrl('main'); ?>">
+                                                    <?php } ?>
                                                 </div> 
                                                 <div class="col-md-10"> 
                                                     <a href="/news/detail/<?=$node->id_news?>">
@@ -181,10 +181,14 @@ $this->pageTitle=Yii::app()->name;
                                 <li> 
                                     <div class="row"> 
                                         <div class="informatory_list"> 
-                                            <a href="/staff/detail/<?=$node->id?>"> 
-                                                <div class="col-md-2"> 
-                                                    <img src="<? echo $node->getImageUrl(); ?>" alt=""> 
-                                                </div> 
+                                            <a href="/staff/detail/<?=$node->id?>">
+                                                <div class="col-md-2">
+                                                    <?php if ($node->getImageUrl()==false) { ?>
+                                                        <img src="http://placehold.it/65x65">
+                                                    <?php }	else { ?>
+                                                        <img src="<? echo $node->getImageUrl('main'); ?>">
+                                                    <?php } ?>
+                                                </div>
                                                 <div class="col-md-10"> 
                                                     <a href="/staff/detail/<?=$node->id?>">
                                                         <?php echo $node->surname.' '.$node->name.' '.$node->patronymic; ?>
