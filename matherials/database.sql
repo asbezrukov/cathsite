@@ -285,7 +285,7 @@ CREATE TABLE `Employee` (
 
 LOCK TABLES `Employee` WRITE;
 /*!40000 ALTER TABLE `Employee` DISABLE KEYS */;
-INSERT INTO `Employee` VALUES (1,'Иванов','Иван','Иванович',NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'',0,'',NULL,NULL,NULL),(2,'Петров','Петр','Петрович','image/',NULL,NULL,NULL,'0000-00-00',NULL,NULL,'degree1',0,'position1',NULL,'All day, all night','rank1'),(3,'Сидоров','Иван','Петрович','image/',NULL,NULL,NULL,'0000-00-00',NULL,NULL,'degree1',0,'position2',NULL,'All day, all night','rank3'),(4,'Сотрудников','Сотрудник','Сотрудникович','image/',NULL,NULL,NULL,'0000-00-00',NULL,NULL,'degree2',0,'position3',NULL,'All day, all night','rank5');
+INSERT INTO `Employee` VALUES (7,'Бабич','Андрей','Владимирович','15-5fdJPG','','','','0000-00-00','','','',1,'ст.преподаватель','','',''),(8,'Ниссенбаум','Ольга','Владимировна','13-9b5JPG','','','','0000-00-00','','','',1,'доцент','','',''),(9,'Пуртов','Владимир','Георгиевич','22-402JPG','','','','0000-00-00','','','',1,'ассистент','','',''),(10,'Оленников','Евгений','Александрович','19-451JPG','','','','0000-00-00','','','',1,'доцент','','',''),(11,'Нестерова','Ольга ','Андреевна','11-362JPG','','','','0000-00-00','','','',1,'ст.преподаватель','','',''),(12,'Захаров','Александр','Анатольевич','загруженное-4f3jpg','','','','0000-00-00','','','',1,'зав.кафедры','','','профессор'),(13,'Широких','Андрей','Валерьевич','','','','','0000-00-00','','','',0,'доцент','','',''),(14,'Акимова','Марина','Михайловна','','','','','0000-00-00','','','',0,'ассистент','','',''),(15,'Попов','Евгений','Федорович','c1HiYGzHGw0-feajpg','','','','0000-00-00','','','',1,'аспирант','','','');
 /*!40000 ALTER TABLE `Employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -341,7 +341,7 @@ CREATE TABLE `EventCategory` (
 
 LOCK TABLES `EventCategory` WRITE;
 /*!40000 ALTER TABLE `EventCategory` DISABLE KEYS */;
-INSERT INTO `EventCategory` VALUES (1,'TestEventCategory');
+INSERT INTO `EventCategory` VALUES (1,'Разное');
 /*!40000 ALTER TABLE `EventCategory` ENABLE KEYS */;
 UNLOCK TABLES;
 
